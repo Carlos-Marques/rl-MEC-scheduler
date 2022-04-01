@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "rl-mec-scheduler"
+version = "0.0.1"
+description = ""
+authors = ["Carlos-Marques <carlosmarques.personal@gmail.com>"]
+license = "AGPL-3.0-or-later"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.8"
+gym = "^0.23.1"
+tensorflow = "^2.8.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.1"
+pre-commit = "^2.17.0"
+mypy = "^0.942"
+black = "^22.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
