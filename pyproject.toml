@@ -1,20 +1,23 @@
 [tool.poetry]
-name = "rl-mec-scheduler"
+name = "rl_mec_scheduler"
 version = "0.0.1"
 description = ""
 authors = ["Carlos-Marques <carlosmarques.personal@gmail.com>"]
 license = "AGPL-3.0-or-later"
 
 [tool.poetry.dependencies]
-python = ">=3.7,<3.8"
-gym = "^0.23.1"
+python = ">=3.8,<3.9"
+ray = {extras = ["default", "rllib"], version = "^1.12.0"}
 tensorflow = "^2.8.0"
+gym = {extras = ["atari", "accept-rom-license"], version = "<0.22"}
+GPUtil = "^1.4.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.1.1"
-pre-commit = "^2.17.0"
-mypy = "^0.942"
 black = "^22.3.0"
+mypy = "^0.942"
+flake8 = "^4.0.1"
+pytest = "^7.1.1"
+pre-commit = "^2.18.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
