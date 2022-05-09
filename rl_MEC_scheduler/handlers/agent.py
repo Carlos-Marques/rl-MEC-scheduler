@@ -6,7 +6,7 @@ from rl_MEC_scheduler.handlers.env_handler import load_envs
 
 ray.shutdown()
 
-env = load_envs(config_path="env_configs", config_filename="env1_configs.json")[0]
+env = load_envs(config_path="experiments/env_configs", config_filename="env1_configs.json")[0]
 
 register_env(
     "NetWorkEnv-v0",
