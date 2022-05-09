@@ -1,0 +1,121 @@
+[
+    {
+        "MECs": [
+            {
+                "frequency": 5000000000.0,
+                "location": [
+                    74.82867562166567,
+                    96.86771033112751
+                ],
+                "transmission_power": 200
+            },
+            {
+                "frequency": 5000000000.0,
+                "location": [
+                    184.15416417224284,
+                    96.3890958597403
+                ],
+                "transmission_power": 200
+            },
+            {
+                "frequency": 5000000000.0,
+                "location": [
+                    111.2188320112256,
+                    136.84529324284227
+                ],
+                "transmission_power": 200
+            },
+            {
+                "frequency": 5000000000.0,
+                "location": [
+                    28.184987823413586,
+                    75.86440169202602
+                ],
+                "transmission_power": 200
+            },
+            {
+                "frequency": 5000000000.0,
+                "location": [
+                    38.86674864978372,
+                    141.26974684488985
+                ],
+                "transmission_power": 200
+            }
+        ],
+        "UEs": [
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    133.00033443437144,
+                    197.3953895222336
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    37.36739207785427,
+                    175.5175193169295
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    77.28043220580216,
+                    78.09608937940075
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    73.93668129225705,
+                    14.59605194393454
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    9.19016167174842,
+                    191.68727546009106
+                ],
+                "transmission_power": 0.5
+            }
+        ],
+        "network": {
+            "bandwidth": 10000000000.0,
+            "download_bit_error_rate": 1,
+            "download_channel_fading_coefficient": 100,
+            "n_devices": 10,
+            "n_subcarriers": 10,
+            "noise_power": 5e-05,
+            "path_loss_exponent": -4,
+            "signal_noise_ratio": 0.5,
+            "upload_bit_error_rate": 1,
+            "upload_channel_fading_coefficient": 100
+        },
+        "seed_value": 42,
+        "task_distributions": {
+            "delay_weight": 0.5,
+            "energy_weight": 0.5,
+            "input_data_mean": 250000.0,
+            "input_data_std": 1000.0,
+            "n_cycles_mean": 900000000.0,
+            "n_cycles_std": 50000000.0,
+            "output_data_mean": 25000.0,
+            "output_data_std": 100.0
+        }
+    }
+]
