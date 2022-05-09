@@ -1,0 +1,571 @@
+[
+    {
+        "MECs": [
+            {
+                "frequency": 5000000000.0,
+                "location": [
+                    53.77629896762652,
+                    19.215629663316026
+                ],
+                "transmission_power": 200
+            },
+            {
+                "frequency": 5000000000.0,
+                "location": [
+                    198.88065624439258,
+                    163.73430775480873
+                ],
+                "transmission_power": 200
+            },
+            {
+                "frequency": 5000000000.0,
+                "location": [
+                    145.34339032327546,
+                    118.59118147628823
+                ],
+                "transmission_power": 200
+            },
+            {
+                "frequency": 5000000000.0,
+                "location": [
+                    92.94553356206332,
+                    98.65860238032023
+                ],
+                "transmission_power": 200
+            },
+            {
+                "frequency": 5000000000.0,
+                "location": [
+                    47.27476239132855,
+                    36.74785274881944
+                ],
+                "transmission_power": 200
+            }
+        ],
+        "UEs": [
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    105.38734666064585,
+                    98.12151992084443
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    26.92919166530132,
+                    114.94579503737828
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    99.27448287624865,
+                    8.879715554768296
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    150.7184796495211,
+                    155.36648858474524
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    80.05477540735501,
+                    57.913028315915426
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    86.29647902550292,
+                    163.3682037646286
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    5.420849607996359,
+                    4.619452404678959
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    76.04916981888483,
+                    112.85664698537023
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    79.23795216534148,
+                    184.73632706874164
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    100.43717271239142,
+                    29.16413680105505
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    24.10117578841642,
+                    50.90251039462448
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    20.311384899870745,
+                    20.872247432078737
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    186.37451036911125,
+                    6.258189704000827
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    122.97290247478452,
+                    115.53577927072605
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    5.416895355762752,
+                    109.85474812506833
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    76.20447736464043,
+                    64.04360671724515
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    133.7562630215473,
+                    166.99455275940883
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    193.1233386208284,
+                    91.60651027562501
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    166.6053637994358,
+                    102.48482273859551
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    166.30069613334578,
+                    52.53793485318836
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    198.8550935127138,
+                    131.46589781965997
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    66.98483503026131,
+                    30.962652505410038
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    34.720531962268296,
+                    43.93222619879542
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    78.56191857629264,
+                    61.18891878421062
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    62.09844813103993,
+                    155.56380697283342
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    9.398784329526944,
+                    192.76370508430008
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    20.42800800852518,
+                    132.07707198181348
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    143.49053372558907,
+                    61.18747675318272
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    183.05307576723436,
+                    82.2962562620654
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    62.570352994402725,
+                    107.16915940596957
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    161.74759332506324,
+                    146.08186019692155
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    162.3760485804013,
+                    154.58136658880278
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    124.91367775470212,
+                    26.091274840853316
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    90.92946083105235,
+                    173.23664626059121
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    155.82911663710334,
+                    92.69008124013295
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    145.37082445681966,
+                    83.92305514789243
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    122.52619643142538,
+                    48.24127797285118
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    138.118918399785,
+                    142.2849741214371
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    191.9029665933724,
+                    102.75719298456004
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    86.8216523591746,
+                    73.81973862867201
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    138.4617966695253,
+                    175.51850191921943
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    53.68451748527099,
+                    122.26818984768832
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    19.519430090430202,
+                    137.28834244296283
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    145.382114408153,
+                    130.9936937336296
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    19.127060012837816,
+                    188.4768566850853
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    68.69045238593871,
+                    19.79466956499003
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    51.93115454962714,
+                    97.29940816890725
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    182.75391562543987,
+                    190.6095094134894
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    85.65456364396556,
+                    112.42372772031162
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    172.75841877991127,
+                    16.942506604970966
+                ],
+                "transmission_power": 0.5
+            }
+        ],
+        "network": {
+            "bandwidth": 10000000000.0,
+            "download_bit_error_rate": 1,
+            "download_channel_fading_coefficient": 100,
+            "n_devices": 10,
+            "n_subcarriers": 10,
+            "noise_power": 5e-05,
+            "path_loss_exponent": -4,
+            "signal_noise_ratio": 0.5,
+            "upload_bit_error_rate": 1,
+            "upload_channel_fading_coefficient": 100
+        },
+        "seed_value": 42,
+        "task_distributions": {
+            "delay_weight": 0.5,
+            "energy_weight": 0.5,
+            "input_data_mean": 250000.0,
+            "input_data_std": 1000.0,
+            "n_cycles_mean": 900000000.0,
+            "n_cycles_std": 50000000.0,
+            "output_data_mean": 25000.0,
+            "output_data_std": 100.0
+        }
+    }
+]
