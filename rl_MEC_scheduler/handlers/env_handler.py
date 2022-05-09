@@ -64,7 +64,7 @@ class NetworkEnv(gym.Env):
             UEs=self.UEs,
             MECs=self.MECs,
             network=self.network,
-        )
+        ) / self.n_UEs
 
         self.tasks = get_tasks(
             np_random=self.np_random,

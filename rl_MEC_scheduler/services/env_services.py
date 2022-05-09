@@ -90,8 +90,9 @@ def get_UEs(
     tranmsission_power: float,
     idle_power: float,
     download_power: float,
+    n_dimensions: int,
 ) -> Tuple[UE]:
-    locations = np_random.random_sample((n_UEs, 3)) * radius
+    locations = np_random.random_sample((n_UEs, n_dimensions)) * radius
 
     return tuple(
         UE(
@@ -111,8 +112,9 @@ def get_MECs(
     n_MECs: int,
     frequency: float,
     transmission_power: float,
+    n_dimensions: int,
 ) -> Tuple[MEC]:
-    locations = np_random.random_sample((n_MECs, 3)) * radius
+    locations = np_random.random_sample((n_MECs, n_dimensions)) * radius
 
     return tuple(
         MEC(
