@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "rl_mec_scheduler"
+name = "rl_MEC_scheduler"
 version = "0.0.1"
 description = ""
 authors = ["Carlos-Marques <carlosmarques.personal@gmail.com>"]
