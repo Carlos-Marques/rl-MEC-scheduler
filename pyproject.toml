@@ -12,6 +12,7 @@ tensorflow = "^2.8.0"
 gym = {extras = ["atari", "accept-rom-license"], version = "<0.22"}
 GPUtil = "^1.4.0"
 plotly = "^5.7.0"
+nbformat = "^5.4.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
