@@ -1,0 +1,61 @@
+\chapter{Introduction}
+\label{chapter:introduction}
+\setcounter{page}{1}
+\section{Context}
+\noindent There has been a continuous exponential increase in the number of \acrfull{UE}, such as smartphones, laptops and \acrfull{IoT} devices. Their need to run ever more complex applications, given their energy and computation constrained environment, has lead to the rise of \acrfull{CC} as an alternative to offload computation and storage needs. In the \acrshort{CC} paradigm, computation resources are located in centralized data centers that can be considered infinite. This paradigm brings several advantages \cite{SHAKARAMI2020107496}: 
+\begin{enumerate}
+    \item By offloading computation it extends battery life of \acrshort{UE}; 
+    \item Enables computationally complex applications intractable with \acrshort{UE} computation capabilities;
+    \item Provides seemingly unlimited storage capacity.
+\end{enumerate}
+However there are also shortcomings. The two main problems introduced by this paradigm are: 
+\begin{enumerate}
+    \item The distance from \acrshort{UE}s to this servers introduces an unpredictable communication latency that makes some delay-constrained applications unviable;
+    \item  This increase in \acrshort{UE}s and their communication needs with \acrshort{CC} servers leads to ever more congested network links decreasing \acrfull{QoS} for everyone in the network.
+\end{enumerate}
+
+\par
+These shortcomings gave rise to a new emerging concept known as \acrfull{MEC}. The main idea of \acrshort{MEC} is to bring computation resources closer to the edge of the mobile network enabling offloading of complex computation tasks with strict delay requirements. As defined by the \acrfull{ETSI} in \cite{MECspec}, this can be achieved by allocating computing nodes at the network's edge in a fully distributed manner to reduce communication overhead and execution delay for \acrshort{UE}s.
+
+\clearpage
+
+\section{Motivation}
+\noindent Edge computing nodes, come with limited radio, storage and computational resources which give rise to three main challenges \cite{SHAKARAMI2020107496}:
+\begin{itemize}
+    \item The \textbf{decision of which computing tasks} are profitable for the \acrshort{UE} to offload to the \acrshort{MEC} servers in terms of energy consumption and execution delay.
+    \item How to efficiently \textbf{allocate the limited computation resources} within the \acrshort{MEC} servers in order to minimize response delay and balance load of computing resources and communication links.
+    \item \textbf{Mobility management} to guarantee \acrshort{MEC} service continuity and efficiency for \acrshort{UE}s roaming the network.
+\end{itemize}
+
+Given the heterogeneous and stochastic nature of network topologies, traditional optimization techniques lack the scalability and adaptability to deal with unknown network conditions. Recent breakthroughs in machine learning algorithms, showcasing their ability to solve and adapt to complex problems previously thought impossible to be solved by a computer, lead many researchers to explore applying these methods to the \acrshort{MEC} challenges.
+\par
+The problem of making offloading and resource allocation decisions in \acrshort{MEC} can be simulated and performance benchmarks are easily defined. This makes their definition as a \acrfull{MDP} straightforward and allows the use of promising algorithms, like \acrfull{DNN} trained using \acrfull{RL} or \acrfull{DRL} algorithms for short. 
+
+\section{Objectives}
+\noindent The main goal of this work is to expand the research efforts in \acrshort{MEC} with the development of a network management agent capable of making offloading decisions from an heterogeneous network of \acrshort{UE}s to an heterogeneous network of \acrshort{MEC} servers. These decisions should take into account the battery, computation and communication constrains of each \acrshort{UE} and \acrshort{MEC} server.
+\par
+To achieve this goal multiple related works were studied in order to develop a realistic network simulation environment, understand the state-of-the-art in \acrshort{DRL} algorithms and their application to the \acrshort{MEC} challenges. Reproducing the work done in \cite{NUE1mec} as a starting point will allow the creation of an open-source simulation environment to expand the scope of that work and to deal with the increased complexity several \acrshort{DRL} algorithms will be tested.
+
+\clearpage
+
+\section{Report outline}
+\begin{itemize}
+    \item Chapter 1 serves as a brief introduction and motivation for the work done in this thesis. In particular, the relevance of \acrshort{MEC} in the current and future technological landscape and its current challenges.
+    \item In Chapter 2, first, a review of several \acrshort{MEC} network architectures is made. Then, \acrshort{DRL} concepts  and  algorithms  are  introduced. Finally, related works using \acrshort{DRL} methods to solve challenges in \acrshort{MEC} are explored.
+    \item Chapter 3 focuses on defining the problem statement, the proposed solution and the methods and tools.
+    \item Chapter 4 serves to showcase baseline algorithms and a preliminary analysis of the proposed system simulator. 
+    \item In Chapter 5, first, conclusions about this work are made. Then a future work plan is presented through a Gantt chart.
+\end{itemize}
+
+
+
+
+
+
+
+ 
+
+
+
+
+

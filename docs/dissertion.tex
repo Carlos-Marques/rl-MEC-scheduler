@@ -1,0 +1,145 @@
+% ------------------------------------------
+%  MASTER THESIS DISSERTATION
+% ------------------------------------------
+% Author: Carlos Silva
+%
+% Advisor: António Manuel Raminhos Cordeiro Grilo
+% Advisor: Naercio David Pedro Magaia
+%
+% ------------------------------------------
+\documentclass[10pt,openright,a4paper]{report}
+\usepackage[utf8]{inputenc}
+
+% Set document margins to 1in in all sides
+\usepackage[margin=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+% Line spacing package
+\usepackage{graphicx, helvet, hyperref, setspace}
+\usepackage[portuguese,english]{babel}
+\usepackage[acronym, toc]{glossaries}
+
+% Built the glossary when the main file is built.
+\makeglossaries
+% Set main font to Arial
+\renewcommand{\familydefault}{\sfdefault}
+% Define keywords macro
+\providecommand{\keywords}[1]{\textbf{Keywords:} #1}
+% Define the NewPage macro
+\newcommand*\NewPage{\newpage\null\thispagestyle{empty}\cleardoublepage}
+% Abstract-en page numbering
+%\newcommand {\abstractEnglishPageNumber} {\thispagestyle{plain}\setcounter{page}{\abstractEnglishPage}}
+% Abstract-pt page numbering
+%\newcommand {\abstractPortuguesePageNumber} {\thispagestyle{plain}\setcounter{page}{\abstractPortuguesePage}}
+% Section numbering depth
+\setcounter{secnumdepth}{2}
+% Table of contents depth
+\setcounter{tocdepth}{3}
+% Set line spacing to 1.5cm
+\onehalfspacing
+% Page numbering
+%\pagestyle{plain}
+
+% Glossary Definition
+\newglossaryentry{MSc}{name={MSc}, description={Masters degree in the area of Science.}}
+\newglossaryentry{maths}
+{
+    name=mathematics,
+    description={Mathematics is what mathematicians do}
+}
+
+% Acronym-Definition
+\newacronym{IST}{IST}{Instituto Superior T\'ecnico}
+\newacronym{UE}{UE}{User Equipment}
+\newacronym{IoT}{IoT}{Internet of Things}
+\newacronym{CC}{CC}{Cloud Computing}
+\newacronym{QoS}{QoS}{Quality-of-Service}
+\newacronym{MEC}{MEC}{Mobile Edge Computing}
+\newacronym{ETSI}{ETSI}{European Telecommunications  Standards  Institute}
+\newacronym{MDP}{MDP}{Markov Decision Process}
+\newacronym{DNN}{DNN}{Deep Neural Networks}
+\newacronym{RL}{RL}{Reinforcement Learning}
+\newacronym{DRL}{DRL}{Deep Reinforcement Learning}
+\newacronym{FC}{FC}{Fog Computing}
+\newacronym{SDN}{SDN}{Software Defined Network}
+\newacronym{ISG}{ISG}{Industry Specification Group}
+\newacronym{RAN}{RAN}{Radio Access Network}
+\newacronym{SCC}{SCC}{Small Cell Cloud}
+\newacronym{SCM}{SCM}{Small Cell Manager}
+\newacronym{MMC}{MMC}{Mobile Micro Cloud}
+\newacronym{MobiScud}{MobiScud}{Fast  Moving  Personal  Cloud}
+\newacronym{MC}{MC}{MobiScud Control}
+\newacronym{FMC}{FMC}{Follow  Me  Cloud}
+\newacronym{SCeNBs}{SCeNBs}{Small Cells}
+\newacronym{eNB}{eNB}{Wireless Base Station}
+\newacronym{CN}{CN}{Core Network}
+\newacronym{NFV}{NFV}{Network Function Virtualization}
+\newacronym{POMDP}{POMDP}{Partially  Observable  Markov  Decision  Process}
+\newacronym{ANNs}{ANNs}{Artificial Neural Networks}
+\newacronym{DQN}{DQN}{Deep Q-Network}
+\newacronym{CNNs}{CNNs}{Convolutional Neural Networks}
+\newacronym{RNNs}{RNNs}{Recurrent Neural Networks}
+\newacronym{DDQN}{DDQN}{Double Deep Q-Network}
+\newacronym{TD}{TD}{Temporal Difference}
+\newacronym{Dueling DQN}{Dueling DQN}{Dueling Deep Q-Network}
+\newacronym{A3C}{A3C}{Asynchronous Advantage Actor-Critic}
+\newacronym{A2C}{A2C}{Advantage Actor-Critic}
+\newacronym{AGA}{AGA}{Adaptive Genetic Algorithm}
+\newacronym{IaaS}{IaaS}{Infrastructure as a Service}
+\newacronym{VMs}{VMs}{Virtual Machines}
+\newacronym{GPU}{GPU}{Graphics Processing Unit}
+\newacronym{CPU}{CPU}{Central Processing Unit}
+\newacronym{DRQN}{DRQN}{Deep Recurrent Q-Network}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=blue,
+}
+
+
+\newcommand{\cmmnt}[1]{\ignorespaces}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{optidef}
+\begin{document}
+
+\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+\clearpage
+%\thispagestyle{empty}
+\input{variables.tex}
+
+\include{cover}
+%\NewPage
+
+\setcounter{page}{1} \pagenumbering{roman}
+
+\input{chapters/abstract}
+\clearpage
+\input{chapters/resumo}
+%\clearpage
+
+% Table of contents
+\tableofcontents
+\printglossaries
+\clearpage
+% A new page is necessary only if table of contents has an even number of pages
+
+
+\pagenumbering{arabic}
+
+
+\input{main.tex}
+
+\bibliographystyle{ieeetr}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{bibliography/references}
+
+
+\end{document}

@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: dissertion.aux
+A level-1 auxiliary file: cover.aux
+The style file: ieeetr.bst
+Database file #1: bibliography/references.bib
+Warning--empty booktitle in MobiScud
+You've used 38 entries,
+            1876 wiz_defined-function locations,
+            685 strings with 11707 characters,
+and the built_in function-call counts, 10553 in all, are:
+= -- 851
+> -- 719
+< -- 0
++ -- 255
+- -- 217
+* -- 822
+:= -- 1628
+add.period$ -- 48
+call.type$ -- 38
+change.case$ -- 37
+chr.to.int$ -- 0
+cite$ -- 39
+duplicate$ -- 475
+empty$ -- 928
+format.name$ -- 217
+if$ -- 2489
+int.to.chr$ -- 0
+int.to.str$ -- 38
+missing$ -- 28
+newline$ -- 127
+num.names$ -- 40
+pop$ -- 176
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 307
+stack$ -- 0
+substring$ -- 421
+swap$ -- 172
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 74
+width$ -- 40
+write$ -- 365
+(There was 1 warning)

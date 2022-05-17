@@ -1,0 +1,141 @@
+\chapter{Preliminaries and Problem Statement}
+
+The problem addressed in this thesis is to describe any system that exhibits periodic characteristics as a LTP system and to then design a distributed state estimator, with limited communication between each component of said system.
+\par
+In this Chapter, preliminary concepts are reviewed and the problem statement is presented.
+
+\section{Preliminaries}
+
+\subsection{Graphs}
+Since distributed systems can be compactly described by directed graphs, it is useful to introduce some concepts of graph theory. A directed graph $\mathcal{G}:=(\mathcal{V}, \mathcal{E})$ is composed of a set $\mathcal{V}$ of vertices and a set of directed edges $\mathcal{E}$. An edge can be expressed as $e=(a,b)$, meaning that the edge is incident on $a$ and $b$, and directed from $a$ to $b$. For a vertex $i$, its in-degree $v_i$ is the number of edges directed towards and incident on it, and its in-neighbourhood $\mathcal{D}_i=\{d^1_i, d^2_i,...,d^{v_i}_i\}$ is the set of corresponding vertices, that is, $j \in \mathcal{D}_i$ if and only if $(j,i) \in \mathcal{E}$. A digraph $\mathcal{G}$ with $n_v$ vertices and $n_e$ edges can be described by an incidence matrix $\mathcal{I_\mathcal{G}} \in \mathbb{R}^{{n_v}\times{n_e}}$, whose individual entries follow
+
+\begin{equation*}
+  [\mathcal{I_\mathcal{G}}]_{jk} =
+    \begin{cases}
+      1, & \text{edge $k$ directed towards $j$}\\
+     -1, & \text{edge $k$ directed away from $j$}\\
+      0, & \text{edge $k$ not incident on $j$}
+    \end{cases} \ .       
+\end{equation*}
+
+The ordering of the edges in $\mathcal{I_\mathcal{G}}$ is not relevant in most applications, however, in order to simplify notation, the following convention is chosen: first all edges of the form (i,1), then (i,2), and so on, finishing on (i,N).
+\par
+Now, consider a generic distributed system. Its measurement scheme can be described by a digraph $\mathcal{G}_M$. In this measurement graph each vertex represents a distinct component of the system, and an edge $(a,b)$ represents a communication medium between components $a$ and $b$, such that $b$ has access to measurements relative to $a$. Finally, define a special set of edges of the form $(0,i)$, connected only to vertex $i$, which represent the absolute state measurements available to component $i$. fig.\ref{fig:measure_graph} showcases an example of a measurement graph, whose incidence matrix is given by 
+
+%
+\begin{equation*}
+    \mathcal{I_\mathcal{G}}_M =
+    \quad
+    \begin{bmatrix}
+    1 & 0 & -1 & 0 & 0 & 0 & 0\\
+    0 & 0 &  1 & 1 & 1 & -1 & 0\\
+    0 & 1 &  0 & -1 & 0 & 0 & -1\\
+    0 & 0 & 0 & 0 & -1 & 1 & 1
+    \end{bmatrix} \ .
+\end{equation*}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.75]{images/measure_graph.png}
+  \caption{Measurement graph for a generic distributed system with 4 nodes. The numbers next to each edge denote the corresponding column in the incidence matrix $\mathcal{I_\mathcal{G}}_M$.}
+  \label{fig:measure_graph}
+\end{figure}
+%
+
+The numbers next to each edge in fig.\ref{fig:measure_graph} denote the corresponding column in $\mathcal{I_\mathcal{G}}_M$.
+Throughout the thesis, it is assumed that the measurements graph $\mathcal{G}_M$ is fixed for a system. 
+
+\subsection{Linear Time Periodic systems}
+\par
+Let $T>1 \in \mathbb{N}$ be the period of the LTP system. The dynamics of said system can be compactly described in state-space form following
+\begin{equation} \label{eq:3.1}
+\begin{cases}
+      &\boldsymbol{x}(k+1)=\boldsymbol{A}(k)\boldsymbol{x}(k)+\boldsymbol{B}(k)\boldsymbol{u}(k)\\
+      &\boldsymbol{y}(k)=\boldsymbol{C}(k)\boldsymbol{x}(k)+\boldsymbol{D}(k)\boldsymbol{u}(k)
+\end{cases} \ ,
+\end{equation}
+where the state $\boldsymbol{x}(k)$ is the quantity to be estimated, the input $\boldsymbol{u}(k)$ is assumed to be known, and the measured output $\boldsymbol{y}(k)$ is the measurement at time $k$. $\boldsymbol{A}(k)$, $\boldsymbol{B}(k)$, $\boldsymbol{C}(k)$ and $\boldsymbol{D}(k)$ are time-varying periodic matrices of appropriate dimensions, such that $\boldsymbol{A}(k+T)=\boldsymbol{A}(k)$, $\boldsymbol{B}(k+T)=\boldsymbol{B}(k)$, $\boldsymbol{C}(k+T)=\boldsymbol{C}(k)$ and
+$\boldsymbol{D}(k+T)=\boldsymbol{D}(k)$.
+\par
+This description is valid for any system that displays periodic phenomena, but a very interesting case, and the one treated in this thesis specifically, is that of non-linear systems that exhibit periodic behaviour after being linearized around periodic motions, as described in the following section. Nonetheless, the results of this thesis are applicable to any generic LTP system.
+
+\subsection{Periodicity induced by linearization} \label{linearization}
+Consider a non-linear system given by
+\begin{equation} \label{eq:3.2}
+\begin{cases}
+      &\boldsymbol{\xi}(k+1)=f(\boldsymbol{\xi}(k), \boldsymbol{v}(k))\\
+      &\boldsymbol{\eta}(k+1)=h(\boldsymbol{\xi}(k), \boldsymbol{v}(k))
+\end{cases} \ ,
+\end{equation}
+where $\boldsymbol{\xi}(k)$ is the state, $\boldsymbol{v}(k)$ is the input and $\boldsymbol{\eta}(k)$ is the output.
+Now let $\boldsymbol{\Tilde{\xi}}(.)$, $\boldsymbol{\Tilde{v}}(.)$, $\boldsymbol{\Tilde{\eta}}(.)$ be a periodic regime of period $T$. By linearizing this system around this periodic regime the following equations can be obtained
+\begin{equation} \label{eq:3.3} 
+    \begin{cases}
+      \boldsymbol{x}(k)=\boldsymbol{\xi}(k)-\boldsymbol{\Tilde{\xi}}(k)\\
+      \boldsymbol{u}(k)=\boldsymbol{v}(k)-\boldsymbol{\Tilde{v}}(k)\\
+      \boldsymbol{y}(k)=\boldsymbol{\eta}(k)-\boldsymbol{\Tilde{\eta}}(k)
+    \end{cases} \ ,  
+\end{equation}
+where $\boldsymbol{x}(k)$, $\boldsymbol{u}(k)$ and $\boldsymbol{y}(k)$ are the linearized state variables and the matrices $\boldsymbol{A}(k)$, $\boldsymbol{B}(k)$, $\boldsymbol{C}(k)$ and $\boldsymbol{D}(k)$ follow
+\begin{equation} \label{eq:3.4}
+\begin{split}
+      &\boldsymbol{A}(k)=\frac{\partial f(\boldsymbol{\xi},\boldsymbol{v})}{\partial \boldsymbol{\xi}}|_{\boldsymbol{\xi}=\boldsymbol{\Tilde{\xi}},\boldsymbol{v}=\boldsymbol{\Tilde{v}}}\ 
+      \boldsymbol{B}(k)=\frac{\partial f(\boldsymbol{\xi},\boldsymbol{v})}{\partial \boldsymbol{v}}|_{\boldsymbol{\xi}=\boldsymbol{\Tilde{\xi}},\boldsymbol{v}=\boldsymbol{\Tilde{v}}}\\
+      &\boldsymbol{C}(k)=\frac{\partial h(\boldsymbol{\xi},\boldsymbol{v})}{\partial \boldsymbol{\xi}}|_{\boldsymbol{\xi}=\boldsymbol{\Tilde{\xi}},\boldsymbol{v}=\boldsymbol{\Tilde{v}}} \
+      \boldsymbol{D}(k)=\frac{\partial h(\boldsymbol{\xi},\boldsymbol{v})}{\partial \boldsymbol{v}}|_{\boldsymbol{\xi}=\boldsymbol{\Tilde{\xi}},\boldsymbol{v}=\boldsymbol{\Tilde{v}}}
+\end{split} \ .
+\end{equation}
+These matrices are periodic with period $T$. This way, we can write this system the same way as in (\ref{eq:3.1}).
+
+\section{Problem statement} \label{sparse_kalman}
+
+Consider the LTP system 
+\begin{equation} \label{eq:3.5}
+\begin{cases}
+      &\boldsymbol{x}(k+1)=\boldsymbol{A}(k)\boldsymbol{x}(k)+\boldsymbol{B}(k)\boldsymbol{u}(k)+\boldsymbol{w}(k)\\
+      &\boldsymbol{y}(k)=\boldsymbol{C}(k)\boldsymbol{x}(k)+\boldsymbol{v}(k)
+\end{cases} \ ,
+\end{equation}
+where $\boldsymbol{x}(k)$ is the state, $\boldsymbol{u}(k)$ is the input and $\boldsymbol{y}(k)$ is the output. $\boldsymbol{w}(k)$ and $\boldsymbol{v}(k)$ are the process and observation noises. These are assumed to be independent zero-mean white Gaussian processes with associated covariance matrices $\boldsymbol{Q} \succeq 0$ and $\boldsymbol{R} \succ 0$, respectively. $\boldsymbol{A}(k)$, $\boldsymbol{B}(k)$ and $\boldsymbol{C}(k)$ are T-periodic matrices defined as in (\ref{eq:3.1}), and $\boldsymbol{D}(k)=0$.
+
+Consider the sparsity pattern $\boldsymbol{E}$ and denote the Kalman filter gain by $\boldsymbol{K}(k)$. The set of gains that follow this sparsity pattern are defined as
+
+\begin{equation*} 
+      Sparse(\boldsymbol{E})=
+        {\boldsymbol{K}(k) \in \mathbb{R}^{{n}\times{o}}: [\boldsymbol{E}]_{ij}=0 \implies [\boldsymbol{K}(k)]_{ij}, \ i=1,...,n, j=1,...,o} \ .
+\end{equation*}
+\par
+Like in the centralized Kalman filter, the state estimate is obtained through prediction and filtering. The prediction step is given by
+\begin{equation} \label{eq:3.6}
+    \boldsymbol{\hat{x}}(k+1|k)=\boldsymbol{A}(k)\boldsymbol{\hat{x}}(k|k)+\boldsymbol{B}(k)\boldsymbol{u}(k) \ ,
+\end{equation}
+where $\boldsymbol{\hat{x}}(k+1|k)$ denotes the prediction at step $k+1$.
+The estimation error covariance $\boldsymbol{P}(k+1|k) \succeq \boldsymbol{0}$ at step $k+1$ is updated following
+\begin{equation} \label{eq:3.7}
+    \boldsymbol{P}(k+1|k)=\boldsymbol{A}(k)\boldsymbol{P}(k|k)\boldsymbol{A}^T(k)+\boldsymbol{Q} \ .
+\end{equation}
+Thus, the filtered estimate $\boldsymbol{\hat{x}}(k+1|k+1)$ is given by
+\begin{equation} \label{eq:3.8}
+\begin{split}
+    &\boldsymbol{\hat{x}}(k+1|k+1)=
+    \boldsymbol{\hat{x}}(k+1|k)+\boldsymbol{K}(k+1)(\boldsymbol{y}(k+1)-\boldsymbol{C}(k+1)\boldsymbol{\hat{x}}(k+1|k))
+\end{split}
+\end{equation}
+and the estimation error covariance follows
+\begin{equation} \label{eq:3.9}
+\begin{split}
+    &\boldsymbol{P}(k+1|k+1)=\\
+    &\boldsymbol{K}(k+1)\boldsymbol{R}\boldsymbol{K}^T(k+1)+(\boldsymbol{I}-\boldsymbol{K}(k+1)\boldsymbol{C}(k+1))
+    \boldsymbol{P}(k+1|k)(\boldsymbol{I}-\boldsymbol{K}(k+1)\boldsymbol{C}(k+1))^T \ .
+\end{split}
+\end{equation}
+The problem of designing a Kalman filter subject to sparsity constraints for a finite time window $W$ can be formulated as follows. Given a sparsity pattern $\boldsymbol{E}$ and an initial state estimate $\boldsymbol{\hat{x}}(0|0)$ with error covariance $\boldsymbol{P}(0|0) \succeq \boldsymbol{0}$ solve the optimization problem
+\begin{equation} \label{eq:1.10}
+\begin{aligned}
+& \underset{\boldsymbol{K}(i),i=1,...,W}{\text{minimize}}
+& & \sum_{k=1}^{W}tr(\boldsymbol{P}(k|k)) \\
+& \text{subject to}
+& & \boldsymbol{K}(i) \in Sparse(\boldsymbol{E}), i=1,2, \dots, W
+\end{aligned}
+\end{equation}
+Notice that $W$ can be made arbitrarily large, and its choice the depends on the system model, with more complex systems requiring a larger window size to achieve steady-state performance.

@@ -1,0 +1,206 @@
+\begin{thebibliography}{10}
+
+\bibitem{SHAKARAMI2020107496}
+A.~Shakarami, M.~Ghobaei-Arani, and A.~Shahidinejad, ``A survey on the
+  computation offloading approaches in mobile edge computing: A machine
+  learning-based perspective,'' {\em Computer Networks}, vol.~182, p.~107496,
+  2020.
+
+\bibitem{MECspec}
+M.~Patel, B.~Naughton, C.~Chan, N.~Sprecher, S.~Abeta, A.~Neal, {\em et~al.},
+  ``Mobile-edge computing introductory technical white paper,'' {\em White
+  paper, mobile-edge computing (MEC) industry initiative}, vol.~29,
+  pp.~854--864, 2014.
+
+\bibitem{NUE1mec}
+J.~Li, H.~Gao, T.~Lv, and Y.~Lu, ``Deep reinforcement learning based
+  computation offloading and resource allocation for mec,'' in {\em 2018 IEEE
+  Wireless Communications and Networking Conference (WCNC)}, pp.~1--6, 2018.
+
+\bibitem{cloudlet}
+M.~Satyanarayanan, P.~Bahl, R.~Caceres, and N.~Davies, ``The case for vm-based
+  cloudlets in mobile computing,'' {\em IEEE Pervasive Computing}, vol.~8,
+  no.~4, pp.~14--23, 2009.
+
+\bibitem{adhoc}
+G.~A. McGilvary, A.~Barker, and M.~Atkinson, ``Ad hoc cloud computing,'' in
+  {\em 2015 IEEE 8th International Conference on Cloud Computing},
+  pp.~1063--1068, 2015.
+
+\bibitem{OpenFog}
+O.~Consortium, ``Openfog reference architecture for fog computing.'' Online,
+  2017.
+\newblock Last access on 28/05/2021.
+
+\bibitem{smallcellcloud}
+F.~Lobillo, Z.~Becvar, M.~A. Puente, P.~Mach, F.~Lo~Presti, F.~Gambetti,
+  M.~Goldhamer, J.~Vidal, A.~K. Widiawan, and E.~Calvanesse, ``An architecture
+  for mobile computation offloading on cloud-enabled lte small cells,'' in {\em
+  2014 IEEE Wireless Communications and Networking Conference Workshops
+  (WCNCW)}, pp.~1--6, 2014.
+
+\bibitem{mmcloud}
+S.~Wang, G.-H. Tu, R.~Ganti, T.~He, K.~Leung, H.~Tripp, K.~Warr, and M.~Zafer,
+  ``Mobile micro-cloud: Application classification, mapping, and deployment,''
+  in {\em Proc. Annual Fall Meeting of ITA (AMITA)}, 2013.
+
+\bibitem{MobiScud}
+K.~Wang, M.~Shen, J.~Cho, A.~Banerjee, J.~K.~V. der Merwe, and K.~Webb,
+  ``{MobiScud:} a fast moving personal cloud in the mobile network,'' 2015.
+
+\bibitem{fmcloud}
+A.~Aissioui, A.~Ksentini, and A.~Gueroui, ``An efficient elastic distributed
+  sdn controller for follow-me cloud,'' in {\em 2015 IEEE 11th International
+  Conference on Wireless and Mobile Computing, Networking and Communications
+  (WiMob)}, pp.~876--881, 2015.
+
+\bibitem{CONCERT}
+J.~Liu, T.~Zhao, S.~Zhou, Y.~Cheng, and Z.~Niu, ``Concert: a cloud-based
+  architecture for next-generation cellular systems,'' {\em IEEE Wireless
+  Communications}, vol.~21, no.~6, pp.~14--22, 2014.
+
+\bibitem{SESAM}
+H.~E. Project, ``Small cells coordination for multi-tenancy and edge services
+  (sesam)..'' Online, 2015.
+\newblock Last access on 28/05/2021.
+
+\bibitem{fogmulti}
+J.~Baek and G.~Kaddoum, ``Heterogeneous task offloading and resource
+  allocations via deep recurrent reinforcement learning in partial observable
+  multifog networks,'' {\em IEEE Internet of Things Journal}, vol.~8, no.~2,
+  pp.~1041--1056, 2021.
+
+\bibitem{RLbook}
+R.~S. Sutton and A.~G. Barto, {\em Reinforcement learning: An introduction}.
+\newblock MIT press, 2018.
+
+\bibitem{POMP}
+L.~P. Kaelbling, M.~L. Littman, and A.~R. Cassandra, ``Planning and acting in
+  partially observable stochastic domains,'' {\em Artificial Intelligence},
+  vol.~101, no.~1, pp.~99--134, 1998.
+
+\bibitem{DQN}
+V.~Mnih, K.~Kavukcuoglu, D.~Silver, A.~A. Rusu, J.~Veness, M.~G. Bellemare,
+  A.~Graves, M.~Riedmiller, A.~K. Fidjeland, G.~Ostrovski, S.~Petersen,
+  C.~Beattie, A.~Sadik, I.~Antonoglou, H.~King, D.~Kumaran, D.~Wierstra,
+  S.~Legg, and D.~Hassabis, ``Human-level control through deep reinforcement
+  learning,'' {\em Nature}, vol.~518, pp.~529--533, Feb 2015.
+
+\bibitem{dqnimage}
+A.~Choudhar, ``A hands-on introduction to deep q-learning using openai gym in
+  python.'' Online, 2019.
+\newblock Last access on 28/05/2021.
+
+\bibitem{doubleDQN}
+H.~v. Hasselt, ``Double q-learning,'' in {\em Proceedings of the 23rd
+  International Conference on Neural Information Processing Systems - Volume
+  2}, NIPS'10, (Red Hook, NY, USA), p.~2613–2621, Curran Associates Inc.,
+  2010.
+
+\bibitem{prioexperience}
+T.~Schaul, J.~Quan, I.~Antonoglou, and D.~Silver, ``Prioritized experience
+  replay,'' 2016.
+
+\bibitem{duelingDQN}
+Z.~Wang, N.~de~Freitas, and M.~Lanctot, ``Dueling network architectures for
+  deep reinforcement learning,'' {\em CoRR}, vol.~abs/1511.06581, 2015.
+
+\bibitem{a3c}
+V.~Mnih, A.~P. Badia, M.~Mirza, A.~Graves, T.~P. Lillicrap, T.~Harley,
+  D.~Silver, and K.~Kavukcuoglu, ``Asynchronous methods for deep reinforcement
+  learning,'' {\em CoRR}, vol.~abs/1602.01783, 2016.
+
+\bibitem{A3CImag}
+C.~Yoon, ``Understanding actor critic methods and a2c.'' Online, 2019.
+\newblock Last access on 31/05/2021.
+
+\bibitem{openaia2c}
+Y.~Wu, E.~Mansimov, S.~Liao, R.~B. Grosse, and J.~Ba, ``Scalable trust-region
+  method for deep reinforcement learning using kronecker-factored
+  approximation,'' {\em CoRR}, vol.~abs/1708.05144, 2017.
+
+\bibitem{a2c}
+J.~X. Wang, Z.~Kurth{-}Nelson, D.~Tirumala, H.~Soyer, J.~Z. Leibo, R.~Munos,
+  C.~Blundell, D.~Kumaran, and M.~Botvinick, ``Learning to reinforcement
+  learn,'' {\em CoRR}, vol.~abs/1611.05763, 2016.
+
+\bibitem{boltz}
+N.~Cesa{-}Bianchi, C.~Gentile, G.~Lugosi, and G.~Neu, ``Boltzmann exploration
+  done right,'' {\em CoRR}, vol.~abs/1705.10257, 2017.
+
+\bibitem{AGAcrypto}
+X.~Qiu, L.~Liu, W.~Chen, Z.~Hong, and Z.~Zheng, ``Online deep reinforcement
+  learning for computation offloading in blockchain-empowered mobile edge
+  computing,'' {\em IEEE Transactions on Vehicular Technology}, vol.~68, no.~8,
+  pp.~8050--8062, 2019.
+
+\bibitem{taskclass1}
+Y.~Gong, C.~Lv, S.~Cao, L.~Yan, and H.~Wang, ``Deep learning-based computation
+  offloading with energy and performance optimization,'' {\em EURASIP Journal
+  on Wireless Communications and Networking}, vol.~2020, p.~69, Mar 2020.
+
+\bibitem{taskclass2}
+S.~Yu, X.~Wang, and R.~Langar, ``Computation offloading for mobile edge
+  computing: A deep learning approach,'' in {\em 2017 IEEE 28th Annual
+  International Symposium on Personal, Indoor, and Mobile Radio Communications
+  (PIMRC)}, pp.~1--6, 2017.
+
+\bibitem{centralfog}
+J.-y. Baek, G.~Kaddoum, S.~Garg, K.~Kaur, and V.~Gravel, ``Managing fog
+  networks using reinforcement learning based load balancing algorithm,'' in
+  {\em 2019 IEEE Wireless Communications and Networking Conference (WCNC)},
+  pp.~1--7, 2019.
+
+\bibitem{Lulu}
+L.~P. de~Matos Morgado~Ferreira, ``Fog computing task offloading optimization
+  based on deep reinforcement learning,'' Master's thesis, Instituto Superior
+  Técnico, 2021.
+
+\bibitem{energycons}
+Y.~Wen, W.~Zhang, and H.~Luo, ``Energy-optimal mobile application execution:
+  Taming resource-poor mobile devices with cloud clones,'' in {\em 2012
+  Proceedings IEEE INFOCOM}, pp.~2716--2720, 2012.
+
+\bibitem{pythonpop}
+GitHub, ``The 2020 state of the octoverse.'' Online, 2020.
+\newblock Last access on 3/06/2021.
+
+\bibitem{pythonmachine}
+GitHub, ``The state of the octoverse: machine learning.'' Online, 2019.
+\newblock Last access on 3/06/2021.
+
+\bibitem{tensorflow}
+M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro, G.~S. Corrado,
+  A.~Davis, J.~Dean, M.~Devin, S.~Ghemawat, I.~Goodfellow, A.~Harp, G.~Irving,
+  M.~Isard, Y.~Jia, R.~Jozefowicz, L.~Kaiser, M.~Kudlur, J.~Levenberg,
+  D.~Man\'{e}, R.~Monga, S.~Moore, D.~Murray, C.~Olah, M.~Schuster, J.~Shlens,
+  B.~Steiner, I.~Sutskever, K.~Talwar, P.~Tucker, V.~Vanhoucke, V.~Vasudevan,
+  F.~Vi\'{e}gas, O.~Vinyals, P.~Warden, M.~Wattenberg, M.~Wicke, Y.~Yu, and
+  X.~Zheng, ``{TensorFlow}: Large-scale machine learning on heterogeneous
+  systems,'' 2015.
+\newblock Software available from tensorflow.org.
+
+\bibitem{pytorch}
+A.~Paszke, S.~Gross, F.~Massa, A.~Lerer, J.~Bradbury, G.~Chanan, T.~Killeen,
+  Z.~Lin, N.~Gimelshein, L.~Antiga, A.~Desmaison, A.~Kopf, E.~Yang, Z.~DeVito,
+  M.~Raison, A.~Tejani, S.~Chilamkurthy, B.~Steiner, L.~Fang, J.~Bai, and
+  S.~Chintala, ``Pytorch: An imperative style, high-performance deep learning
+  library,'' in {\em Advances in Neural Information Processing Systems 32}
+  (H.~Wallach, H.~Larochelle, A.~Beygelzimer, F.~d\textquotesingle
+  Alch\'{e}-Buc, E.~Fox, and R.~Garnett, eds.), pp.~8024--8035, Curran
+  Associates, Inc., 2019.
+
+\bibitem{opengym}
+G.~Brockman, V.~Cheung, L.~Pettersson, J.~Schneider, J.~Schulman, J.~Tang, and
+  W.~Zaremba, ``Openai gym,'' {\em CoRR}, vol.~abs/1606.01540, 2016.
+
+\bibitem{kerasrl}
+M.~Plappert, ``Deep reinforcement learning for keras.'' Online, 2016.
+\newblock Last access on 28/05/2021.
+
+\bibitem{kerasrl2}
+T.~McNally, ``Deep reinforcement learning for tensorflow 2 keras.'' Online,
+  2019.
+\newblock Last access on 31/05/2021.
+
+\end{thebibliography}

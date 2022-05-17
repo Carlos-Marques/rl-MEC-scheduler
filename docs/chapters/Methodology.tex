@@ -1,0 +1,126 @@
+\chapter{Methodology}
+The research done in this thesis serves the goal of synthesizing a method for the design of distributed state estimators for LTP systems.
+\par
+The literature on distributed control and filters is wide and varied. But, to the best knowledge of the author, the available research is mostly focused on solving this problem for LTI and non-linear systems, without ever referring to LTP systems. The methods available for non-linear systems are either very communication dependent (consensus filters) or suffer from convergence issues (DEKF). The solutions available for this problem for LTI systems are more robust, but many real systems cannot be accurately described by LTI dynamics.
+The value in the proposed method is that it applies robust methods found for LTI systems to a more general type of system, the LTP system. 
+\par
+This chapter serves as a description for how the final solution is constructed, and also serves as a guideline to allow the reproducibility of the results obtained.
+
+\section{Approach}
+This work follows a very simple approach. The first step is to linearize a non-linear system around a periodic motion, obtaining a LTP system. Second, obtain a LTI equivalent representation of the LTP system by using a time-lifting technique. Compared to other techniques that serve the same purpose, the advantage of time-lifting is that it can very easily be applied to systems written in state space form. The third step is to design an optimal DKF for this newly obtained system. The algorithm used is based on the work done in \cite{viegas2018discrete}.
+
+\subsection{Linearization around periodic motions}
+The results in this section have been shown in section \ref{linearization}, but will be repeated here for thoroughness sake.
+Consider a non-linear system 
+\begin{equation} \label{eq:4.1}
+\begin{cases}
+      &\boldsymbol{\xi}(k+1)=f(\boldsymbol{\xi}(k), \boldsymbol{v}(k))\\
+      &\boldsymbol{\eta}(k+1)=h(\boldsymbol{\xi}(k), \boldsymbol{v}(k))
+\end{cases} \ ,
+\end{equation}
+where $\boldsymbol{\xi}(k)$ is the state, $\boldsymbol{v}(k)$ is the input and $\boldsymbol{\eta}(k)$ is the output.
+Now let $\boldsymbol{\Tilde{\xi}}(.)$, $\boldsymbol{\Tilde{v}}(.)$, $\boldsymbol{\Tilde{\eta}}(.)$ be a periodic regime of period $T$. By linearizing this system around this periodic regime the following equations can be obtained
+\begin{equation} \label{eq:4.2} 
+    \begin{cases}
+      \boldsymbol{x}(k)=\boldsymbol{\xi}(k)-\boldsymbol{\Tilde{\xi}}(k)\\
+      \boldsymbol{u}(k)=\boldsymbol{v}(k)-\boldsymbol{\Tilde{v}}(k)\\
+      \boldsymbol{y}(k)=\boldsymbol{\eta}(k)-\boldsymbol{\Tilde{\eta}}(k)
+    \end{cases} \ ,  
+\end{equation}
+where $\boldsymbol{x}(k)$, $\boldsymbol{u}(k)$ and $\boldsymbol{y}(k)$ are the linearized state variables and the matrices $\boldsymbol{A}(k)$, $\boldsymbol{B}(k)$, $\boldsymbol{C}(k)$ and $\boldsymbol{D}(k)$ follow
+\begin{equation} \label{eq:4.3}
+\begin{split}
+      &\boldsymbol{A}(k)=\frac{\partial f(\boldsymbol{\xi},\boldsymbol{v})}{\partial \boldsymbol{\xi}}|_{\boldsymbol{\xi}=\boldsymbol{\Tilde{\xi}},\boldsymbol{v}=\boldsymbol{\Tilde{v}}}\ 
+      \boldsymbol{B}(k)=\frac{\partial f(\boldsymbol{\xi},\boldsymbol{v})}{\partial \boldsymbol{v}}|_{\boldsymbol{\xi}=\boldsymbol{\Tilde{\xi}},\boldsymbol{v}=\boldsymbol{\Tilde{v}}}\\
+      &\boldsymbol{C}(k)=\frac{\partial h(\boldsymbol{\xi},\boldsymbol{v})}{\partial \boldsymbol{\xi}}|_{\boldsymbol{\xi}=\boldsymbol{\Tilde{\xi}},\boldsymbol{v}=\boldsymbol{\Tilde{v}}} \
+      \boldsymbol{D}(k)=\frac{\partial h(\boldsymbol{\xi},\boldsymbol{v})}{\partial \boldsymbol{v}}|_{\boldsymbol{\xi}=\boldsymbol{\Tilde{\xi}},\boldsymbol{v}=\boldsymbol{\Tilde{v}}}
+\end{split} \ .
+\end{equation}
+These matrices are periodic with period $T$. Thus, the LTP system can be written as
+\begin{equation} \label{eq:4.4}
+\begin{cases}
+      &\boldsymbol{x}(k+1)=\boldsymbol{A}(k)\boldsymbol{x}(k)+\boldsymbol{B}(k)\boldsymbol{u}(k)\\
+      &\boldsymbol{y}(k)=\boldsymbol{C}(k)\boldsymbol{x}(k)+\boldsymbol{D}(k)\boldsymbol{u}(k)
+\end{cases} \ .
+\end{equation}
+
+
+
+\subsection{Time-lifting}
+
+Now that we have a LTP system written in state space form, the next step is to rewrite it as a LTI system using time-lifting. The results shown here are directly adapted from \cite{bittanti2009periodic}. In this section, for the sake of simplifying notation, the transpose $(.)^T$ is written as $(.)'$.
+\par
+The time-lifted system is obtained by making reference to the sampled state $\boldsymbol{x}^{(\tau)}(k)$ and the augmented input signal $\boldsymbol{u}_{\tau}(k)$, where
+\begin{equation} \label{eq:4.5}
+\begin{cases}
+    &\boldsymbol{x}^{(\tau)}(k)=\boldsymbol{x}(kT+\tau)\\
+    &\boldsymbol{u}_{\tau}(k)=[\boldsymbol{u}(kT+\tau)' \ \boldsymbol{u}(kT+\tau+1)' \dots \boldsymbol{u}(kT+\tau+T+1)']'
+\end{cases} \ .
+\end{equation}
+This way, the state $\boldsymbol{x}^{(\tau)}(k+1)=\boldsymbol{x}((k+1)T+\tau)$ is determined by $\boldsymbol{x}^{(\tau)}(k)=\boldsymbol{x}(kT+\tau)$ and the augmented input $\boldsymbol{u}_{\tau}(k)$. The output is determined by $\boldsymbol{x}^{(\tau)}(k)$ and $\boldsymbol{u}_{\tau}(k)$. To obtain these relationships, define
+\begin{equation} \label{eq:4.6}
+\begin{split}
+    &\boldsymbol{F}_{\tau}=\boldsymbol{\psi}_A(\tau) \ , \\
+    &\boldsymbol{G}_{\tau}=[\boldsymbol{\phi}_A(\tau+T,\tau+1)B(\tau) \ \boldsymbol{\phi}_A(\tau+T,\tau+2)B(\tau+1) \dots 
+    B(\tau+T-1)] \ , \\
+    &\boldsymbol{H}_{\tau}=[\boldsymbol{C}(\tau)' \
+    \phi_A(\tau+1,\tau)'\boldsymbol{C}(\tau+1)' \dots
+    \phi_A(\tau+T-1,\tau)'\boldsymbol{C}(\tau+T-1)'] \ , \\
+    &\boldsymbol{E}_{\tau} = {(\boldsymbol{E}_{\tau})_{ij}},  i,j=1,2,\dots,T  \ ,  \\
+    &(\boldsymbol{E}_{\tau})_{ij} =
+    \begin{cases}
+      0, & i<j\\
+      \boldsymbol{D}(\tau+i-1), & i=j\\
+      \boldsymbol{C}(\tau+i-1)\boldsymbol{\phi}_A(\tau+i-1,\tau+j) \boldsymbol{B}(\tau+j-1), & i>j
+    \end{cases} \ ,  
+\end{split}
+\end{equation}
+where $\boldsymbol{\phi}_A(t,\tau)$ is the transition matrix, and is defined as
+\begin{equation} \label{eq:4.7}
+    \boldsymbol{\phi}_A(t, \tau) = 
+    \begin{cases}
+      \boldsymbol{A}(t-1)\boldsymbol{A}(t-2)\dots \boldsymbol{A}(\tau), & t>\tau\\
+      \boldsymbol{I}, & t=\tau\\
+    \end{cases}  
+\end{equation}
+and $\boldsymbol{\psi}_A(\tau)=\boldsymbol{\phi}_A(\tau+T,\tau)$ is the monodromy matrix, defined as the transition matrix over one period $T$.
+Thanks to these definitions, the time-lifted system can be written as
+\begin{equation} \label{eq:4.8}
+\begin{cases}
+      &\boldsymbol{x}^{(\tau)}(k+1)=\boldsymbol{F}_{\tau}\boldsymbol{x}^{(\tau)}(k)+\boldsymbol{G}_{\tau}\boldsymbol{u}_{\tau}(k)\\
+      &\boldsymbol{y}_{\tau}(k)=\boldsymbol{H}_{\tau}\boldsymbol{x}^{(\tau)}(k)+\boldsymbol{E}_{\tau}\boldsymbol{u}_{\tau}(k)
+\end{cases} \ .
+\end{equation}
+
+
+\subsection{Distributed Kalman Filter}
+Finally, having our system written as a LTI system, we can apply the research done in \cite{viegas2018discrete} to design a DKF. The objective is to solve the finite-horizon problem 
+\begin{equation} \label{eq:4.9}
+\begin{aligned}
+& \underset{\boldsymbol{K}(i),i=1,...,W}{\text{minimize}}
+& & \sum_{k=1}^{W}tr(\boldsymbol{P}(k|k)) \\
+& \text{subject to}
+& & \boldsymbol{K}(i) \in Sparse(\boldsymbol{E}), i=1,2, \dots, W
+\end{aligned}
+\end{equation}
+This problem is nonconvex but, if we fix the gain $\boldsymbol{K}(k)$, the problem becomes quadratic, and thus, convex. The finite-horizon algorithm solves 
+\begin{equation} \label{eq:4.10}
+\begin{aligned}
+& \underset{\boldsymbol{K}(k)}{\text{minimize}}
+& & \sum_{i=1}^{W}tr(\boldsymbol{P}(i|i)) \\
+& \text{subject to}
+& & \boldsymbol{K}(k) \in Sparse(\boldsymbol{E})
+\end{aligned}
+\end{equation}
+for each of the gains $\boldsymbol{K}(k), k=1,\dots,W$ and then chooses the gain that leads to the smallest error.
+
+\subsection{Analysis}
+The system that this work is going to focus on is the Four Tank system \cite{jayaprakash2014state}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=1]{images/four_tanks.jpg}
+  \caption{System of four tanks}
+  \label{fig:four_tanks}
+\end{figure}
+\par
+The analysis of the estimator will be done via simulation using $\boldsymbol{MATLAB}$, and the performance measure used is the error between the real and estimated states.
