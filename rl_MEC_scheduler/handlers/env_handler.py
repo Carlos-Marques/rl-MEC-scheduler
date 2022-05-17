@@ -10,6 +10,7 @@ from gym.utils import seeding
 from rl_MEC_scheduler.services.env_services import (
     get_actions_cost,
     get_observations,
+    get_reward,
     get_tasks,
 )
 from rl_MEC_scheduler.values.MEC_values import MEC
@@ -26,6 +27,8 @@ class NetworkEnv(gym.Env):
     MECs: Tuple[MEC]
     network: Network
     task_distributions: TaskDistributions
+    mean_weight: float
+    max_weight: float
 
     def __post_init__(self):
         self.seed(seed=self.seed_value)
@@ -35,9 +38,13 @@ class NetworkEnv(gym.Env):
         self.n_observations = len(self.UEs) * 5
         n_actions = self.n_MECs + 1
 
-        self.action_space = spaces.MultiDiscrete([n_actions] * self.n_UEs)
+        self.action_space = spaces.MultiDiscrete([n_actions] * self.n_UEs, seed=self.seed_value) # type: ignore
         self.observation_space = spaces.Box(
-            low=-np.inf, high=np.inf, shape=(self.n_observations, ), dtype=np.float32
+            low=-np.inf,
+            high=np.inf,
+            shape=(self.n_observations,),
+            dtype=np.float32,
+            seed=self.seed_value, # type: ignore
         )
 
     def seed(self, seed: Optional[int] = None) -> List[Optional[int]]:
@@ -51,31 +58,42 @@ class NetworkEnv(gym.Env):
             n_tasks=self.n_UEs,
         )
 
-        return get_observations(tasks=self.tasks, observation_size=self.n_observations)
+        return get_observations(
+            tasks=self.tasks, observation_size=self.n_observations
+        )
 
     def step(
         self, action: NDArray[np.int64]
     ) -> Tuple[NDArray[np.float32], float, bool, dict]:
         assert self.action_space.contains(action)
 
-        reward = - get_actions_cost(
+        actions_cost = get_actions_cost(
             actions=action,
             tasks=self.tasks,
             UEs=self.UEs,
             MECs=self.MECs,
             network=self.network,
-        ) / self.n_UEs
+        )
+
+        reward = get_reward(
+            actions_cost=actions_cost,
+            n_UEs=self.n_UEs,
+            mean_weight=self.mean_weight,
+            max_weight=self.max_weight,
+        )
 
         self.tasks = get_tasks(
             np_random=self.np_random,
             task_distributions=self.task_distributions,
             n_tasks=self.n_UEs,
         )
-        observation = get_observations(tasks=self.tasks, observation_size=self.n_observations)
+        observation = get_observations(
+            tasks=self.tasks, observation_size=self.n_observations
+        )
         assert self.observation_space.contains(observation)
 
         done = False
-        info = {}
+        info = {"actions_cost": actions_cost}
 
         return observation, reward, done, info
 

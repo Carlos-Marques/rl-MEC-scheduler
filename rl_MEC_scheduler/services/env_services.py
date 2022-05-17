@@ -21,15 +21,15 @@ def get_actions_cost(
     UEs: Tuple[UE],
     MECs: Tuple[MEC],
     network: Network,
-) -> float:
+) -> NDArray[np.float32]:
     n_tasks_per_MEC = Counter(actions)
 
-    total_cost = 0
+    actions_cost = np.zeros(shape=(len(actions),), dtype=np.float32)
     for idx, action in enumerate(actions):
         if action == 0:
-            total_cost += get_local_cost(task=tasks[idx], user_equipment=UEs[idx])
+            actions_cost[idx] = get_local_cost(task=tasks[idx], user_equipment=UEs[idx])
         else:
-            total_cost += get_offloading_cost(
+            actions_cost[idx] = get_offloading_cost(
                 task=tasks[idx],
                 user_equipment=UEs[idx],
                 mobile_edge_computer=MECs[action-1],
@@ -37,7 +37,23 @@ def get_actions_cost(
                 network=network,
             )
 
-    return total_cost
+    return actions_cost
+
+
+def get_reward(
+    actions_cost: NDArray[np.float32],
+    n_UEs: int,
+    mean_weight: float,
+    max_weight: float
+) -> float:
+    total_cost = np.sum(actions_cost)
+    mean_cost = total_cost / n_UEs
+
+    max_cost = np.max(actions_cost)
+
+    reward = -(mean_weight * mean_cost + max_weight * max_cost)
+    
+    return reward
 
 
 def generate_task(

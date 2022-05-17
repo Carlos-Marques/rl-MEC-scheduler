@@ -92,8 +92,60 @@
                     191.68727546009106
                 ],
                 "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    22.3814143342733,
+                    181.6479462698697
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    20.957171757136628,
+                    15.513935353231446
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    198.10985603413243,
+                    57.562807662021264
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    23.189116718586632,
+                    77.47094215453868
+                ],
+                "transmission_power": 0.5
+            },
+            {
+                "download_power": 0.2,
+                "frequency": 1000000000.0,
+                "idle_power": 0.1,
+                "location": [
+                    47.30704343976022,
+                    179.33922530770317
+                ],
+                "transmission_power": 0.5
             }
         ],
+        "max_weight": 0,
+        "mean_weight": 1,
         "network": {
             "bandwidth": 10000000000.0,
             "download_bit_error_rate": 1,
