@@ -3,6 +3,7 @@
 \section{Problem statement}
 \noindent The goal of this thesis is the design of a management agent capable of making offloading decisions from an heterogeneous network of \acrshort{UE}s to an heterogeneous network of \acrshort{MEC} servers. This work proposes to innovate by presenting a more complete system and exploring a network topology not present in related works. The proposed network manager could be seen as the conductor in the CONCERT architecture proposed in \cite{CONCERT} or the small cell manager in the \acrshort{SCC} architecture, \cite{SESAM}. This manager would be deployed locally and would manage a group of $M$ \acrshort{MEC} servers and $N$ \acrshort{UE}s making offloading decisions on which \acrshort{UE} tasks to compute locally, which tasks to offload, where tasks should be offloaded to and how the resources of \acrshort{MEC} servers should be allocated. This decision should take into account communication delays, computation constraints and battery consumption.
 
+% TODO: better describe innovation and why it is useful
 Building upon the system presented in \cite{NUE1mec}, a system model is defined and the problem is formulated as a \acrshort{MDP}. Finally, \acrshort{DRL} techniques are explored in order to train an optimal network manager.
 
 \subsection{System Model}
@@ -136,6 +137,7 @@ For checking the delay constraint, $\tau_n$, the total delay, $T_n$, of the offl
 \end{equation}
 
 \subsection{Problem formulation}
+% TODO: Update problem formulation with worst case formulation
 \noindent The offloading decision can then be formulated as the following optimization problem:
 
 \begin{mini*}|s|

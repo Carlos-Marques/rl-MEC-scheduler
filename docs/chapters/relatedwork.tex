@@ -34,6 +34,8 @@ The \acrfull{FMC} architecture proposed in \cite{fmcloud} follows a similar idea
 The data plane is composed by the \acrshort{eNB}, \acrshort{SCeNBs}, \acrshort{SDN} switches and computation resources, being them at the access node level, local data centers or even remote data centers.
 The control plane is composed by the management agent, referred to as the conductor, which has access to the network state and manages its resources presenting them as software defined services to \acrshort{UE}'s applications. This type of centralized approach is a clear example of an orchestration approach. As an alternative, a choreography approach is when entities cooperate in a decentralized manner without holding the total knowledge of the network, as is the case of the solution presented in \cite{fogmulti}.
 
+% TODO: add a better transition from MEC achitectures to RL
+
 \section{Reinforcement Learning (RL)} \label{section:RL}
 \noindent There are three main machine learning paradigms, supervised learning, unsupervised learning and reinforcement learning. While supervised learning needs a lot of labeled input/ouput data and unsupervised learning learns patterns from unlabeled data, \acrfull{RL} is used in problems where an agent learns to solve a closed-loop problem by changing its future actions based on a reward resulting from its actions on the environment and its effects on its state.
 
@@ -153,7 +155,7 @@ Another important class of \acrshort{ANNs} are the \acrfull{RNNs}, that maintain
 
 The proposed ANN in \cite{DQN} is a CNN that can be defined by its weights, $\theta_i$, at each iteration. To solve the instability and divergence issues found when using a non-linear function approximator of the action-value function, two methods are proposed. Because these issues arise from the correlations present in the sequence of observations, the paper first proposes a biologically inspired mechanism termed experience replay that collects samples from interaction with the environment in a replay buffer, $U(D)$, and samples randomly from it for training. The second method is an iterative update policy that only adjusts the target weights, $\theta_i^-$, to the new computed weights, $\theta_i$ every $C$ steps.
 
-Since we are dealing with reinforcement learning the loss function of these ANN can not be derived directly from the difference between the expected true value and output like with supervised learning. Instead we can calculate the loss function according to:
+Since we are dealing with reinforcement learning the loss function of these ANN can not be derived directly from the difference between the expected true value and output, like with supervised learning. Instead we can calculate the loss function according to:
 \begin{equation}
     L_i(\theta_i) = E_{(s_t, a_t, r_t, s_{t+1})\sim U(D)} [(r+\gamma \max\limits_{a_{t+1}} Q(s_{t+1}, a_{t+1};\theta_i^-) - Q(s_t, a_t; \theta_i))^2]
 \end{equation}
