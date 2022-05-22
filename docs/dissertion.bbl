@@ -190,6 +190,12 @@ A.~Paszke, S.~Gross, F.~Massa, A.~Lerer, J.~Bradbury, G.~Chanan, T.~Killeen,
   Alch\'{e}-Buc, E.~Fox, and R.~Garnett, eds.), pp.~8024--8035, Curran
   Associates, Inc., 2019.
 
+\bibitem{rllib}
+E.~Liang, R.~Liaw, R.~Nishihara, P.~Moritz, R.~Fox, K.~Goldberg, J.~E.
+  Gonzalez, M.~I. Jordan, and I.~Stoica, ``{RLlib}: Abstractions for
+  distributed reinforcement learning,'' in {\em International Conference on
+  Machine Learning ({ICML})}, 2018.
+
 \bibitem{opengym}
 G.~Brockman, V.~Cheung, L.~Pettersson, J.~Schneider, J.~Schulman, J.~Tang, and
   W.~Zaremba, ``Openai gym,'' {\em CoRR}, vol.~abs/1606.01540, 2016.

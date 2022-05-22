@@ -9,13 +9,13 @@ Building upon the system presented in \cite{NUE1mec}, a system model is defined 
 \subsection{System Model}
 \noindent The proposed network model considers N \acrshort{UE}s and M \acrshort{MEC} servers. The set of \acrshort{UE} is denoted as $\mathcal{N} = \{1, 2, ..., N\}$ while the set of \acrshort{MEC} servers can be denoted as $\mathcal{M} = \{1, 2, ..., M\}$. For simplicity \acrshort{MEC} servers are assumed to be connected to the power grid so their energy consumption is ignored.
 \begin{itemize}
-\item Each \acrshort{UE}, $n \in \mathcal{N}$ can be described by its computation capacity, $f_n^l$ (\acrshort{CPU} cycles per second), transmission power, $P_n$, idle power consumption, $P^i_n$, download power consumption, $P_n^d$, and location, $loc_n = (x_n, y_n, z_n)$. The UE, $n$, can then be described by the vector, $u_n = [f_n^l, P_n, P_n^i, P_n^d, loc_n]$, and the system's \acrshort{UE}s can be defined as the vector $U = [u_1, u_2, ..., u_n]$.
+    \item Each \acrshort{UE}, $n \in \mathcal{N}$ can be described by its computation capacity, $f_n^l$ (\acrshort{CPU} cycles per second), transmission power, $P_n$, idle power consumption, $P^i_n$, download power consumption, $P_n^d$, and location, $loc_n = (x_n, y_n, z_n)$. The UE, $n$, can then be described by the vector, $u_n = [f_n^l, P_n, P_n^i, P_n^d, loc_n]$, and the system's \acrshort{UE}s can be defined as the vector $\mathcal{U} = [u_1, u_2, ..., u_n]$.
 
-\item Each \acrshort{MEC} server, $m \in \mathcal{M}$, can be described by its computation capacity, $F_m$ (\acrshort{CPU} cycles per second), its transmission power, $P_m$, and its location $loc_m = (x_n, y_n, z_n)$. The \acrshort{MEC} server, $m$, can then be described by the vector, $s_m = [F_m, P_m, loc_m]$ and the system's \acrshort{MEC} servers can be defined as the vector $S = [s_1, s_2, ..., s_n]$.
+    \item Each \acrshort{MEC} server, $m \in \mathcal{M}$, can be described by its computation capacity, $F_m$ (\acrshort{CPU} cycles per second), its transmission power, $P_m$, and its location $loc_m = (x_n, y_n, z_n)$. The \acrshort{MEC} server, $m$, can then be described by the vector, $s_m = [F_m, P_m, loc_m]$ and the system's \acrshort{MEC} servers can be defined as the vector $\mathcal{S} = [s_1, s_2, ..., s_n]$.
 
-\item At each time step each \acrshort{UE} is assumed to have a computation task to be completed. This task can either be computed locally or offloaded to one of the available \acrshort{MEC} servers. The offloading decision of each computation task is denoted as $\alpha_n \in \{0, 1, ..., M\}$, where $\alpha_n = 0$ means local computation and $\alpha_n \in \mathcal{M}$ means offloading the task to \acrshort{MEC} server $m = \alpha_n$. The total offloading decision can be defined as the decision vector $\mathcal{A} = [\alpha_1, \alpha_2, ..., \alpha_N]$ with a decision for each task.
+    \item At each time step each \acrshort{UE} is assumed to have a computation task to be completed. This task can either be computed locally or offloaded to one of the available \acrshort{MEC} servers. The offloading decision of each computation task is denoted as $\alpha_n \in \{0, 1, ..., M\}$, where $\alpha_n = 0$ means local computation and $\alpha_n \in \mathcal{M}$ means offloading the task to \acrshort{MEC} server $m = \alpha_n$. The total offloading decision can be defined as the decision vector $\mathcal{A} = [\alpha_1, \alpha_2, ..., \alpha_N]$ with a decision for each task.
 
-\item Each computation task, $R_n$, can be defined by an input data amount, $B_n$ (bits), an output data amount, $B_d$ (bits), the total number of \acrshort{CPU} cycles required to compute it, $D_n$, its maximum allowed delay, $\tau_n$ and the importance weights of time and energy costs, $I_n^t$ and $I_n^e$. The importance weights of the task must satisfy $0 \leq I_n^t \leq 1$, $0 \leq I_n^e \leq 1$ and $I_n^t + I_n^e = 1$. The task, $R_n$, can then be described by the vector, $R_n = [B_n, B_d, D_n, \tau_n, I_n^t, I_n^e]$ and the system's tasks can be defined as the vector $R = [R_1, R_2, ..., R_N]$. 
+    \item Each computation task, $R_n$, can be defined by an input data amount, $B_n$ (bits), an output data amount, $B_d$ (bits), the total number of \acrshort{CPU} cycles required to compute it, $D_n$ and the importance weights of time and energy costs, $I_n^t$ and $I_n^e$. The importance weights of the task must satisfy $0 \leq I_n^t \leq 1$, $0 \leq I_n^e \leq 1$ and $I_n^t + I_n^e = 1$. The task, $R_n$, can then be described by the vector, $R_n = [B_n, B_d, D_n, I_n^t, I_n^e]$ and the system's tasks can be defined as the vector $\mathcal{R} = [R_1, R_2, ..., R_N]$.
 
 
 \end{itemize}
@@ -67,7 +67,7 @@ After the data is uploaded the \acrshort{MEC} server then computes the task resu
 where $f_m$ is the amount of the \acrshort{MEC} server, $m$, computation capacity, $F_m$, allocated to the offloaded task. To simplify the system the computation capacity of a \acrshort{MEC} server is equally divided by all tasks offloaded to it:
 
 \begin{equation}
-    f_m = \frac{F_m}{N_m}, 
+    f_m = \frac{F_m}{N_m},
 \end{equation}
 
 where $N_m$ is the number of tasks offloaded to \acrshort{MEC} server, $m$.
@@ -84,7 +84,7 @@ Finally the computation results are downloaded to the \acrshort{UE} $n$ with an 
     T_{n, d}^m = \frac{B_d}{r_d},
 \end{equation}
 
-where $B_d$ is the size of the computation output and $r_d$ is the download rate of \acrshort{UE} $n$ according to the Equation (\ref{downloaddelay}) from \cite{taskclass1}. 
+where $B_d$ is the size of the computation output and $r_d$ is the download rate of \acrshort{UE} $n$ according to the Equation (\ref{downloaddelay}) from \cite{taskclass1}.
 
 This download step has an associated energy consumption that can be calculated according to:
 
@@ -113,61 +113,152 @@ Based on the computation delay and energy consumption of offloading task $R_n$ t
 The cost of the offloading decision $\alpha_n \in \{0, 1, ..., M\}$ can be computed according to:
 
 \begin{equation}
-    C_n =     
+    C_n =
     \begin{cases}
-      C_n^l & \alpha_n = 0\\
-      C_n^m & \alpha_n \in \mathcal{M}
+        C_n^l & \alpha_n = 0             \\
+        C_n^m & \alpha_n \in \mathcal{M}
     \end{cases} .
 \end{equation}
 
-The sum cost of the \acrshort{MEC} system at each iteration can then be defined as:
+The system's costs can be defined as the vector:
 
 \begin{equation}
-    C_{all} = \sum\limits_{n=1}^N C_n .
+    \mathcal{C} = [C_1, C_2, ..., C_N].
 \end{equation}
 
-For checking the delay constraint, $\tau_n$, the total delay, $T_n$, of the offloading decision $\alpha_n$ can is defined as:
+
+The mean cost of the \acrshort{MEC} system at each iteration can then be defined as:
 
 \begin{equation}
-    T_n =     
-    \begin{cases}
-      T_n^l & \alpha_n = 0\\
-      T_n^m & \alpha_n \in \mathcal{M}
-    \end{cases} .
+    C_{mean} = \frac{\sum\limits_{n=1}^N C_n}{N}.
 \end{equation}
+
+The worst case cost of the \acrshort{MEC} system at each iteration can then be defined as:
+
+\begin{equation}
+    C_{max} = \max \ \mathcal{C}.
+\end{equation}
+
+This corresponds to the \acrshort{UE} that has the highest cost at each iteration.
 
 \subsection{Problem formulation}
-% TODO: Update problem formulation with worst case formulation
-\noindent The offloading decision can then be formulated as the following optimization problem:
+\noindent The offloading decision needs to be formulated in a way that can both optimize overall system performance while considering the worst case serviced \acrshort{UE}.
+
+Given this the weighted cost at each iteration can be defined as:
+
+\begin{equation}
+    C = W_{mean}*C_{mean} + W_{max}*C_{max}.
+\end{equation}
+
+By picking the importance weights of the costs that satisfy:
+\begin{align*}
+    0 \leq W_{mean} \leq 1, \\
+    0 \leq W_{max} \leq 1,  \\
+    W_{mean} + W_{max} = 1.
+\end{align*}
+
+The priorities of the system can be adjusted to satisfy both overall system performance and consider the worst case cost of the system.
+
+\pagebreak
+
+The optimization function can then be defined with the objective of finding the offloading decision vector $\mathcal{A} = [\alpha_1, \alpha_2, ..., \alpha_n]$ that minimizes the weighted average of the mean and max cost of the system at each iteration:
 
 \begin{mini*}|s|
-{\mathcal{A}}{\sum\limits_{n=1}^N C_n}
-{}{}
-\addConstraint{C1: \alpha_n \in \{0, 1, ..., M\}, \forall n \in \mathcal{N}}
-\addConstraint{C2: T_n \leq \tau_n, \forall n \in \mathcal{N}}
+    {\mathcal{A}}{C}
+    {}{}
+    \addConstraint{C1: \alpha_n \in \{0, 1, ..., M\}, \forall n \in \mathcal{N}}
 \end{mini*}
 
-This optimization function has the objective of finding the offloading decision vector $\mathcal{A} = [\alpha_1, \alpha_2, ..., \alpha_n]$ that minimizes the sum cost of the system at each time step.
 
 \subsection{Solution}
 \noindent Given the complex nature of the proposed problem and the lack of perfect knowledge of network conditions this thesis proposes to use a model-free \acrshort{DRL} agent to manage the network. This means that the network manager does not have access to the transition probability, $P(s_{t+1}|s_t, a_t)$, nor the reward function $R(s, a)$ and must learn them by experimenting on the environment.
 
 To do this the problem is formulated as an \acrshort{MDP}, $<S, A, P, R>$:
 \begin{itemize}
-    \item $S=\{s=(U, S, R)\}$ is the state space, which contains all \acrshort{UE} states, $U$, \acrshort{MEC} server states, $S$, and requested tasks, $R$;
+    \item $S=\{s=(\mathcal{R})\}$ is the state space, which contains all requested tasks, $R$;
     \item $A=\{a=(\mathcal{A})\}$ is the action space, which contains the offloading decision vector for all tasks, $\mathcal{A}$;
     \item $P:S \times A \times S \rightarrow [0, 1]$ is the transition probability distribution $P(s_{t+1}|s_t, a_t)$;
-    \item $R = \frac{C_{local} - C(s,a)}{C_{local}}$ is the reward function, which is defined as in \cite{NUE1mec} where it is inversely related to the system cost, $C(s,a)$, normalized by the system cost with only local computation $C_{local}$. 
+    \item $R = -C(s,a)$ is the reward function, which is defined as inversely related to the system cost, $C(s,a)$, given that the agent will be trying to maximize the reward.
 \end{itemize}
 
-At each time step, $t$, this network manager takes a state, $s_t$, makes a decision, $a_t$, that results in the state, $s_{t+1}$, and a reward $r_t$. The goal is then finding the policy, $\pi$, that maximizes the expected return, $V_\pi(s)$ as defined in Equation (\ref{Vfunction}). 
+At each time step, $t$, this network manager takes a state, $s_t$, makes a decision, $a_t$, that results in the state, $s_{t+1}$, and a reward $r_t$. The goal is then finding the policy, $\pi$, that maximizes the expected return, $V_\pi(s)$ as defined in Equation (\ref{Vfunction}).
 
-To achieve this, several \acrshort{DRL} algorithms will be explored: \acrshort{DQN}, \acrshort{DDQN}, \acrshort{Dueling DQN} and \acrshort{A2C}.
+To achieve this, several \acrshort{DRL} algorithms were explored: \acrshort{DQN}, \acrshort{DDQN}, \acrshort{Dueling DQN} and \acrshort{A2C}. Given the advantages presented in Section \ref{A3C}, the \acrshort{A2C} algorithm was chosen. The pseudocode of the \acrshort{A2C} algorithm is presented in Algorithm \ref{algorithm:A2C}, as defined in \cite{a3c}. To solve the exploration vs exploitation dilemma, the \acrshort{A2C} algorithm uses boltzmann exploration as defined in Section \ref{boltz}.
+% TODO: explain stochastic exploration
+
+\pagebreak
+
+\begin{algorithm}
+\caption{Advantage actor-critic - pseudocode for each actor-learner thread.} \label{algorithm:A2C}
+\emph{// Assume global shared parameter vectors $\theta$ and $\theta_v$ and global shared counter T = 0}
+
+\emph{// Assume thread-specific parameter vectors $\theta'$ and $\theta'_v$}
+
+\textbf{repeat}
+
+\qquad Reset gradients: $d\theta \leftarrow 0$ and $d\theta_v \leftarrow 0$
+
+\qquad Synchronize thread-specific parameters: $\theta' = \theta$ and $\theta'_v = \theta_v$
+
+\qquad $t_{start} = t$
+
+\qquad Get state $s_t$
+
+\qquad \textbf{repeat}
+
+\qquad \qquad Perform $a_t$ according to policy $\pi(a_t | s_t; \theta')$
+
+\qquad \qquad Receive reward $r_t$ and new state $s_{t+1}$
+
+\qquad \qquad $t \leftarrow t + 1$
+
+\qquad \qquad $T \leftarrow T + 1$
+
+\qquad \textbf{until} terminal $s_t$ \textbf{or} $t-t_{start} == t_{max}$
+
+\[
+R = \begin{cases}
+  0  & \text{for terminal $s_t$}\\
+  V(s_t, \theta'_v) & \text{for non-terminal $s_t$// Bootstrap from last state}
+\end{cases}
+\]
+
+\qquad \textbf{for} $i \in {t-1, ..., t_{start}}$ \textbf{do}
+
+\qquad \qquad $R \leftarrow r_i + \gamma R$
+
+\qquad \qquad Accumulate gradients wrt $\theta': d\theta \leftarrow d\theta + \nabla_{\theta'} log_\pi(a_i | s_i; \theta')(R-V(s_i; \theta'_v))$
+
+\qquad \qquad Accumulate gradients wrt $\theta'_v: d\theta_v \leftarrow d\theta_v + d(R - V(s_i; \theta'_v))^2 / d\theta'_v$
+
+\qquad \textbf{end for}
+
+\qquad Perform synchronous update of $\theta$ using $d\theta$ and of $\theta_v$ using $d\theta_v$.
+
+\textbf{until} $T > T_{max}$
+
+
+\end{algorithm}
+
+As a function approximator for $V(s_t | \theta_v)$ and $\pi(a_t | s_t; \theta)$ a single neural network with two dense hidden layers was used. The hidden layers consist of 256 neurons each using the $tanh$ activation function. 
+
+The input layer of this model consists of the flattened state vector, $S$. Since the state vector is a vector of length $N$, for the number of tasks and each task is described by a 5 variable vector, $R_n = [B_n, B_d, D_n, I_n^t, I_n^e]$, the total length of the input vector is $5 \times N$. 
+
+The output of the model consists of two parts. First a single linear output representing the value function, $V(s_t | \theta_v)$. Secondly a softmax output for each action dimension with one entry per action, representing the probability of selecting the action, $\pi(a_t | s_t; \theta)$. 
+
+Since the agent must decide for each task ($N$), between local computation or offloading to one of the MEC servers ($M$), there are $N$ softmax functions with $M+1$ entries each, representing the possible actions. A diagram of the model is shown in Figure \ref{fig:model}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.8]{images/model_arch.png}
+  \caption{Model architecture}
+  \label{fig:model}
+\end{figure}
 
 \section{Methods and tools}
 
-\noindent In order to implement a network manager capable of dealing with the proposed system two main challenges need to be addressed: 1) the implementation of the \acrshort{DRL} algorithms; 2) the implementation of the proposed system simulator. The programming language that will be used to implement all algorithms and the simulator is Python. The reason behind this decision is that given its popularity as the second most used programming language overall \cite{pythonpop} and the most used in the machine learning context \cite{pythonmachine}, most of all popular \acrshort{DRL} tools are written in Python.
+\noindent In order to implement a network manager capable of dealing with the proposed system two main challenges needed to be addressed: 1) the implementation of the \acrshort{DRL} algorithms; 2) the implementation of the proposed system simulator. The programming language that was used to implement all algorithms and the simulator is Python. The reason behind this decision is that given its popularity as the second most used programming language overall \cite{pythonpop} and the most used in the machine learning context \cite{pythonmachine}, most of all popular \acrshort{DRL} tools are written in Python.
 
-As for the implementation of the \acrshort{DRL} algorithms two main tools were considered, Tensorflow 2.0 \cite{tensorflow} with the Keras API layer and Pytorch \cite{pytorch}. Due to the higher popularity of Tensorflow in the reinforcement learning context it was chosen as the neural network library used to write all DRL algorithms.
+As for the implementation of the \acrshort{DRL} algorithms two main tools were considered, Tensorflow 2.0 \cite{tensorflow} with the Keras API layer and Pytorch \cite{pytorch}. Due to the higher popularity of Tensorflow in the reinforcement learning context it was chosen as the neural network library used to write all DRL algorithms. To help with the distributed nature of some of the \acrshort{RL} algorithms the open-source library RLlib \cite{rllib} was used.
 
 The second major challenge is the implementation of the simulator. OpenAI Gym was introduced in \cite{opengym} in order to standardize reinforcement learning environments and benchmarks. Due to its easy integration with Keras demonstrated in \cite{kerasrl} and \cite{kerasrl2} it was chosen as the tool for implementing the simulation environment of the proposed system.
