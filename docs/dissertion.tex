@@ -110,6 +110,14 @@
 \usepackage{amsmath}
 \usepackage{optidef}
 \usepackage{algorithm}
+\usepackage{afterpage}
+\newcommand\myemptypage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+    }
+
 \begin{document}
 
 \pagenumbering{gobble}% Remove page numbers (and reset to 1)
@@ -122,6 +130,13 @@
 
 \setcounter{page}{1} \pagenumbering{roman}
 
+\myemptypage
+\input{chapters/declaration}
+\clearpage
+\myemptypage
+\input{chapters/declaracao}
+\clearpage
+\myemptypage
 \input{chapters/abstract}
 \clearpage
 \input{chapters/resumo}
