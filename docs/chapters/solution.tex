@@ -170,7 +170,7 @@ The optimization function can then be defined with the objective of finding the 
 \end{mini*}
 
 
-\subsection{Solution}
+\subsection{Solution} \label{solution}
 \noindent Given the complex nature of the proposed problem and the lack of perfect knowledge of network conditions this thesis proposes to use a model-free \acrshort{DRL} agent to manage the network. This means that the network manager does not have access to the transition probability, $P(s_{t+1}|s_t, a_t)$, nor the reward function $R(s, a)$ and must learn them by experimenting on the environment.
 
 To do this the problem is formulated as an \acrshort{MDP}, $<S, A, P, R>$:

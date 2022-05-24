@@ -41,7 +41,10 @@
 \contentsline {section}{\numberline {3.2}Methods and tools}{27}{section.3.2}%
 \contentsline {chapter}{\numberline {4}Results}{28}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Baselines}{28}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{30}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusions}{30}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Future Work}{31}{section.5.2}%
-\contentsline {chapter}{Bibliography}{31}{figure.5.1}%
+\contentsline {section}{\numberline {4.2}Simple test}{28}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Scalability and Data Efficiency}{30}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Robustness and Stability}{30}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusions}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Future Work}{32}{section.5.2}%
+\contentsline {chapter}{Bibliography}{32}{figure.5.1}%

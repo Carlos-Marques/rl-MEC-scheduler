@@ -16,21 +16,24 @@
     \item Full nearest \acrshort{MEC}: all \acrshort{UE} tasks are offloaded to the nearest \acrshort{MEC} server according to Equation (\ref{distance_nm}). This represents the case of offloading to the nearest node without regarding their computation constraints and other offloading decisions.
 \end{itemize}
 
-To put these baselines and the simulator to the test, a simple test case was devised. In this test, there are five \acrshort{UE}s and five \acrshort{MEC} servers. The UEs and MEC servers were randomly distributed in a 2D plane with $x \in [0, 200]$ and $y \in [0, 200]$, resulting in the distribution seen in Figure \ref{example_layout}.
+The plan is to create several system configurations of increasing complexity. The baseline algorithms will be used in order to benchmark the quality of trained agents. It is expected that the proposed network manager will surpass their performance in all situations by making intelligent decisions taking into account computation, battery, delay and communication constraints ignored by the baselines.
 
-\begin{figure}[h]
+\section{Simple test}
+
+To put these baselines, the network manager and the simulator to the test, a simple test case was devised. In this test, there are five \acrshort{UE}s and five \acrshort{MEC} servers. The UEs and MEC servers were randomly distributed in a 2D plane with $x \in [0, 200]$ and $y \in [0, 200]$, resulting in the distribution seen in Figure \ref{example_layout}.
+
+\begin{figure}[H]
   \centering
   \includegraphics[width=200px]{images/example_layout.png}
   \caption{Example layout for the simple test}  \label{example_layout}
 \end{figure}
 
-For simplicity all \acrshort{UE}s and \acrshort{MEC} servers are considered to have the same specifications. The system hyper-parameters were set according to the values present in Table \ref{hyperparams}. In order to test this configuration the task parameters, $B_n$, $B_d$ and $D_n$ were sampled from uniform distributions between ($300$, $500$) Kbits, ($10$, $15$) Kbits and ($900$, $1100$) Megacyles respectivly. Each algorithm ran for 100 iterations and an average cost of offloading decisions is shown in Table \ref{resultstest1}.
-
+For simplicity all \acrshort{UE}s and \acrshort{MEC} servers are considered to have the same specifications. The system hyper-parameters were set according to the values present in Table \ref{hyperparams}. In order to test this configuration the task parameters, $B_n$, $B_d$ and $D_n$ were sampled from uniform distributions between ($300$, $500$) Kbits, ($10$, $15$) Kbits and ($900$, $1100$) Megacyles respectivly. 
 
 % Please add the following required packages to your document preamble:
 % \usepackage[normalem]{ulem}
 % \useunder{\uline}{\ul}{}
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|l|}
 \hline
@@ -47,16 +50,23 @@ $N_0$&$5\times10^{-5}$&$F_m$&$5\times10^{9}$\\ \hline
 \caption{System hyper-parameters}\label{hyperparams}
 \end{table}
 
-\begin{table}[h]
+Each algorithm ran for 100 iterations and an average per episode of offloading decisions is shown in Table \ref{resultstest1}.
+
+\begin{table}[H]
 \centering
 \begin{tabular}{|l|l|}
 \hline
-Algorithm        & Average Cost ($C_{all})$ \\ \hline
-Full local       & 13.768\\
-Random Offload   & 11.493\\
-Full nearest MEC & 1.035\\ \hline
+Algorithm        & Average Reward ($R$) \\ \hline
+Full local       & -49.47\\
+Random Offload   & -9.57\\
+Full nearest MEC & -1.39\\ 
+Network Manager (A2C) & -1.17\\ \hline
+Improvement & 15.83 \%\\ \hline
 \end{tabular}
-\caption{Average Cost ($C_{all}$) over 100 iterations} \label{resultstest1}
+\caption{Average Reward ($C_{all}$) over 100 iterations} \label{resultstest1}
 \end{table}
 
-The plan is to create several system configurations of increasing complexity. The baseline algorithms will be used in order to benchmark the quality of trained agents. It is expected that the proposed network manager will surpass their performance in all situations by making intelligent decisions taking into account computation, battery, delay and communication constraints ignored by the baselines.
+As expected, the network manager algorithm outperforms the other algorithms.
+\section{Scalability and Data Efficiency}
+
+\section{Robustness and Stability}
