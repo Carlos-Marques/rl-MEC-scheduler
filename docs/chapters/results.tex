@@ -7,7 +7,7 @@
 % 3 - Show impact of worst case scenario reward
 % Show learning and performance as increasing max weight
 
-\section{Baselines}
+\section{Baselines} \label{baselines}
 \noindent In order to benchmark the various \acrshort{DRL} algorithms and test the implemented simulator, several baseline algorithms were developed:
 
 \begin{itemize}
@@ -18,13 +18,13 @@
 
 The plan is to create several system configurations of increasing complexity. The baseline algorithms will be used in order to benchmark the quality of trained agents. It is expected that the proposed network manager will surpass their performance in all situations by making intelligent decisions taking into account computation, battery, delay and communication constraints ignored by the baselines.
 
-\section{Simple test}
+\section{Simple test} \label{simple_test}
 
 To put these baselines, the agent and the simulator to the test, a simple test case was devised. In this test, there are five \acrshort{UE}s and five \acrshort{MEC} servers. The UEs and MEC servers were randomly distributed in a 2D plane with $x \in [0, 200]$ and $y \in [0, 200]$, resulting in the distribution seen in Figure \ref{example_layout}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=200px]{images/example_layout.png}
+  \includegraphics[width=250px]{images/example_layout.png}
   \caption{Example layout for the simple test}  \label{example_layout}
 \end{figure}
 
@@ -45,12 +45,26 @@ $h_ul$&$100$& $P_m$&$200$\\
 $h_dl$&$100$& $P_n$& $500\times10^{-3}$\\
 $g_ul$&$1$&$P_n^i$&$100\times10^{-3}$\\
 $g_dl$&$1$&$P_n^d$&$200\times10^{-3}$\\
-$N_0$&$5\times10^{-5}$&$F_m$&$5\times10^{9}$\\ \hline
+$N_0$&$5\times10^{-5}$&$F_m$&$5\times10^{9}$\\
+$W_{mean}$&$1$&$W_{max}$&$0$\\ \hline
 \end{tabular}
 \caption{System hyper-parameters}\label{hyperparams}
 \end{table}
 
-The agent described in Section \ref{solution} was trained in this simple test, with the following hyper-parameters:
+The agent described in Section \ref{solution} was trained with the following hyper-parameters:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Variable & Value \\ \hline
+episode length&$10$\\
+learning rate, $\alpha$&$0.0001$\\
+discount factor, $\gamma$&$0.99$\\
+batch size&$200$\\ \hline
+\end{tabular}
+\caption{Training hyper-parameters}\label{training_hyperparams}
+\end{table}
 
 Each algorithm ran for 100 episodes and an average per episode of offloading decisions is shown in Table \ref{resultstest1}.
 
@@ -59,10 +73,10 @@ Each algorithm ran for 100 episodes and an average per episode of offloading dec
 \begin{tabular}{|l|l|l|}
 \hline
 Algorithm        & Average Reward ($R$) & Reduction\\ \hline
-Full local       & -49.47 & 97.63\%\\
-Random Offload   & -9.57 & 87.77\%\\
-Full nearest MEC & -1.39 & 15.83\%\\ 
-Agent (A2C) & -1.17 & -\\ \hline
+Full local       & -49.47 & 96.65\%\\
+Random Offload   & -9.68 & 82.89\%\\
+Full nearest MEC & -2.18 & 24.06\%\\ 
+Agent (A2C) & -1.66 & -\\ \hline
 \end{tabular}
 \caption{Average Reward ($R$) over 100 iterations} \label{resultstest1}
 \end{table}
@@ -77,9 +91,9 @@ As expected the proposed agent outperformed the baselines in all situations, whi
   \caption{Agent reward while training}  \label{5_5_training}
 \end{figure}
 
-As shown in Figure \ref{5_5_training}, the agent starts with an equivelent reward to the Random Offload, which is expected since the agent has not yet learned the enviroment. As the agent interacts with the enviroment making offloading decisions (actions), it recieves state transitions and rewards. This allows it to quickly learn the system and the reward increases rapidly in the first iterations. After about 0.5M steps in the enviroment, the agent surpasses the best offloading baseline, Full nearest MEC. As expected, the reward starts to stabilize as the agent learns the final details of the system increasing slightly the final performance.
+As shown in Figure \ref{5_5_training}, the agent starts with an equivelent reward to the Random Offload, which is expected since the agent has not yet learned the enviroment. As the agent interacts with the enviroment making offloading decisions (actions), it recieves state transitions and rewards. This allows it to quickly learn the system and the reward increases rapidly in the first iterations. After about 55K steps in the enviroment, the agent surpasses the best offloading baseline, Full nearest MEC. As expected, the reward starts to stabilize as the agent learns the final details of the system increasing slightly the final performance.
 
-\section{Scalability and Data Efficiency}
+\section{Scalability and Data Efficiency} \label{scalability_data}
 
 In this section we explore the scalability and data efficiency of our agent. Scalability in this context can be defined as the ability of the agent to learn and outperform the baselines in higher complexity problems. 
 
@@ -116,10 +130,10 @@ Each algorithm ran for 100 episodes and an average per episode of offloading dec
 \begin{tabular}{|l|l|l|}
 \hline
 Algorithm        & Average Reward ($R$) & Reduction\\ \hline
-Full local       & -49.46 & 94.46\%\\
-Random Offload   & -11.76 & 76.70\%\\
-Full nearest MEC & -3.37 & 18.69\%\\ 
-Agent (A2C) & -2.74 & -\\ \hline
+Full local       & -49.50 & 94.40\%\\
+Random Offload   & -10.32 & 73.14\%\\
+Full nearest MEC & -3.56 & 22.17\%\\ 
+Agent (A2C) & -2.77 & -\\ \hline
 \end{tabular}
 \caption{Average Reward ($R$) over 100 episodes with 10 \acrshort{UE}s} \label{results_5_10}
 \end{table}
@@ -129,10 +143,10 @@ Agent (A2C) & -2.74 & -\\ \hline
 \begin{tabular}{|l|l|l|}
 \hline
 Algorithm        & Average Reward ($R$) & Reduction\\ \hline
-Full local       & -49.48 & 90.40\%\\
-Random Offload   & -11.52 & 58.77\%\\
-Full nearest MEC & -5.45 & 12.84\%\\ 
-Agent (A2C) & -4.75 & -\\ \hline
+Full local       & -49.49 & 90.42\%\\
+Random Offload   & -11.67 & 59.36\%\\
+Full nearest MEC & -7.23 & 34.38\%\\ 
+Agent (A2C) & -4.74 & -\\ \hline
 \end{tabular}
 \caption{Average Reward ($R$) over 100 episodes with 20 \acrshort{UE}s} \label{results_5_20}
 \end{table}
@@ -146,23 +160,27 @@ These results demonstrate that the agent scales with the complexity of the syste
 In order to study the data efficiency of the agent, the agent's performance while training must be analysed.
 
 
+\begin{minipage}{0.5\textwidth}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{images/5_10_training.png}
-  \caption{Agent reward while training with 10 \acrshort{UE}s}  \label{5_10_training}
+  \includegraphics[width=250px]{images/5_10_training.png}
+  \caption{Training with 10 \acrshort{UE}s}  \label{5_10_training}
 \end{figure}
-
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{images/5_20_training.png}
-  \caption{Agent reward while training with 20 \acrshort{UE}s}  \label{5_20_training}
+  \includegraphics[width=250px]{images/5_20_training.png}
+  \caption{Training with 20 \acrshort{UE}s}  \label{5_20_training}
 \end{figure}
+\end{minipage}
 
-The same trend as the simple test can be observed with the two new tests. The agents starts with an equivelent reward to the Random Offload, then it quickly learns the system and the reward increases rapidly in the first iterations. After about 60K steps in the enviroment with 10 \acrshort{UE}s and about 100K steps in the enviroment with 20 \acrshort{UE}s, the agent surpasses the best offloading baseline, Full nearest MEC. As expected, the reward starts to stabilize as the agent learns the final details of the system increasing slightly the final performance.
+\hfill \break
+The same trend as the simple test can be observed with the two new tests. The agents starts with an equivelent reward to the Random Offload, then it quickly learns the system and the reward increases rapidly in the first iterations. After about 55K steps in both enviroments, the agent surpasses the best offloading baseline, Full nearest MEC. As expected, the reward starts to stabilize as the agent learns the final details of the system increasing slightly the final performance.
 
-This confirms that the agent is data efficient, meaning that even when the system state space increases linearly and the action space increases exponentially, the agent is able to generalize concepts achieving a good performance without brute forcing a solution.
+This confirms that the agent is data efficient, meaning that even when the system state space increases linearly and the action space increases exponentially, the agent is able to generalize concepts achieving a good performance. It does this with almost the same number of interactions with the system proving it is finding a strategy without brute forcing a solution.
 
-\section{Robustness and Stability}
+\section{Robustness and Stability} \label{robustness_stability}
 
 In this section we explore the robustness and stability of our agent. Robustness in this context can be defined as the ability of the agent to learn and outperform the baselines in enviroments with different network conditions and heterogeneous computation capabilities. 
 
@@ -175,14 +193,15 @@ In order to test the system robustness to changing network conditions, a new tes
 \begin{tabular}{|l|l|l|l|}
 \hline
 Variable             & Value & Variable                & Value \\ \hline
-$B$&$10\times10^{6}$&$f_n^l$&$1\times10^{9}$\\
+$B$&$10\times10^{6}$&$f_n^l$&$0.75\times10^{9}$\\
 $n$&$10$&$I_n^t$&$0.25$\\
 $\beta$&$-4$&$I_n^e$&$0.75$\\
 $h_ul$&$50$& $P_m$&$100$\\
 $h_dl$&$50$& $P_n$& $250\times10^{-3}$\\
 $g_ul$&$0.5$&$P_n^i$&$50\times10^{-3}$\\
 $g_dl$&$0.5$&$P_n^d$&$100\times10^{-3}$\\
-$N_0$&$3\times10^{-5}$&$F_m$&$2.5\times10^{9}$\\ \hline
+$N_0$&$3\times10^{-5}$&$F_m$&$2.5\times10^{9}$\\
+$W_{mean}$&$1$&$W_{max}$&$0$\\ \hline
 \end{tabular}
 \caption{New system hyper-parameters}\label{new_hyperparams}
 \end{table}
@@ -202,10 +221,10 @@ Each algorithm ran for 100 episodes and an average per episode of offloading dec
 \begin{tabular}{|l|l|l|}
 \hline
 Algorithm        & Average Reward ($R$) & Reduction\\ \hline
-Full local       & -49.46 & 94.46\%\\
-Random Offload   & -11.76 & 76.70\%\\
-Full nearest MEC & -3.37 & 18.69\%\\ 
-Agent (A2C) & -2.74 & -\\ \hline
+Full local       & -31.31 & 84.92\%\\
+Random Offload   & -9.14 & 48.35\%\\
+Full nearest MEC & -6.81 & 30.62\%\\ 
+Agent (A2C) & -4.72 & -\\ \hline
 \end{tabular}
 \caption{Average Reward ($R$) over 100 episodes of robustness test} \label{robust_table}
 \end{table}
@@ -216,11 +235,11 @@ The same cost reduction trends can be observed in this new enviroment, showing t
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{images/5_5_training.png}
-  \caption{Agent reward while training}  \label{robust_training}
+  \includegraphics[width=\textwidth]{images/5_10_training_new.png}
+  \caption{Training in robustness test}  \label{robust_training}
 \end{figure}
 
-As shown in Figure \ref{robust_training}, the agent performance while training follows a similar trend to previous tests. The agents starts with an equivelent reward to the Random Offload, then it quickly learns the system and the reward increases rapidly in the first iterations. After about 60K steps, the agent surpasses the best offloading baseline, Full nearest MEC. As expected, the reward starts to stabilize as the agent learns the final details of the system increasing slightly the final performance.
+As shown in Figure \ref{robust_training}, the agent performance while training follows a similar trend to previous tests. The agents starts with an equivelent reward to the Random Offload, then it quickly learns the system and the reward increases rapidly in the first iterations. After about 55K steps, the agent surpasses the best offloading baseline, Full nearest MEC. As expected, the reward starts to stabilize as the agent learns the final details of the system increasing slightly the final performance.
 
 The other component of robustness that must be tested is robustness to heterogeneous computation capabilities of \acrshort{UE}s and \acrshort{MEC} servers. To test this a new test case is devised by resetting the system hyper-parameters to the values present in Table \ref{hyperparams} but instead of setting $f^l_n$ and $F_m$ to a fixed value, they are set to a value randomly sampled from a set of values, $f = \{0.25, 0.5, 0.75, 1\} \times 10^9$ and $F = \{2.5, 5, 7, 10\} \times 10^9$, respectively.
 
@@ -239,17 +258,17 @@ Each algorithm ran for 100 episodes and an average per episode of offloading dec
 \begin{tabular}{|l|l|l|}
 \hline
 Algorithm        & Average Reward ($R$) & Reduction\\ \hline
-Full local       & -49.46 & 94.46\%\\
-Random Offload   & -11.76 & 76.70\%\\
-Full nearest MEC & -3.37 & 18.69\%\\ 
-Agent (A2C) & -2.74 & -\\ \hline
+Full local       & -33.56 & 89.55\%\\
+Random Offload   & -8.80 & 60.16\%\\
+Full nearest MEC & -5.04 & 30.39\%\\ 
+Agent (A2C) & -3.51 & -\\ \hline
 \end{tabular}
-\caption{Average Reward ($R$) over 100 episodes of robustness test} \label{hetero_table}
+\caption{Average Reward ($R$) over 100 episodes of heterogeneous test} \label{hetero_table}
 \end{table}
 
 As expected the reward values of all the algorithms differ from previous tests since the system computation capabilities that are used to calculate the reward function are different.
 
-Although the ordering of the algorithm performances stays the same in this test case the cost reduction of our agent in comparison to the Full nearest MEC is much higher. This makes sense given that the Full nearest MEC only takes into account the distance of \acrshort{UE}s to \acrshort{MEC}s and not their computation capabilities. This in turn leads to worst load balancing when the computation capabilities of the \acrshort{UE}s and \acrshort{MEC}s are not all the same.
+Although the ordering of the algorithm performances stays the same in this test case the cost reduction of our agent in comparison to the Full nearest MEC is higher. With a reported 30.39\% improvement, while the equivelant homogeneous test had an improvement of 22.17\%. This makes sense given that the Full nearest MEC only takes into account the distance of \acrshort{UE}s to \acrshort{MEC}s and not their computation capabilities. This in turn leads to worst load balancing when the computation capabilities of the \acrshort{UE}s and \acrshort{MEC}s are not all the same.
 
 The agent on the other hand is able to learn the system's network topology and make offloading decisions that better load balance the required tasks. 
 
@@ -257,13 +276,13 @@ By analysing all training curves it is clear that the agent is stable and it's r
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{images/5_5_training.png}
-  \caption{Agent reward while training}  \label{hetero_training}
+  \includegraphics[width=\textwidth]{images/5_10_training_hetero.png}
+  \caption{Training in heterogeneous enviroment}  \label{hetero_training}
 \end{figure}
 
 As shown in Figure \ref{hetero_training}, the agent performance while training follows a similar trend to previous tests. The agents starts with an equivelent reward to the Random Offload, then it quickly learns the system and the reward increases rapidly in the first iterations. After about 50K steps, the agent surpasses the best offloading baseline, Full nearest MEC. As expected, the reward starts to stabilize as the agent learns the final details of the system increasing slightly the final performance.
 
-\section{Reward function weights}
+\section{Reward function weights} \label{reward_section}
 
 This section focuses on studying the effect of the cost function importance weights on the agent's overall and worst case performance.
 
@@ -281,14 +300,16 @@ Each combination of the cost function ran for 100 episodes and an average per ep
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-$\{W_{mean}, W_{max}\}$        & Average Reward ($R$) & Worst Reward & Reduction & Reduction\\ \hline
-$\{1, 0\}$       & -2.72 &  & &\\
-$\{0.75, 0.25\}$  &  &  & &\\
-$\{0.5, 0.5\}$ &  &  & &\\ 
-$\{0.25, 0.75\}$ &  &  & & \\ 
-$\{0, 1\}$ &  &  & & \\ \hline
+$\{W_{mean}, W_{max}\}$ & Overall Cost & Worst Cost & Difference \\ \hline
+$\{1, 0\}$       & 2.72 & 4.04 & 1.32\\
+$\{0.75, 0.25\}$  & 2.97 & 3.84  & 0.87\\
+$\{0.5, 0.5\}$ & 3.22 & 3.53 & 0.31\\ 
+$\{0.25, 0.75\}$ & 3.52 & 3.81 & 0.29\\ 
+$\{0, 1\}$ & 3.81 & 3.78 & -0.03 \\ \hline
 \end{tabular}
-\caption{Average Reward ($R$) over 100 episodes of robustness test} \label{weight_table}
+\caption{Agent performance over 100 episodes of weight tests} \label{weight_table}
 \end{table}
+
+As the weights shift from prioritizing overall performance to prioritizing worst case performance, the agent's overall cost increases while the worst case cost decreases. While the agent overperforms the best baseline with every weight distribution, it learns to make offloading decisions that prioritize the worst case performance at cost of overall system performance. With this in mind the process of picking the best weight distribution would involve trying to determine the maximum cost allowed per \acrshort{UE} and shifthing the weight distribution in favour of $W_{max}$, trying to maximize $W_{mean}$ while still meeting the maximum allowed cost.

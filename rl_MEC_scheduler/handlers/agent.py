@@ -1,3 +1,5 @@
+import os
+
 import ray
 from ray.rllib.agents import a3c
 from ray.tune.registry import register_env
@@ -6,12 +8,12 @@ from rl_MEC_scheduler.handlers.env_handler import load_envs
 
 ray.shutdown()
 
-n_MEC = 5
-n_UE = 10
-w_mean = 1
-w_max = 0
+n_MEC = int(os.environ["n_MEC"])
+n_UE = int(os.environ["n_UE"])
+w_mean = int(os.environ["w_mean"])
+w_max = int(os.environ["w_max"])
 
-identifier = f"{n_MEC}_{n_UE}_{w_mean}_{w_max}"
+identifier = f"{n_MEC}_{n_UE}_{w_mean}_{w_max}_heterogenous"
 
 env = load_envs(config_path="experiments/env_configs", config_filename=f"env_{identifier}_configs.json")[0]
 
