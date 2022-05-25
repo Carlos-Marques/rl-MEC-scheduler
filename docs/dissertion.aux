@@ -171,7 +171,9 @@
 \newlabel{idle_energy}{{3.9}{23}{System Model}{equation.3.1.9}{}}
 \newlabel{download_delay}{{3.10}{23}{System Model}{equation.3.1.10}{}}
 \newlabel{download_energy}{{3.11}{23}{System Model}{equation.3.1.11}{}}
+\newlabel{C_mean}{{3.17}{24}{System Model}{equation.3.1.17}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Problem formulation}{24}{subsection.3.1.2}\protected@file@percent }
+\newlabel{cost_function}{{3.19}{24}{Problem formulation}{equation.3.1.19}{}}
 \citation{a3c}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Solution}{25}{subsection.3.1.3}\protected@file@percent }
 \newlabel{solution}{{3.1.3}{25}{Solution}{subsection.3.1.3}{}}
@@ -197,22 +199,55 @@
 \newlabel{example_layout}{{4.1}{29}{Example layout for the simple test}{figure.4.1}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces System hyper-parameters}}{29}{table.4.1}\protected@file@percent }
 \newlabel{hyperparams}{{4.1}{29}{System hyper-parameters}{table.4.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Average Reward ($C_{all}$) over 100 iterations}}{29}{table.4.2}\protected@file@percent }
-\newlabel{resultstest1}{{4.2}{29}{Average Reward ($C_{all}$) over 100 iterations}{table.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Average Reward ($R$) over 100 iterations}}{29}{table.4.2}\protected@file@percent }
+\newlabel{resultstest1}{{4.2}{29}{Average Reward ($R$) over 100 iterations}{table.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Agent reward while training}}{30}{figure.4.2}\protected@file@percent }
+\newlabel{5_5_training}{{4.2}{30}{Agent reward while training}{figure.4.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}Scalability and Data Efficiency}{30}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Robustness and Stability}{30}{section.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Test with 10 \acrshort {UE}s}}{31}{figure.4.3}\protected@file@percent }
+\newlabel{5_10_layout}{{4.3}{31}{Test with 10 \acrshort {UE}s}{figure.4.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Test with 20 \acrshort {UE}s}}{31}{figure.4.4}\protected@file@percent }
+\newlabel{5_20_layout}{{4.4}{31}{Test with 20 \acrshort {UE}s}{figure.4.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Average Reward ($R$) over 100 episodes with 10 \acrshort {UE}s}}{32}{table.4.3}\protected@file@percent }
+\newlabel{results_5_10}{{4.3}{32}{Average Reward ($R$) over 100 episodes with 10 \acrshort {UE}s}{table.4.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Average Reward ($R$) over 100 episodes with 20 \acrshort {UE}s}}{32}{table.4.4}\protected@file@percent }
+\newlabel{results_5_20}{{4.4}{32}{Average Reward ($R$) over 100 episodes with 20 \acrshort {UE}s}{table.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Agent reward while training with 10 \acrshort {UE}s}}{33}{figure.4.5}\protected@file@percent }
+\newlabel{5_10_training}{{4.5}{33}{Agent reward while training with 10 \acrshort {UE}s}{figure.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Agent reward while training with 20 \acrshort {UE}s}}{33}{figure.4.6}\protected@file@percent }
+\newlabel{5_20_training}{{4.6}{33}{Agent reward while training with 20 \acrshort {UE}s}{figure.4.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Robustness and Stability}{34}{section.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces New system hyper-parameters}}{34}{table.4.5}\protected@file@percent }
+\newlabel{new_hyperparams}{{4.5}{34}{New system hyper-parameters}{table.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Robustness test layout}}{35}{figure.4.7}\protected@file@percent }
+\newlabel{robust_test}{{4.7}{35}{Robustness test layout}{figure.4.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Average Reward ($R$) over 100 episodes of robustness test}}{35}{table.4.6}\protected@file@percent }
+\newlabel{robust_table}{{4.6}{35}{Average Reward ($R$) over 100 episodes of robustness test}{table.4.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Agent reward while training}}{36}{figure.4.8}\protected@file@percent }
+\newlabel{robust_training}{{4.8}{36}{Agent reward while training}{figure.4.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Heterogeneous test layout}}{37}{figure.4.9}\protected@file@percent }
+\newlabel{hetero_test}{{4.9}{37}{Heterogeneous test layout}{figure.4.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Average Reward ($R$) over 100 episodes of robustness test}}{37}{table.4.7}\protected@file@percent }
+\newlabel{hetero_table}{{4.7}{37}{Average Reward ($R$) over 100 episodes of robustness test}{table.4.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Agent reward while training}}{38}{figure.4.10}\protected@file@percent }
+\newlabel{hetero_training}{{4.10}{38}{Agent reward while training}{figure.4.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Reward function weights}{38}{section.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Weight test layout}}{39}{figure.4.11}\protected@file@percent }
+\newlabel{weight_test}{{4.11}{39}{Weight test layout}{figure.4.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.8}{\ignorespaces Average Reward ($R$) over 100 episodes of robustness test}}{39}{table.4.8}\protected@file@percent }
+\newlabel{weight_table}{{4.8}{39}{Average Reward ($R$) over 100 episodes of robustness test}{table.4.8}{}}
 \citation{NUE1mec}
 \citation{taskclass1}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{31}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{40}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Conclusions}{31}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Conclusions}{40}{section.5.1}\protected@file@percent }
 \bibstyle{ieeetr}
 \bibdata{bibliography/references}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Future Work}{32}{section.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Gantt chart of work plan}}{32}{figure.5.1}\protected@file@percent }
-\newlabel{ganttchart}{{5.1}{32}{Gantt chart of work plan}{figure.5.1}{}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{32}{figure.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Future Work}{41}{section.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Gantt chart of work plan}}{41}{figure.5.1}\protected@file@percent }
+\newlabel{ganttchart}{{5.1}{41}{Gantt chart of work plan}{figure.5.1}{}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{41}{figure.5.1}\protected@file@percent }
 \bibcite{SHAKARAMI2020107496}{1}
 \bibcite{MECspec}{2}
 \bibcite{NUE1mec}{3}
@@ -252,4 +287,4 @@
 \bibcite{opengym}{37}
 \bibcite{kerasrl}{38}
 \bibcite{kerasrl2}{39}
-\gdef \@abspage@last{48}
+\gdef \@abspage@last{57}

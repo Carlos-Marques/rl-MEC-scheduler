@@ -6,7 +6,14 @@ from rl_MEC_scheduler.handlers.env_handler import load_envs
 
 ray.shutdown()
 
-env = load_envs(config_path="experiments/env_configs", config_filename="env_5_100_configs.json")[0]
+n_MEC = 5
+n_UE = 10
+w_mean = 1
+w_max = 0
+
+identifier = f"{n_MEC}_{n_UE}_{w_mean}_{w_max}"
+
+env = load_envs(config_path="experiments/env_configs", config_filename=f"env_{identifier}_configs.json")[0]
 
 register_env(
     "NetWorkEnv-v0",
@@ -31,7 +38,7 @@ trainer = a3c.A2CTrainer(config=config)
 
 for _ in range(300):
     result = trainer.train()
-    chkpt_file = trainer.save("results/a2c_checkpoint")
+    chkpt_file = trainer.save(f"results/a2c_checkpoint_{identifier}")
     print(
         result["episode_reward_min"],
         result["episode_reward_mean"],

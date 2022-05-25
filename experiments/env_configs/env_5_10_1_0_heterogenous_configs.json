@@ -2,7 +2,7 @@
     {
         "MECs": [
             {
-                "frequency": 5000000000.0,
+                "frequency": 2500000000.0,
                 "location": [
                     4.924669578196084,
                     3.737890853130943
@@ -18,7 +18,7 @@
                 "transmission_power": 200
             },
             {
-                "frequency": 5000000000.0,
+                "frequency": 2500000000.0,
                 "location": [
                     97.61007245841145,
                     2.3661745405957335
@@ -26,7 +26,7 @@
                 "transmission_power": 200
             },
             {
-                "frequency": 5000000000.0,
+                "frequency": 2500000000.0,
                 "location": [
                     128.2437319590776,
                     23.92615362140731
@@ -34,7 +34,7 @@
                 "transmission_power": 200
             },
             {
-                "frequency": 5000000000.0,
+                "frequency": 7000000000.0,
                 "location": [
                     61.31747565441164,
                     30.341100628703387
@@ -45,7 +45,7 @@
         "UEs": [
             {
                 "download_power": 0.2,
-                "frequency": 1000000000.0,
+                "frequency": 250000000.0,
                 "idle_power": 0.1,
                 "location": [
                     28.616266963317738,
@@ -55,7 +55,7 @@
             },
             {
                 "download_power": 0.2,
-                "frequency": 1000000000.0,
+                "frequency": 750000000.0,
                 "idle_power": 0.1,
                 "location": [
                     56.34898910917463,
@@ -65,7 +65,7 @@
             },
             {
                 "download_power": 0.2,
-                "frequency": 1000000000.0,
+                "frequency": 750000000.0,
                 "idle_power": 0.1,
                 "location": [
                     135.8697989615878,
@@ -75,7 +75,7 @@
             },
             {
                 "download_power": 0.2,
-                "frequency": 1000000000.0,
+                "frequency": 750000000.0,
                 "idle_power": 0.1,
                 "location": [
                     168.47183768040745,
@@ -85,7 +85,7 @@
             },
             {
                 "download_power": 0.2,
-                "frequency": 1000000000.0,
+                "frequency": 250000000.0,
                 "idle_power": 0.1,
                 "location": [
                     118.35079608436187,
@@ -125,7 +125,7 @@
             },
             {
                 "download_power": 0.2,
-                "frequency": 1000000000.0,
+                "frequency": 750000000.0,
                 "idle_power": 0.1,
                 "location": [
                     16.715789092499644,
@@ -135,7 +135,7 @@
             },
             {
                 "download_power": 0.2,
-                "frequency": 1000000000.0,
+                "frequency": 500000000.0,
                 "idle_power": 0.1,
                 "location": [
                     31.416006558346933,

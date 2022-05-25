@@ -39,7 +39,7 @@
 		\setentrycounter[]{page}\glsnumberformat{21}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{25}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{27\delimN 28}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{31\delimN 32}}}%
+		\setentrycounter[]{page}\glsnumberformat{40\delimN 41}}}%
 \glossentry{DRQN}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{20}}}%
 \glossentry{Dueling DQN}{\glossaryentrynumbers{\relax 
@@ -80,8 +80,10 @@
 		\setentrycounter[]{page}\glsnumberformat{1\delimR 5}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{17\delimN 18}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{20\delimR 24}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{28\delimN 29}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{31}}}%
+		\setentrycounter[]{page}\glsnumberformat{28\delimR 32}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{34}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{36\delimR 38}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{40}}}%
 \glossentry{MMC}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{4\delimN 5}}}%
 \glossentry{MobiScud}{\glossaryentrynumbers{\relax 
@@ -128,8 +130,9 @@
 		\setentrycounter[]{page}\glsnumberformat{1\delimN 2}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{4\delimR 6}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{17\delimR 24}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{28\delimN 29}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{31}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{28\delimR 34}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{36\delimR 38}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{40}}}\glsgroupskip
 \glsgroupheading{V}\relax \glsresetentrylist %
 \glossentry{VMs}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{4}}}%

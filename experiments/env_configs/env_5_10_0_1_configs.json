@@ -144,8 +144,8 @@
                 "transmission_power": 0.5
             }
         ],
-        "max_weight": 0,
-        "mean_weight": 1,
+        "max_weight": 1,
+        "mean_weight": 0,
         "network": {
             "bandwidth": 10000000000.0,
             "download_bit_error_rate": 1,
