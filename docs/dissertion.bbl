@@ -12,10 +12,9 @@ M.~Patel, B.~Naughton, C.~Chan, N.~Sprecher, S.~Abeta, A.~Neal, {\em et~al.},
   paper, mobile-edge computing (MEC) industry initiative}, vol.~29,
   pp.~854--864, 2014.
 
-\bibitem{NUE1mec}
-J.~Li, H.~Gao, T.~Lv, and Y.~Lu, ``Deep reinforcement learning based
-  computation offloading and resource allocation for mec,'' in {\em 2018 IEEE
-  Wireless Communications and Networking Conference (WCNC)}, pp.~1--6, 2018.
+\bibitem{opengym}
+G.~Brockman, V.~Cheung, L.~Pettersson, J.~Schneider, J.~Schulman, J.~Tang, and
+  W.~Zaremba, ``Openai gym,'' {\em CoRR}, vol.~abs/1606.01540, 2016.
 
 \bibitem{cloudlet}
 M.~Satyanarayanan, P.~Bahl, R.~Caceres, and N.~Davies, ``The case for vm-based
@@ -156,6 +155,11 @@ L.~P. de~Matos Morgado~Ferreira, ``Fog computing task offloading optimization
   based on deep reinforcement learning,'' Master's thesis, Instituto Superior
   Técnico, 2021.
 
+\bibitem{NUE1mec}
+J.~Li, H.~Gao, T.~Lv, and Y.~Lu, ``Deep reinforcement learning based
+  computation offloading and resource allocation for mec,'' in {\em 2018 IEEE
+  Wireless Communications and Networking Conference (WCNC)}, pp.~1--6, 2018.
+
 \bibitem{energycons}
 Y.~Wen, W.~Zhang, and H.~Luo, ``Energy-optimal mobile application execution:
   Taming resource-poor mobile devices with cloud clones,'' in {\em 2012
@@ -195,10 +199,6 @@ E.~Liang, R.~Liaw, R.~Nishihara, P.~Moritz, R.~Fox, K.~Goldberg, J.~E.
   Gonzalez, M.~I. Jordan, and I.~Stoica, ``{RLlib}: Abstractions for
   distributed reinforcement learning,'' in {\em International Conference on
   Machine Learning ({ICML})}, 2018.
-
-\bibitem{opengym}
-G.~Brockman, V.~Cheung, L.~Pettersson, J.~Schneider, J.~Schulman, J.~Tang, and
-  W.~Zaremba, ``Openai gym,'' {\em CoRR}, vol.~abs/1606.01540, 2016.
 
 \bibitem{kerasrl}
 M.~Plappert, ``Deep reinforcement learning for keras.'' Online, 2016.
