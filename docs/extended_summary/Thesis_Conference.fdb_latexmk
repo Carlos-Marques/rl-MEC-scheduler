@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1654003888 "/Users/carlosmarques/Projects/rl-MEC-scheduler/docs/extended_summary/Thesis_Conference.tex" "Thesis_Conference.pdf" "Thesis_Conference" 1654003890
-  "/Users/carlosmarques/Projects/rl-MEC-scheduler/docs/extended_summary/Thesis_Conference.tex" 1654003887 50485 dcdbf2e76646d2d0c7d38a558c087133 ""
+["pdflatex"] 1654004222 "/Users/carlosmarques/Projects/rl-MEC-scheduler/docs/extended_summary/Thesis_Conference.tex" "Thesis_Conference.pdf" "Thesis_Conference" 1654004224
+  "/Users/carlosmarques/Projects/rl-MEC-scheduler/docs/extended_summary/Thesis_Conference.tex" 1654004220 50120 c2a4100d1e98ff1a4bda97f4dbab72e1 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -166,8 +166,8 @@
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "Acronyms.tex" 1653900609 4097 a8297e4b19062c987d009e993adeef08 ""
   "IEEEtran.cls" 1653900609 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "Thesis_Conference.aux" 1654003890 8072 83b67c1112cd404ad94ec8e0d42a0738 "pdflatex"
-  "Thesis_Conference.tex" 1654003887 50485 dcdbf2e76646d2d0c7d38a558c087133 ""
+  "Thesis_Conference.aux" 1654004224 8072 4da25b89391427a29cabd72921157738 "pdflatex"
+  "Thesis_Conference.tex" 1654004220 50120 c2a4100d1e98ff1a4bda97f4dbab72e1 ""
   "images/5_10_layout.png" 1653900609 46517 0a1dae62c158d411761d23cb8833f506 ""
   "images/5_10_training.png" 1653900609 79547 e43c449772ed4d3e0515a7bb4a4ebfb9 ""
   "images/5_10_training_hetero.png" 1653900609 76586 499a048ce24d0c9b445e60a47b329a93 ""
