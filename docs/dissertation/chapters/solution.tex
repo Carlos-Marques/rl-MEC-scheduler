@@ -252,9 +252,9 @@ As a function approximator for $V(s_t | \theta_v)$ and $\pi(a_t | s_t; \theta)$ 
 
 The input layer of this model consists of the flattened state vector, $S$. Since the state vector is a vector of length $N$, for the number of tasks and each task is described by a 5 variable vector, $R_n = [B_n, B_d, D_n, I_n^t, I_n^e]$, the total length of the input vector is $5 \times N$. 
 
-The output of the model consists of two parts. First a single linear output representing the value function, $V(s_t | \theta_v)$. Secondly a softmax output for each action dimension with one entry per action, representing the probability of selecting the action, $\pi(a_t | s_t; \theta)$. 
+The output of the model consists of two parts. First a single linear output representing the value function, $V(s_t | \theta_v)$. Secondly, a softmax output for each action dimension with one entry per action, representing the probability of selecting the action, $\pi(a_t | s_t; \theta)$. 
 
-Since the agent must decide for each task ($N$), between local computation or offloading to one of the MEC servers ($M$), there are $N$ softmax functions with $M+1$ entries each, representing the possible actions. A diagram of the model is shown in Figure \ref{fig:model}.
+Since the agent must decide for each task ($N$) between local computation or offloading to one of the MEC servers ($M$), there are $N$ softmax functions with $M+1$ entries each, representing the possible actions. A diagram of the model is shown in Figure \ref{fig:model}.
 
 \begin{figure}[H]
   \centering
@@ -265,8 +265,8 @@ Since the agent must decide for each task ($N$), between local computation or of
 
 \section{Methods and tools}
 
-\noindent In order to implement a network manager capable of dealing with the proposed system two main challenges needed to be addressed: 1) the implementation of the \acrshort{DRL} algorithms; 2) the implementation of the proposed system simulator. The programming language that was used to implement all algorithms and the simulator is Python. The reason behind this decision is that given its popularity as the second most used programming language overall \cite{pythonpop} and the most used in the machine learning context \cite{pythonmachine}, most of all popular \acrshort{DRL} tools are written in Python.
+\noindent In order to implement a network manager capable of dealing with the proposed system, two main challenges need to be addressed: 1) the implementation of the \acrshort{DRL} algorithms; 2) the implementation of the proposed system simulator. The programming language that was used to implement all algorithms and the simulator was Python. The reason behind this decision is that given its popularity as the second most used programming language overall \cite{pythonpop}, and the most used in the machine learning context \cite{pythonmachine}, most of all popular \acrshort{DRL} tools are written in Python.
 
-As for the implementation of the \acrshort{DRL} algorithms two main tools were considered, Tensorflow 2.0 \cite{tensorflow} with the Keras API layer and Pytorch \cite{pytorch}. Due to the higher popularity of Tensorflow in the reinforcement learning context it was chosen as the neural network library used to write all DRL algorithms. To help with the distributed nature of some of the \acrshort{RL} algorithms the open-source library RLlib \cite{rllib} was used.
+As for the implementation of the \acrshort{DRL} algorithms, two main tools were considered, Tensorflow 2.0 \cite{tensorflow} with the Keras API layer and Pytorch \cite{pytorch}. Due to the higher popularity of Tensorflow in the reinforcement learning context, it was chosen as the neural network library used to write all DRL algorithms. To help with the distributed nature of some of the \acrshort{RL} algorithms, the open-source library RLlib \cite{rllib} was used.
 
-The second major challenge is the implementation of the simulator. OpenAI Gym was introduced in \cite{opengym} in order to standardize reinforcement learning environments and benchmarks. Due to its easy integration with Keras demonstrated in \cite{kerasrl} and \cite{kerasrl2} it was chosen as the tool for implementing the simulation environment of the proposed system.
+The second major challenge is the implementation of the simulator. OpenAI Gym was introduced in \cite{opengym} in order to standardize reinforcement learning environments and benchmarks. Due to its easy integration with Keras demonstrated in \cite{kerasrl} and \cite{kerasrl2}, it was chosen as the tool for implementing the simulation environment of the proposed system.

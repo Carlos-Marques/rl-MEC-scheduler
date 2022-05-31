@@ -302,7 +302,7 @@ The priorities of the system can be adjusted to satisfy both overall system perf
 The optimization function can then be defined with the objective of finding the offloading decision vector $\mathcal{A} = [\alpha_1, \alpha_2, ..., \alpha_n]$ that minimizes the weighted average of the mean and max cost of the system at each iteration.
 
 \subsection{Solution} \label{solution}
-\noindent Given the complex nature of the proposed problem and the lack of perfect knowledge of network conditions this thesis proposes to use a model-free \acrshort{DRL} agent to manage the network. This means that the network manager does not have access to the transition probability, $P(s_{t+1}|s_t, a_t)$, nor the reward function $R(s, a)$ and must learn them by experimenting on the environment.
+\noindent Given the complex nature of the proposed problem and the lack of perfect knowledge of network conditions, this thesis proposes to use a model-free \acrshort{DRL} agent to manage the network. This means that the network manager does not have access to the transition probability, $P(s_{t+1}|s_t, a_t)$, nor the reward function $R(s, a)$ and must learn them by experimenting on the environment.
 
 To do this the problem is formulated as an \acrshort{MDP}, $<S, A, P, R>$:
 \begin{itemize}
@@ -320,9 +320,9 @@ As a function approximator for $V(s_t | \theta_v)$ and $\pi(a_t | s_t; \theta)$ 
 
 The input layer of this model consists of the flattened state vector, $S$. Since the state vector is a vector of length $N$, for the number of tasks and each task is described by a 5 variable vector, $R_n = [B_n, B_d, D_n, I_n^t, I_n^e]$, the total length of the input vector is $5 \times N$. 
 
-The output of the model consists of two parts. First a single linear output representing the value function, $V(s_t | \theta_v)$. Secondly a softmax output for each action dimension with one entry per action, representing the probability of selecting the action, $\pi(a_t | s_t; \theta)$. 
+The output of the model consists of two parts. First a single linear output representing the value function, $V(s_t | \theta_v)$. Secondly, a softmax output for each action dimension with one entry per action, representing the probability of selecting the action, $\pi(a_t | s_t; \theta)$. 
 
-Since the agent must decide for each task ($N$), between local computation or offloading to one of the MEC servers ($M$), there are $N$ softmax functions with $M+1$ entries each, representing the possible actions. A diagram of the model is shown in Figure \ref{fig:model}.
+Since the agent must decide for each task ($N$) between local computation or offloading to one of the MEC servers ($M$), there are $N$ softmax functions with $M+1$ entries each, representing the possible actions. A diagram of the model is shown in Figure \ref{fig:model}.
 
 \begin{figure}[H]
   \centering
@@ -333,7 +333,7 @@ Since the agent must decide for each task ($N$), between local computation or of
 
 \section{Results}
 \label{sec:results}
-The code for the simulator, baselines and agent, as well as environment configurations can be found in the following code repository: \hyperbf{https://github.com/Carlos-Marques/rl-MEC-scheduler}.
+The code for the simulator, baselines and agent, as well as environment configurations, can be found in the following code repository: \hyperbf{https://github.com/Carlos-Marques/rl-MEC-scheduler}.
 
 \subsection{Baselines} \label{baselines}
 \noindent In order to benchmark the various \acrshort{DRL} algorithms and test the implemented simulator, several baseline algorithms were developed:
@@ -341,14 +341,14 @@ The code for the simulator, baselines and agent, as well as environment configur
 \begin{itemize}
     \item Full Local: all \acrshort{UE}s execute their tasks locally, in terms of the decision vector $\mathcal{A}=[0_1, 0_2, ..., 0_N]$. This represents the case where the system has no offloading capabilities.
     \item Random Offload: where the offloading decision is completely random, each task is either executed locally or offloaded to one of the available \acrshort{MEC} servers randomly;
-    \item Full nearest \acrshort{MEC}: all \acrshort{UE} tasks are offloaded to the nearest \acrshort{MEC} server according. This represents the case of offloading to the nearest node without regarding their computation constraints and other offloading decisions. This baseline also requires knowledge of the network topology which the agent does not have.
+    \item Full nearest \acrshort{MEC}: all \acrshort{UE} tasks are offloaded to the nearest \acrshort{MEC} server according. This represents the case of offloading to the nearest node without regarding their computation constraints and other offloading decisions. This baseline also requires knowledge of the network topology, which the agent does not have.
 \end{itemize}
 
 The plan is to create several system configurations of increasing complexity. The baseline algorithms will be used in order to benchmark the quality of trained agents. It is expected that the proposed network manager will surpass their performance in all situations by making intelligent decisions taking into account computation, battery, delay and communication constraints, which are ignored by the baselines.
 
 \subsection{Simple test} \label{simple_test}
 
-To put these baselines, the agent and the simulator to the test, a simple test case was devised. In this test, there are five \acrshort{UE}s and five \acrshort{MEC} servers. The UEs and MEC servers were randomly distributed in a 2D plane with $x \in [0, 200]$ and $y \in [0, 200]$, resulting in the distribution seen in Figure \ref{example_layout}.
+In order to put these baselines, the agent and the simulator to the test, a simple test case was devised. In this test, there are five \acrshort{UE}s and five \acrshort{MEC} servers. The UEs and MEC servers were randomly distributed in a 2D plane with $x \in [0, 200]$ and $y \in [0, 200]$, resulting in the distribution seen in Figure \ref{example_layout}.
 
 \begin{figure}[H]
   \centering
@@ -356,7 +356,7 @@ To put these baselines, the agent and the simulator to the test, a simple test c
   \caption{Example layout for the simple test.}  \label{example_layout}
 \end{figure}
 
-For simplicity, all \acrshort{UE}s and \acrshort{MEC} servers are considered to have the same specifications. The system's hyper-parameters were set according to the values present in Table \ref{hyperparams}. In order to test this configuration, the task parameters, $B_n$, $B_d$ and $D_n$ were sampled from uniform distributions between ($300$, $500$) Kbits, ($10$, $15$) Kbits and ($900$, $1100$) Megacyles respectivly. 
+For simplicity, all \acrshort{UE}s and \acrshort{MEC} servers are considered to have the same specifications. The system's hyper-parameters were set according to the values present in Table \ref{hyperparams}. In order to test this configuration, the task parameters, $B_n$, $B_d$ and $D_n$ were sampled from uniform distributions between ($300$, $500$) Kbits, ($10$, $15$) Kbits and ($900$, $1100$) Megacyles, respectively. 
 
 % Please add the following required packages to your document preamble:
 % \usepackage[normalem]{ulem}
@@ -409,7 +409,7 @@ Agent (A2C) & -1.66 & -\\ \hline
 \caption{Results of simple test.} \label{resultstest1}
 \end{table}
 
-As expected, the Full Local baseline performed the worst given that it does not make use of the \acrshort{MEC} servers computing capabilities, leading to an increased cost due to increased energy consumption and delay of the tasks. The Random Offload baseline is the second worst, given that although it gains from offloding to \acrshort{MEC} servers, it does so without any consideration for the system's configuration. From the baselines, Full nearest MEC performed the best since it takes into consideration the distance between the \acrshort{UE} and the \acrshort{MEC} server but it comes with the disadvantage of not only requiring knowledge of the network topology (positions of \acrshort{UE}s and \acrshort{MEC}s) but also not taking into account anything else. 
+As expected, the Full Local baseline performed the worst given that it does not make use of the \acrshort{MEC} servers computing capabilities, leading to an increased cost due to increased energy consumption and delay of the tasks. The Random Offload baseline is the second worst, given that although it gains from offloading to \acrshort{MEC} servers, it does so without any consideration for the system's configuration. From the baselines, Full nearest MEC performed the best since it takes into consideration the distance between the \acrshort{UE} and the \acrshort{MEC} server. However, it comes with the disadvantage of not only requiring knowledge of the network topology (positions of \acrshort{UE}s and \acrshort{MEC}s) but also not taking into account anything else. 
 
 As expected, the proposed agent outperformed the baselines in all situations, which demonstrates that the agent is able to learn not only the topology of the network by trying out different offloading decisions but also make intelligent decisions based on computation, battery, delay and communication constraints ignored by the baselines.
 
@@ -419,11 +419,11 @@ As expected, the proposed agent outperformed the baselines in all situations, wh
   \caption{Agent reward while training.}  \label{5_5_training}
 \end{figure}
 
-As shown in Figure \ref{5_5_training}, the agent starts with an equivelent reward to the Random Offload, which is expected since the agent has not yet learned the environment. As the agent interacts with the environment making offloading decisions (actions), it recieves state transitions and rewards. This allows it to quickly learn the system and the reward increases rapidly in the first iterations. After about 55K steps in the environment, the agent surpasses the best offloading baseline, Full nearest MEC. As expected, the reward starts to stabilize as the agent learns the final details of the system increasing slightly the final performance.
+As shown in Figure \ref{5_5_training}, the agent starts with an equivalent reward to the Random Offload, which is expected since the agent has not yet learned the environment. As the agent interacts with the environment making offloading decisions (actions), it receives state transitions and rewards. This allows it to quickly learn the system and the reward increases rapidly in the first iterations. After about 55K steps in the environment, the agent surpasses the best offloading baseline, Full nearest MEC. As expected, the reward starts to stabilize as the agent learns the final details of the system increasing slightly the final performance.
 
 \subsection{Scalability and Data Efficiency} \label{scalability_data}
 
-In this section the scalability and data efficiency of our agent is explored. Scalability in this context can be defined as the ability of the agent to learn and outperform the baselines in higher complexity problems. 
+In this section, the scalability and data efficiency of our agent is explored. Scalability in this context can be defined as the ability of the agent to learn and outperform the baselines in higher complexity problems. 
 
 Data efficiency in this context can be defined as the ability of the agent to learn in as few possible steps as possible. While it is expected that the agent takes longer to learn in more complex problems, the complexity of the underlying policy should not grow linearly with the state and action spaces. The reason for this is that it is expected that the agent is able to generalize concepts instead of brute forcing a solution for each problem set.
 
@@ -496,13 +496,13 @@ In order to study the data efficiency of the agent, the agent's performance whil
 
 The same trend as the simple test can be observed with the two new tests in Figure \ref{5_10_training} and Figure \ref{5_20_training}.
 
-This confirms that the agent is data efficient, meaning that even when the system's state space increases linearly and the action space increases exponentially, the agent is able to generalize concepts achieving a good performance. It does this with almost the same number of interactions with the system proving it is finding a strategy without brute forcing a solution.
+This confirms that the agent is data efficient, meaning that even when the system's state space increases linearly and the action space increases exponentially, the agent is able to generalize concepts achieving a good performance. It does this with almost the same number of interactions with the system, proving it is finding a strategy without brute forcing a solution.
 
 \subsection{Robustness and Stability} \label{robustness_stability}
 
-In this section the robustness and stability of our agent is explored. Robustness in this context can be defined as the ability of the agent to learn and outperform the baselines in environments with different network conditions and heterogeneous computation capabilities. 
+In this section, the robustness and stability of our agent is explored. Robustness in this context can be defined as the ability of the agent to learn and outperform the baselines in environments with different network conditions and heterogeneous computation capabilities. 
 
-Stability in this context can be defined has the ability of the agent to not diverge or collapse while training. This means that its performance should improve as it interacts with the environment and after learning a strategy it should not forget it, collapsing the system's performance.
+Stability in this context can be defined has the ability of the agent to not diverge or collapse while training. This means that its performance should improve as it interacts with the environment, and after learning a strategy it should not forget it, collapsing the system's performance.
 
 In order to test the system's robustness to changing network conditions, a new test case is devised by setting the system hyper-parameters to the values present in Table \ref{new_hyperparams}.
 
@@ -547,7 +547,7 @@ Agent (A2C) & -4.72 & -\\ \hline
 \caption{Robustness test results.} \label{robust_table}
 \end{table}
 
-As expected the reward values of all the algorithms differ from previous tests since the system hyper-parameters that are used to calculate the reward function are different.
+As expected, the reward values of all the algorithms differ from previous tests since the system hyper-parameters that are used to calculate the reward function are different.
 
 The same cost reduction trends can be observed in this new environment, showing that the agent is able to learn the system's behaviour independently of the network conditions.
 
@@ -586,11 +586,11 @@ Agent (A2C) & -3.51 & -\\ \hline
 
 As presumed, the reward values of all the algorithms differ from previous tests since the system computation capabilities that are used to calculate the reward function are different.
 
-Although the ordering of the algorithm performances stays the same in this test case, the cost reduction of our agent in comparison to the Full nearest MEC is higher. With a reported 30.39\% improvement, while the equivelant homogeneous test had an improvement of 22.17\%. This makes sense given that the Full nearest MEC only takes into account the distance of \acrshort{UE}s to \acrshort{MEC}s and not their computation capabilities. This in turn leads to worse load balancing when the computation capabilities of the \acrshort{UE}s and \acrshort{MEC}s are not all the same.
+Although the ordering of the algorithm performances stays the same in this test case, the cost reduction of our agent in comparison to the Full nearest MEC is higher. With a reported 30.39\% improvement, while the equivelant homogeneous test had an improvement of 22.17\%. This makes sense given that the Full nearest MEC only takes into account the distance of \acrshort{UE}s to \acrshort{MEC}s and not their computation capabilities. This, in turn, leads to worse load balancing when the computation capabilities of the \acrshort{UE}s and \acrshort{MEC}s are not all the same.
 
 The agent on the other hand is able to learn the system's network topology and make offloading decisions that better load balance the required tasks. 
 
-By analysing all training curves, it is clear that the agent is stable and its reward does not diverge or collapse while trainnig, even when ran for millions of iterations.
+By analysing all training curves, it is clear that the agent is stable and its reward does not diverge or collapse while training, even when ran for millions of iterations.
 
 \begin{figure}[H]
   \centering
@@ -630,7 +630,7 @@ $\{0, 1\}$ & 3.81 & 3.78 & -0.03 \\ \hline
 \caption{Weight test results.} \label{weight_table}
 \end{table}
 
-As the weights shift from prioritizing overall performance to prioritizing worst-case performance, the agent's overall cost increases while the worst-case cost decreases. While the agent outperforms the best baseline with every weight distribution, it learns to make offloading decisions that prioritize the worst-case performance at the expense of overall system performance. With this in mind, the process of picking the best weight distribution would involve trying to determine the maximum cost allowed per \acrshort{UE} and shifthing the weight distribution in favour of $W_{max}$, trying to maximize $W_{mean}$ while still meeting the maximum allowed cost.
+As the weights shift from prioritizing overall performance to prioritizing worst-case performance, the agent's overall cost increases while the worst-case cost decreases. While the agent outperforms the best baseline with every weight distribution, it learns to make offloading decisions that prioritize the worst-case performance at the expense of overall system performance. With this in mind, the process of picking the best weight distribution would involve trying to determine the maximum cost allowed per \acrshort{UE} and shifting the weight distribution in favour of $W_{max}$, trying to maximize $W_{mean}$ while still meeting the maximum allowed cost.
 
 
 
@@ -639,7 +639,7 @@ As the weights shift from prioritizing overall performance to prioritizing worst
 \label{sec:conclusion}
 
 \subsection{Summary}
-\noindent As presented in Section \ref{section:MECarch} several architectures have been proposed in the \acrshort{MEC} context that present complex optimization problems of managing how to distribute tasks between \acrshort{UE}s and \acrshort{MEC} servers. Due to the high dimensional complexity and uncertain networking conditions, classical offline optimization algorithms fail to effectively manage these types of problems. Based on the work done by papers \cite{taskclass1} and \cite{NUE1mec} a more complete system that takes into account the possibility of offloading between a network of heterogeneous \acrshort{UE}s to a network of heterogeneous \acrshort{MEC} servers is proposed. As far as the candidate knows, this is the first time that this extended optimization problem is addressed. To deal with the increased complexity of taking into account computation, battery, delay and communication constraints in an \emph{N} to \emph{N} problem a network manager agent is proposed in Section \ref{solution}. In order to evaluate the performance of the proposed agent, several baselines are described in Section \ref{baselines}. Finally, the agent's capabilities are put to the test in Sections \ref{simple_test}, \ref{scalability_data}, \ref{robustness_stability} and \ref{reward_section}. The proposed agent is shown to be scalable, data-efficient, robust, stable and adjustable to address not only overall system performance but to take into account the worst-case scenario.
+\noindent As presented in Section \ref{section:MECarch} several architectures have been proposed in the \acrshort{MEC} context that present complex optimization problems of managing how to distribute tasks between \acrshort{UE}s and \acrshort{MEC} servers. Due to the high dimensional complexity and uncertain networking conditions, classical offline optimization algorithms fail to effectively manage these types of problems. Based on the work done by papers \cite{taskclass1} and \cite{NUE1mec} a more complete system that takes into account the possibility of offloading between a network of heterogeneous \acrshort{UE}s to a network of heterogeneous \acrshort{MEC} servers is proposed. As far as the candidate knows, this is the first time this extended optimization problem is addressed. In order to deal with the increased complexity of taking into account computation, battery, delay and communication constraints in an \emph{N} to \emph{N} problem, a network manager agent is proposed in Section \ref{solution}. In order to evaluate the performance of the proposed agent, several baselines are described in Section \ref{baselines}. Finally, the agent's capabilities are put to the test in Sections \ref{simple_test}, \ref{scalability_data}, \ref{robustness_stability} and \ref{reward_section}. The proposed agent is shown to be scalable, data-efficient, robust, stable and adjustable to address not only overall system performance but to take into account the worst-case scenario.
 
 \subsection{Future Work}
 \noindent Future steps of research should include:
@@ -650,9 +650,9 @@ As the weights shift from prioritizing overall performance to prioritizing worst
       \item The number of \acrshort{UE}s and \acrshort{MEC} servers;
       \item Network conditions.
     \end{itemize}
-    \item Creating a more complete test set, testing environments for specific scenarios. For example, a Smart city environment or a autonomous vehicle environment. 
+    \item Creating a more complete test set, testing environments for specific scenarios. For example, a Smart city environment or an autonomous vehicle environment. 
     \item Exploring the use of this orchestration agent with choreography algorithms like the one proposed in \cite{Lulu}, by simulating an environment where several groups of \acrshort{MEC} servers would be orchestrated by agents like the one proposed in this work, while choreographing with each other.
-    \item Exploring the use of model based \acrshort{RL} algorithms to take advantage of the extensive domain knowledge of telecomunication physics. By leveraging this knowledge, the agent could converge to a better solution more quickly, without having to learn this through experimentation.
+    \item Exploring the use of model based \acrshort{RL} algorithms to take advantage of the extensive domain knowledge of telecommunication physics. By leveraging this knowledge, the agent could converge to a better solution more quickly without having to learn this through experimentation.
 \end{itemize}
 
 

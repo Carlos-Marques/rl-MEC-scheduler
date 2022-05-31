@@ -1,21 +1,21 @@
 # Fdb version 3
-["bibtex dissertion"] 1653998161 "dissertion.aux" "dissertion.bbl" "dissertion" 1654003823
+["bibtex dissertion"] 1654005594 "dissertion.aux" "dissertion.bbl" "dissertion" 1654006593
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/base/ieeetr.bst" 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
   "bibliography/references.bib" 1653900609 27999 95a5d2e63754b2f5ad8be7efc04b81b0 ""
-  "cover.aux" 1654003822 759 6033347e34c2ef4d125d7a9423409762 "pdflatex"
-  "dissertion.aux" 1654003823 19704 f4c0f6edd44ad0061921956f8de9ae40 "pdflatex"
+  "cover.aux" 1654006592 759 6033347e34c2ef4d125d7a9423409762 "pdflatex"
+  "dissertion.aux" 1654006593 19704 f4c0f6edd44ad0061921956f8de9ae40 "pdflatex"
   (generated)
   "dissertion.bbl"
   "dissertion.blg"
-["cusdep acn acr dissertion"] 1653998162 "dissertion.acn" "dissertion.acr" "dissertion" 1654003823
-  "dissertion.acn" 1654003823 34392 0c01ec96076f722f9f9881820b36ec25 "pdflatex"
+["cusdep acn acr dissertion"] 1654005595 "dissertion.acn" "dissertion.acr" "dissertion" 1654006593
+  "dissertion.acn" 1654006593 34392 0c01ec96076f722f9f9881820b36ec25 "pdflatex"
   (generated)
   "dissertion.acr"
-["cusdep glo gls dissertion"] 1653996513 "dissertion.glo" "dissertion.gls" "dissertion" 1654003823
+["cusdep glo gls dissertion"] 1654005592 "dissertion.glo" "dissertion.gls" "dissertion" 1654006593
   "dissertion.glo" 0 -1 0 "pdflatex"
   (generated)
   "dissertion.gls"
-["pdflatex"] 1654003821 "/Users/carlosmarques/Projects/rl-MEC-scheduler/docs/dissertation/dissertion.tex" "dissertion.pdf" "dissertion" 1654003823
+["pdflatex"] 1654006591 "/Users/carlosmarques/Projects/rl-MEC-scheduler/docs/dissertation/dissertion.tex" "dissertion.pdf" "dissertion" 1654006593
   "/Users/carlosmarques/Projects/rl-MEC-scheduler/docs/dissertation/dissertion.tex" 1653900609 4799 346783dcc98007bd1996008e81107465 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -186,21 +186,21 @@
   "chapters/abstract.tex" 1653992781 2453 1d8a09f59d17d3fc79a78d9e0b112d21 ""
   "chapters/declaracao.tex" 1653900609 302 e310c3459ab04b503f76b9962e187439 ""
   "chapters/declaration.tex" 1653900609 313 b9d86fb84a1d6e89e00a91d73c5e752b ""
-  "chapters/introduction.tex" 1654002006 6042 97900ab4ec1806a83eac1a9b374e7ea3 ""
-  "chapters/planification.tex" 1654003769 5490 e9bcdd59eba0e096a822197b21e7198d ""
+  "chapters/introduction.tex" 1654006497 6043 ebde4b205f6d4e3a1f160191a1982fa9 ""
+  "chapters/planification.tex" 1654006590 5502 7b76cf9c4457621fe4cfc670a122f4b2 ""
   "chapters/relatedwork.tex" 1654001427 45550 9bfabba8c2114fb5d591112b2787d5f3 ""
-  "chapters/results.tex" 1654003802 20147 6415687068406c909bf23d2cf9372df7 ""
+  "chapters/results.tex" 1654005837 20171 9a99967f177121187596e9ed60d51ccd ""
   "chapters/resumo.tex" 1653900609 2869 0a03388d036e4739ece75b00569488c2 ""
-  "chapters/solution.tex" 1654003820 16584 00371deca751b7079e60f99b908edf9d ""
-  "cover.aux" 1654003822 759 6033347e34c2ef4d125d7a9423409762 "pdflatex"
+  "chapters/solution.tex" 1654005042 16589 d2e122302597adb13078c29cde8c43cf ""
+  "cover.aux" 1654006592 759 6033347e34c2ef4d125d7a9423409762 "pdflatex"
   "cover.tex" 1653900609 2974 758f515bc3a8c38c1ab56b647701af6f ""
-  "dissertion.acr" 1653998162 7547 ba713541cc48f553e06327fd48e86a06 "cusdep acn acr dissertion"
-  "dissertion.aux" 1654003823 19704 f4c0f6edd44ad0061921956f8de9ae40 "pdflatex"
-  "dissertion.bbl" 1653998162 8994 397994c3e3a8310ca26539e5bfcfc3c3 "bibtex dissertion"
-  "dissertion.gls" 1653998162 6 9f404503043ec80c08484be9f659189e "cusdep glo gls dissertion"
-  "dissertion.out" 1654003823 7976 ac7a7657320c9a27a4f20ab343a7d6bc "pdflatex"
+  "dissertion.acr" 1654005595 7547 ba713541cc48f553e06327fd48e86a06 "cusdep acn acr dissertion"
+  "dissertion.aux" 1654006593 19704 f4c0f6edd44ad0061921956f8de9ae40 "pdflatex"
+  "dissertion.bbl" 1654005595 8994 397994c3e3a8310ca26539e5bfcfc3c3 "bibtex dissertion"
+  "dissertion.gls" 1654005595 6 9f404503043ec80c08484be9f659189e "cusdep glo gls dissertion"
+  "dissertion.out" 1654006593 7976 ac7a7657320c9a27a4f20ab343a7d6bc "pdflatex"
   "dissertion.tex" 1653900609 4799 346783dcc98007bd1996008e81107465 ""
-  "dissertion.toc" 1654003823 4217 5368efdbd400c2430e4b4844846c2c0f "pdflatex"
+  "dissertion.toc" 1654006593 4217 5368efdbd400c2430e4b4844846c2c0f "pdflatex"
   "images/5_10_layout.png" 1653900609 46517 0a1dae62c158d411761d23cb8833f506 ""
   "images/5_10_training.png" 1653900609 79547 e43c449772ed4d3e0515a7bb4a4ebfb9 ""
   "images/5_10_training_hetero.png" 1653900609 76586 499a048ce24d0c9b445e60a47b329a93 ""
