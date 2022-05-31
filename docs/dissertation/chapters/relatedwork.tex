@@ -6,47 +6,47 @@
 
 Another concept to bring computation closer to \acrshort{UE}s is the idea of an \emph{ad-hoc} cloud like the one presented in \cite{adhoc}. The idea proposes that the computation power of a network of non-exclusive and sporadically available hosts can be harvested and abstracted as a service to which \acrshort{UE}s can offload their computational needs.
 
-In order to standardize and generalize other concepts of edge computing, the OpenFog Consortium proposes a standard \acrfull{FC} architecture \cite{OpenFog}. This architecture presents computation resources as a continuum between the \acrshort{UE}s and the cloud by abstracting edge computing platforms like cloudlets or ad-hoc clouds as fog nodes that make their services available to \acrshort{UE}s. These fog nodes can be organized physically or by a \acrfull{SDN}, and share the workload between them making offloading decisions on \acrshort{UE} tasks to other fog nodes or to \acrshort{CC} centralized data centers whenever needed. 
+In order to standardize and generalize other concepts of edge computing, the OpenFog Consortium proposes a standard \acrfull{FC} architecture \cite{OpenFog}. This architecture presents computation resources as a continuum between the \acrshort{UE}s and the cloud by abstracting edge computing platforms like cloudlets or ad-hoc clouds as fog nodes that make their services available to \acrshort{UE}s. These fog nodes can be organized physically or by a \acrfull{SDN} and share their workload, making offloading decisions on \acrshort{UE} tasks to other fog nodes or \acrshort{CC} centralized data centers whenever needed.
 
-While \acrshort{FC} is defined in \cite{OpenFog} as a system-level horizontal architecture that distributes resources and services of computing, storage, control and networking anywhere along the continuum from a cloud data center down to users, the \acrfull{MEC} concept presented by the \acrfull{ISG} within the \acrfull{ETSI} in \cite{MECspec} is focused on integrating computation resources within the \acrfull{RAN} in very close proximity to mobile subscribers.
+While \acrshort{FC} is defined in \cite{OpenFog} as a system-level horizontal architecture that distributes resources and services of computing, storage, control and networking anywhere along the continuum from a cloud data center down to users. the \acrfull{MEC} concept presented by the \acrfull{ISG} within the \acrfull{ETSI} in \cite{MECspec} is focused on integrating computation resources within the \acrfull{RAN} in very close proximity to mobile subscribers.
 
-As presented in paper \cite{SHAKARAMI2020107496}, several \acrshort{MEC} architectures have been proposed in order to integrate and manage computation resources at the \acrshort{RAN} level such as \acrfull{SCC} \cite{smallcellcloud}, \acrfull{MMC} \cite{mmcloud}, \acrfull{MobiScud} \cite{MobiScud}, \acrfull{FMC} \cite{fmcloud} and CONCERT \cite{CONCERT}. These architectures differ from each other mainly in terms of distance from \acrshort{UE}s to computation resources and can then be divided into two main types: 1) edge computing at the access node level; 2) distributed data centers. Finally the CONCERT architecture merges ideas present in \acrshort{SCC}, \acrshort{MMC} with ideas of \acrshort{MobiScud} and \acrshort{FMC}.
+As presented in paper \cite{SHAKARAMI2020107496}, several \acrshort{MEC} architectures have been proposed in order to integrate and manage computation resources at the \acrshort{RAN} level, such as \acrfull{SCC} \cite{smallcellcloud}, \acrfull{MMC} \cite{mmcloud}, \acrfull{MobiScud} \cite{MobiScud}, \acrfull{FMC} \cite{fmcloud} and CONCERT \cite{CONCERT}. These architectures differ mainly in terms of distance from \acrshort{UE}s to computation resources and can then be divided into two main types: 1) edge computing at the access node level; 2) distributed data centers. Finally, the CONCERT architecture merges ideas present in \acrshort{SCC} and \acrshort{MMC} with the ideas of \acrshort{MobiScud} and \acrshort{FMC}.
 
 \subsection{Edge computing access nodes}
 
-\noindent The main idea of architectures like \acrfull{SCC} and \acrfull{MMC} is the allocation of computation resources at the access node level of a mobile network.
+\noindent The main idea of architectures like \acrfull{SCC} and \acrfull{MMC} is allocating computation resources at the access node level of a mobile network.
 
 The \acrfull{SCC} architecture was first introduced by the European project TROPIC \cite{smallcellcloud} and later expanded by the SESAME project \cite{SESAM}. It proposes that low-powered cellular radio access nodes, i.e. \acrshort{SCeNBs}, be enhanced with computation and storage capabilities. Because of the current popularity of \acrshort{SCeNBs} in 4G networks and their estimated wide adoption as a solution to guarantee the data capacities of 5G networks, this architecture could provide ample computation resources for applications with high latency requirements.
 
-These computation resources at the \acrshort{SCeNBs} would be pooled and presented as a service to \acrshort{UE}'s applications through a management agent. This so called \acrfull{SCM} could be deployed in a distributed hierarchical manner with a local \acrshort{SCM} managing a cluster of \acrshort{SCeNBs} while being connected to other \acrshort{SCM}s through a remote \acrshort{SCM} located at the \acrshort{CN} of the service provider. The local \acrshort{SCM} would need to be aware of the state of its cluster of \acrshort{SCeNBs} and make offloading decisions of how to distribute work within its cluster. The remote \acrshort{SCM} could help distribute work between local \acrshort{SCM}s by offloading computations to neighboring clusters. This topology can be seen as a \emph{N} to \emph{N} problem where \emph{N} \acrshort{UE}s offload computation to \emph{N} \acrshort{MEC} servers located at the \acrshort{SCeNBs} level.
+These computation resources at the \acrshort{SCeNBs} would be pooled and presented as a service to \acrshort{UE}'s applications through a management agent. This so-called \acrfull{SCM} could be deployed in a distributed hierarchical manner with a local \acrshort{SCM} managing a cluster of \acrshort{SCeNBs} while being connected to other \acrshort{SCM}s through a remote \acrshort{SCM} located at the \acrshort{CN} of the service provider. The local \acrshort{SCM} would need to be aware of the state of its cluster of \acrshort{SCeNBs} and make offloading decisions on how to distribute work within its cluster. The remote \acrshort{SCM} could help distribute work between local \acrshort{SCM}s by offloading computations to neighboring clusters. This topology can be seen as a \emph{N} to \emph{N} problem where \emph{N} \acrshort{UE}s offload computation to \emph{N} \acrshort{MEC} servers located at the \acrshort{SCeNBs} level.
 
-In the case of the \acrfull{MMC} presented in \cite{mmcloud}, the main idea is to allocate a \acrshort{MEC} server along with the \acrfull{eNB} instead of one at every SCeNB. This topology could then be seen as a \emph{N} to 1 problem where \emph{N} \acrshort{UE}s offload computation to 1 \acrshort{MEC} server located at the \acrshort{eNB} level. These \acrshort{MEC} servers would then be interconnected directly or through backhaul to each other in order to guarantee \acrshort{QoS} in mobility management of \acrshort{UE}s.
+In the case of the \acrfull{MMC} presented in \cite{mmcloud}, the main idea is to allocate a \acrshort{MEC} server along with the \acrfull{eNB} instead of one at every SCeNB. This topology could then be seen as a \emph{N} to 1 problem where \emph{N} \acrshort{UE}s offload computation to 1 \acrshort{MEC} server located at the \acrshort{eNB} level. These \acrshort{MEC} servers would then be interconnected directly or through backhaul to each other in order to guarantee \acrshort{QoS} in the mobility management of \acrshort{UE}s.
 
 \subsection{Distributed data centers}
 \noindent The main idea behind proposed architectures like the \acrfull{MobiScud} \cite{MobiScud} and \acrfull{FMC} \cite{fmcloud} is to integrate cloud services into the mobile networks using data centers closer to the edge of the network.
 
-As presented in \cite{MobiScud}, the \acrfull{MobiScud} architecture makes use of network operator's data centers located within \acrshort{RAN} or close to \acrshort{RAN} instead of allocating computation resources at the access node level like \acrshort{SCC} or \acrshort{MMC} architectures. By using \acrfull{SDN} and \acrfull{NFV} technologies it proposes to integrate cloud services seamlessly at the mobile network level. This type of architecture introduces the concept of a \acrfull{MC} agent that interfaces with the mobile network, \acrshort{SDN} switches and the cloud operator in order to orchestrate and route data between the various composing operator's clouds in order to maintain \acrshort{QoS} when the \acrshort{UE} moves through the network.
+As presented in \cite{MobiScud}, the \acrfull{MobiScud} architecture makes use of network operator's data centers located within \acrshort{RAN} or close to \acrshort{RAN} instead of allocating computation resources at the access node level like \acrshort{SCC} or \acrshort{MMC} architectures. By using \acrfull{SDN} and \acrfull{NFV} technologies, it proposes to integrate cloud services seamlessly at the mobile network level. This type of architecture introduces the concept of a \acrfull{MC} agent that interfaces with the mobile network, \acrshort{SDN} switches and the cloud operator in order to orchestrate and route data between the various composing operator's clouds in order to maintain \acrshort{QoS} when the \acrshort{UE} moves through the network.
 
-The \acrfull{FMC} architecture proposed in \cite{fmcloud} follows a similar idea to the \acrshort{MobiScud} architecture but instead of using the operator's data centers at the RAN level it assumes the use of distributed data centers moved farther away into the \acrfull{CN} of the operator.
+The \acrfull{FMC} architecture proposed in \cite{fmcloud} follows a similar idea to the \acrshort{MobiScud} architecture but instead of using the operator's data centers at the RAN level, it assumes the use of distributed data centers moved farther away into the \acrfull{CN} of the operator.
 
 \subsection{CONCERT architecture}
 \noindent As proposed in \cite{CONCERT}, the CONCERT architecture exploits the \acrshort{NFV} and \acrshort{SDN} technologies in order to define a decoupled control/data model.
 The data plane is composed by the \acrshort{eNB}, \acrshort{SCeNBs}, \acrshort{SDN} switches and computation resources, being them at the access node level, local data centers or even remote data centers.
-The control plane is composed by the management agent, referred to as the conductor, which has access to the network state and manages its resources presenting them as software defined services to \acrshort{UE}'s applications. This type of centralized approach is a clear example of an orchestration approach. As an alternative, a choreography approach is when entities cooperate in a decentralized manner without holding the total knowledge of the network, as is the case of the solution presented in \cite{fogmulti}.
+The control plane is composed by the management agent, referred to as the conductor, which has access to the network state and manages its resources presenting them as software defined services to \acrshort{UE}'s applications. This type of centralized approach is a clear example of an orchestration approach. As an alternative, a choreography approach is when entities cooperate in a decentralized manner without holding complete knowledge of the network, as is the case of the solution presented in \cite{fogmulti}.
 
 % TODO: add a better transition from MEC achitectures to RL
 
 \section{Reinforcement Learning (RL)} \label{section:RL}
-\noindent There are three main machine learning paradigms, supervised learning, unsupervised learning and reinforcement learning. While supervised learning needs a lot of labeled input/ouput data and unsupervised learning learns patterns from unlabeled data, \acrfull{RL} is used in problems where an agent learns to solve a closed-loop problem by changing its future actions based on a reward resulting from its actions on the environment and its effects on its state.
+\noindent There are three main machine learning paradigms, supervised learning, unsupervised learning and reinforcement learning. While supervised learning needs a lot of labeled input/output data and unsupervised learning learns patterns from unlabeled data, \acrfull{RL} is used in problems where an agent learns to solve a closed-loop problem by changing its future actions based on a reward resulting from its actions on the environment and its effects on its state.
 
-This paradigm has shown great potential in solving environments that can be simulated and easily benchmarked which is the reason most research on \acrshort{RL} is made by solving video games, which offer a perfect environment in terms of reproducibility, easy simulation and baked in benchmarks that can be used to compute a reward signal (points, levels, etc).
+This paradigm has shown great potential in solving environments that can be simulated and easily benchmarked, which is the reason most research on \acrshort{RL} is made by solving video games, which offer a perfect environment in terms of reproducibility, easy simulation and baked in benchmarks that can be used to compute a reward signal (points, levels, etc.).
 
-\acrshort{RL} tasks are usually modeled as Markov Decision Processes (\acrshort{MDP}s).
+\acrshort{RL} tasks are usually modeled as Markov Decision Processes.
 
 \subsection{Markov Decision Process (MDP)}
-\noindent Markov Decision Process is a mathematical framework that can be used to model a time-discrete decision process in a stochastic environment as long as it satisfies the Markov property, which states that given the present the future does not depend on the past.
+\noindent The \acrlong{MDP} is a mathematical framework that can be used to model a time-discrete decision process in a stochastic environment as long as it satisfies the Markov property, which states that given the present, the future does not depend on the past.
 
-\acrshort{MDP} are usually defined by a four element tuple $<S, A, P, R>$:
+\acrshort{MDP}s are usually defined by a four-element tuple $<S, A, P, R>$:
 \begin{itemize}
     \item $S$ is the state space, which represents the set of all agent and environment states, $s_t \in S$;
     \item $A$ is the action space, which represents the set of all possible agent actions, $a_t \in A$;
@@ -56,18 +56,18 @@ This paradigm has shown great potential in solving environments that can be simu
 
 Many \acrshort{RL} tasks can be approximated as \acrshort{MDP} with careful definition of the state signal, $s_t$, to include past relevant information for the current action decision, $a_t$.
 
-As stated in \cite{RLbook}, given these conditions the system dynamics can be defined entirely by the current state's probability distribution:
+As stated in \cite{RLbook}, given these conditions, the system dynamics can be defined entirely by the current state's probability distribution:
 \begin{equation}
 p(s', r|s, a) = P(S_t=s', R_t=r|S_{t-1}=s, A_{t-1}=a).
 \end{equation}
 
-\acrshort{MDP} assumes full observability of current environment/agent state. Alternatively the agent is said to have partial observability when it can only observe part of the entire environment or its observations are corrupted. This types of problems are formulated as \acrfull{POMDP}.
+\acrshort{MDP} assumes full observability of the current environment/agent state. Alternatively, the agent is said to have partial observability when it can only observe part of the entire environment or its observations are corrupted. These types of problems are formulated as \acrfull{POMDP}.
 
 \subsection{Partially Observable Markov Decision Process (POMDP)}
-\noindent As a generalization of a \acrshort{MDP}, in a \acrshort{POMDP} the agent does not have access to the full state. Instead, a sensor model must be defined on top of the usual \acrshort{MDP} definition. For this reason an \acrshort{POMDP} is usually defined as a six element tuple $<S, A, P, R, R, \Omega, O>$ \cite{POMP}, where the new $\Omega$ and $O$ define the sensor model:
+\noindent As a generalization of a \acrshort{MDP}, in a \acrshort{POMDP}, the agent does not have access to the complete state. Instead, a sensor model must be defined on top of the usual \acrshort{MDP} definition. For this reason, an \acrshort{POMDP} is usually defined as a six-element tuple $<S, A, P, R, R, \Omega, O>$ \cite{POMP}, where the new $\Omega$ and $O$ define the sensor model:
 \begin{itemize}
     \item $\Omega$ is the set of observations, where $o_t \in \Omega$ is the observation of the agent at time step $t$;
-    \item $O$ is the set of conditional probabilities of observation $O(o_{t}|s_{t+1},a_t)$. This means the probability of the observation given the new state $s_{t+1}$ resulting from action $a_t$.
+    \item $O$ is the set of conditional probabilities of observation $O(o_{t}|s_{t+1},a_t)$. This means the probability of the observation, $o_t$, given the new state $s_{t+1}$ resulting from the action $a_t$.
 \end{itemize}
 \subsection{Value function}
 \noindent The goal of an \acrshort{RL} agent is to learn a policy, $\pi$, that maximizes the expected cumulative reward:
@@ -92,9 +92,9 @@ where the return, $R$, is the sum of future rewards discounted according to the 
 R = \sum\limits_{t=0}^\infty \gamma^t r_t .
 \end{equation}
 
-The discount-rate $\gamma$, is an hyper-parameter that represents how much the agent values future rewards in comparison with current rewards. If $\gamma=0$, then the agent only cares about instant reward. If $\gamma=1$ and the system has no final state then the problem of calculating return, $R$, becomes infinite.
+The discount-rate $\gamma$ is a hyper-parameter that represents how much the agent values future rewards in comparison with current rewards. If $\gamma=0$, then the agent only cares about instant reward. If $\gamma=1$ and the system has no final state, then the problem of calculating the return, $R$, becomes infinite.
 
-The goal can then be defined as finding policy, $\pi$, that maximizes $V_\pi(s)$:
+The goal can then be defined as finding a policy, $\pi$, that maximizes $V_\pi(s)$:
 
 \begin{equation} \label{maximizes_expected}
 V^*(s)=\max\limits_{\pi}V_\pi(s) .
@@ -108,7 +108,7 @@ Q_\pi(s,a) = E[R|s, a, \pi] .
 
 Given the optimal policy, $\pi^*$, we can take the optimal action by choosing the action, $a$, with the highest, $Q_{\pi^*}(s,a)$, value. 
 
-Given full knowledge of the \acrshort{MDP}, this problem can be solved using classical dynamic programming techniques like value and policy iteration in which expected values are computed over the whole state-space in order to approximate the optimal action-value function, $Q^*$. These methods have two major problems. First they assume full knowledge of the \acrshort{MDP}, where in most \acrshort{RL} tasks the transition probability distribution, $P$, and reward signal, $R$, are usually unknown \emph{a priori} and need to be learned from experience. Second, given the brute force nature of these algorithms they become intractable for higher dimension state-spaces.
+Given full knowledge of the \acrshort{MDP}, this problem can be solved using classical dynamic programming techniques like value and policy iteration in which expected values are computed over the whole state-space in order to approximate the optimal action-value function, $Q^*$. These methods have two major problems. First, they assume complete knowledge of the \acrshort{MDP}, wherein most \acrshort{RL} tasks, the transition probability distribution, $P$, and reward signal, $R$, are usually unknown \emph{a priori} and need to be learned from experience. Second, given the brute force nature of these algorithms, they become intractable for higher dimension state-spaces.
 
 One algorithm that tries to learn the action-value function from experience without needing to maintain a model of the environment is the Q-learning algorithm.
 \subsection{Q-learning}
@@ -118,24 +118,24 @@ One algorithm that tries to learn the action-value function from experience with
     Q:S\times A \rightarrow \mathbb{R}
 \end{equation}\label{Qval}
 
-This can be done my maintaining a Q-table with a row for each state and a column for each possible action. Each of the cells of the Q-table correspond to the action-value, $Q(s,a)$, and are usually initialized as an arbitrary fixed value. 
+This can be done my maintaining a Q-table with a row for each state and a column for each possible action. Each of the cells of the Q-table correspond to the action-value, $Q(s,a)$, and is usually initialized as an arbitrary fixed value. 
 
-At each time step $t$, an action $a_t$, is taken on the state $s$, resulting in a new state $s_{t+1}$, and in a reward $r_t$. Given these values the Q-table is updated according to: 
+At each time step $t$, an action $a_t$, is taken on the state $s$, resulting in a new state $s_{t+1}$, and in a reward $r_t$. Given these values, the Q-table is updated according to: 
 
 \begin{equation}
     Q_{t+1}(s_t, a_t) \leftarrow Q_{t}(s_t, a_t) + \alpha \cdot (r_t + \gamma \cdot \max\limits_{a_{t+1}}Q_t(s_{t+1}, a_{t+1}) - Q_t(s_t, a_t)) ,
 \end{equation}
 
-where $\alpha \in [0, 1]$ is the learning rate, which is an hyper-parameter that determines how much new information should affect the current belief.
+where $\alpha \in [0, 1]$ is the learning rate, which is a hyper-parameter that determines how much new information should affect the current belief.
 
-Unlike Monte Carlo methods, which separate sampling from the environment from updating the policy based on the results, Q-learning is a \acrfull{TD} method which means that as it follows the policy to explore the environment, it also updates the action-value estimations in an online fashion.
+Unlike Monte Carlo methods, which separate sampling from the environment from updating the policy based on the results, Q-learning is a \acrfull{TD} method, which means that as it follows the policy to explore the environment, it also updates the action-value estimations in an online fashion.
 
-The simple Q-table approach to Q-learning has a glaring issue with higher dimension state and actions spaces because it maintains a $Q$ value for each state and action combination. An alternative to the Q-table, is using the capabilities of information encoding of \acrfull{ANNs} to approximate the action-value function.
+The simple Q-table approach to Q-learning has a glaring issue with higher dimension state and action spaces because it maintains a $Q$ value for each state and action combination. An alternative to the Q-table is using the capabilities of information encoding of \acrfull{ANNs} to approximate the action-value function.
 
 \subsection{Deep Q-Network (DQN)}
-\noindent \acrshort{DQN} was proposed in \cite{DQN}, as a non-linear approximator of the action-value function in Q-learning. It proposes to solve the memory issues and the time required to explore each state in Q-tables and other function approximation methods. Due to the capabilities of \acrshort{ANNs} to encode information and generalize lessons from experiences to unseen inputs, \acrshort{DQN} are able to solve problems with state and action spaces of higher dimensions, like playing video games from pixels and game score, while requiring less memory and computation than other methods.
+\noindent \acrshort{DQN} was proposed in \cite{DQN} as a non-linear approximator of the action-value function in Q-learning. It proposes to solve the memory issues and the time required to explore each state in Q-tables and other function approximation methods. Due to the capabilities of \acrshort{ANNs} to encode information and generalize lessons from experiences to unseen inputs, \acrshort{DQN}s are able to solve problems with state and action spaces of higher dimensions, like playing video games from pixels and game scores, while requiring less memory and computation than other methods.
 
-The main idea is to substitute the Q-table or other function approximation methods by an \acrshort{ANNs}, which is composed of multiple layers of neuron inspired nodes with different activation functions. A diagram comparing the Q-table to the \acrshort{DQN} architecture can be seen in Figure \ref{dqnvsqtable}. These \acrshort{ANNs} have been shown to be able to solve complex representation problems by maintaining simpler internal representations. A simple model of this neuron behavior can be defined as:
+The main idea is to substitute the Q-table or other function approximation methods with \acrshort{ANNs} composed of multiple layers of neuron-inspired nodes with different activation functions. A diagram comparing the Q-table to the \acrshort{DQN} architecture can be seen in Figure \ref{dqnvsqtable}. These \acrshort{ANNs} have been shown to be able to solve complex representation problems by maintaining simpler internal representations. A simple model of this neuron behavior can be defined as:
 
 \begin{equation}
     y_j = f(\sum w_{ij}x_i + b) ,
@@ -145,7 +145,7 @@ where $y_j$ is the output resulting from the application of a non-linear activat
 
 Based on the internal structure and composition of each layer, there are many types of \acrshort{ANNs}. One important type are the \acrfull{CNNs}, which maintain convolutional layers that are specially equipped for tasks where spatially closer inputs can be assumed to be somehow related. These visual cortex inspired processes makes them very good at processing high dimension input images. 
 
-Another important class of \acrshort{ANNs} are the \acrfull{RNNs}, that maintain an internal state memory in some neurons which makes them good candidates in problems with correlated sequences of inputs.
+Another important class of \acrshort{ANNs} are the \acrfull{RNNs}, which maintain an internal state memory in some neurons, making them good candidates in problems with correlated sequences of inputs.
 
 \begin{figure}[h]
   \centering
@@ -153,9 +153,9 @@ Another important class of \acrshort{ANNs} are the \acrfull{RNNs}, that maintain
   \caption{Deep Q Learning architecture comparison with Q-table from \cite{dqnimage}.} \label{dqnvsqtable}
 \end{figure}
 
-The proposed ANN in \cite{DQN} is a CNN that can be defined by its weights, $\theta_i$, at each iteration. To solve the instability and divergence issues found when using a non-linear function approximator of the action-value function, two methods are proposed. Because these issues arise from the correlations present in the sequence of observations, the paper first proposes a biologically inspired mechanism termed experience replay that collects samples from interaction with the environment in a replay buffer, $U(D)$, and samples randomly from it for training. The second method is an iterative update policy that only adjusts the target weights, $\theta_i^-$, to the new computed weights, $\theta_i$ every $C$ steps.
+The proposed ANN in \cite{DQN} is a CNN that can be defined by its weights, $\theta_i$, at each iteration. In order to solve the instability and divergence issues found when using a non-linear function approximator of the action-value function, two methods are proposed. Because these issues arise from the correlations present in the sequence of observations, the paper first proposes a biologically inspired mechanism termed experience replay that collects samples from interaction with the environment in a replay buffer, $U(D)$, and samples randomly from it for training. The second method is an iterative update policy that only adjusts the target weights, $\theta_i^-$, to the new computed weights, $\theta_i$, every $C$ steps.
 
-Since we are dealing with reinforcement learning, the loss function of these \acrshort{ANNs} can not be derived directly from the difference between the expected true value and output, like with supervised learning. Instead the loss function must be calculated according to:
+Since we are dealing with reinforcement learning, the loss function of these \acrshort{ANNs} can not be derived directly from the difference between the expected true value and output, like with supervised learning. Instead, the loss function must be calculated according to:
 \begin{equation}
     L_i(\theta_i) = E_{(s_t, a_t, r_t, s_{t+1})\sim U(D)} [(r+\gamma \max\limits_{a_{t+1}} Q(s_{t+1}, a_{t+1};\theta_i^-) - Q(s_t, a_t; \theta_i))^2]
 \end{equation}
@@ -180,21 +180,21 @@ And popular training methods of ANN using gradient descent can be used.
     t_i^B = r+\gamma\max\limits_{a_{t+1}}Q^A(s_{t+1}, a_{t+1})
 \end{equation}
 
-While each Q network still serves the same purpose as with the \acrshort{DQN} algorithm, of approximating the action-value function of the environment, by using a different network's maximal valued action this algorithm allows for the decoupling from action selection and its evaluation. This coupled with different experience sets for training each network results in a decrease in the correlation issues present in the \acrshort{DQN} algorithm. For picking the next action, the average of the two Q values is calculated in order to evaluate its quality.
+While each Q network still serves the same purpose as with the \acrshort{DQN} algorithm, of approximating the action-value function of the environment, by using a different network's maximal valued action, this algorithm allows for the decoupling from action selection and its evaluation. This, coupled with different experience sets for training each network, results in a decrease in the correlation issues present in the \acrshort{DQN} algorithm. For picking the next action, the average of the two Q values is calculated in order to evaluate its quality.
 
 \subsection{Prioritized experience replay}
-\noindent Improving on the concept of experience replay introduced in paper \cite{DQN}, paper \cite{prioexperience} proposes a way of prioritizing the experience replay buffer, $U(D)$, in order to make the algorithm more efficient and effective. The main component of prioritized experience replay is the criterion used to measure the importance of each experienced transition and as proposed in \cite{prioexperience} the \acrshort{TD}-error, $\delta$, between the target, $t_i$, and the predicted value $Q(s_t,a_t)$ can be used as a proxy for how unexpected the transition is.
+\noindent Improving on the concept of experience replay introduced in paper \cite{DQN}, paper \cite{prioexperience} proposes a way of prioritizing the experience replay buffer, $U(D)$, in order to make the algorithm more efficient and effective. The main component of prioritized experience replay is the criterion used to measure the importance of each experienced transition. As proposed in \cite{prioexperience} the \acrshort{TD}-error, $\delta$, between the target, $t_i$, and the predicted value $Q(s_t,a_t)$ can be used as a proxy for how unexpected the transition is.
 
 With this \acrshort{TD}-error, $\delta$, a greedy \acrshort{TD}-error prioritization algorithm can be devised where experiences for the update step are sampled from the $U(D)$ in order of the highest absolute \acrshort{TD}-error first. This is done with the caveat that new transitions without a known \acrshort{TD}-error are prioritized above all other experiences in order to guarantee that all experiences are seen at least once.
 
-This greedy \acrshort{TD}-error prioritization algorithm comes with several problems. First, in order to avoid recalculating \acrshort{TD} errors for the entire replay memory, they are only updated on replayed transitions. This has the consequence that transitions with low \acrshort{TD} error at first might not be replayed in a long time and due to the limited size of the replay buffer and its sliding window nature, might never be replayed. Other problems with this algorithm is its sensitivity to noise spikes and its tendency to over-fit on a small subset of transitions that have high initial \acrshort{TD}-error.
+This greedy \acrshort{TD}-error prioritization algorithm comes with several problems. First, in order to avoid recalculating \acrshort{TD} errors for the entire replay memory, they are only updated on replayed transitions. This has the consequence that transitions with low \acrshort{TD} error at first might not be replayed in a long time and due to the limited size of the replay buffer and its sliding window nature, might never be replayed. Other problems with this algorithm are its sensitivity to noise spikes and its tendency to over-fit on a small subset of transitions that have high initial \acrshort{TD}-error.
 
-To solve these issues, the authors of \cite{prioexperience} present a stochastic sampling method that interpolates between pure greedy prioritization and uniform random sampling. To achieve this, they propose that sampling on $U(D)$ be made according to a sampling probability of each transition $i$ defined as:
+In order to solve these issues, the authors of \cite{prioexperience} present a stochastic sampling method that interpolates between pure greedy prioritization and uniform random sampling. To achieve this, they propose that sampling on $U(D)$ be made according to a sampling probability of each transition $i$ defined as:
 \begin{equation}
     P(i) = \frac{p_i^\alpha}{\sum_k p_k^\alpha} ,
 \end{equation}
 
-where $p_i>0$ is the priority of transition $i$ and $\alpha$ is an hyper-parameter that determines how much prioritization should be used, with $\alpha = 0$ corresponding to the uniform sampling case.
+where $p_i>0$ is the priority of transition $i$ and $\alpha$ is a hyper-parameter that determines how much prioritization should be used, with $\alpha = 0$ corresponding to the uniform sampling case.
 
 The priority of transition can be defined as:
 \begin{equation}
@@ -212,9 +212,9 @@ An alternative formulation of the priority of transition is:
 where $rank(i)$ is the rank of transition $i$ when the replay memory is sorted in descending order according to transition \acrshort{TD}-errors, $|\delta_i|$. This variant is more likely to be more robust because it is insensitive to outliers.
 
 \subsection{Dueling Deep Q-Network (Dueling DQN)}
-\noindent Improving upon the concept of double Q-learning presented in \cite{doubleDQN}, the authors of \cite{duelingDQN} present an alternative architecture that tries to explore the insight that for many states, the action taken does not affect what happens. The idea is then to separate the single stream architecture of \cite{DQN} into two streams that estimate the value, $V(s)$, and advantage, $A(s,a)$, functions respectively. A diagram showcasing this split is shown in Figure \ref{duelDQNImag}. 
+\noindent Improving upon the concept of double Q-learning presented in \cite{doubleDQN}, the authors of \cite{duelingDQN} present an alternative architecture that tries to explore the insight that, for many states, the action taken does not affect what happens. The idea is then to separate the single-stream architecture of \cite{DQN} into two streams that estimate the value, $V(s)$, and advantage, $A(s,a)$, functions, respectively. A diagram showcasing this split is shown in Figure \ref{duelDQNImag}. 
 
-The value function, $V(s)$, as stated in Equation (\ref{Vfunction}) indicates the expected cumulative reward from beginning in state s and following the policy, $\pi$, and the action-value, $Q(s,a)$, indicates how good is an action, $a$, given the state, $s$. Then, the advantage, $A(s,a)$, can be defined as:
+The value function, $V(s)$, as stated in Equation (\ref{Vfunction}), indicates the expected cumulative reward from beginning in state s and following the policy, $\pi$, and the action-value, $Q(s,a)$, indicates how good is an action, $a$, given the state, $s$. Then, the advantage, $A(s,a)$, can be defined as:
 
 \begin{equation}\label{Qfunction}
 Q(s,a) = V(s)+A(s,a) .
@@ -222,15 +222,15 @@ Q(s,a) = V(s)+A(s,a) .
 
 This corresponds to the advantage that the agent gains from taking action, $a$, in state, $s$. 
 
-As shown in \cite{duelingDQN}, special consideration must be taken when designing the final aggregating module to output $Q$. A simple aggregation module like the one presented in Equation (\ref{Qfunction}), would make the $V(s)$ inseparable from the $A(s, a)$. So the authors propose an alternative module that forces the advantage function estimator to have zero advantage at the chosen action:
+As shown in \cite{duelingDQN}, special consideration must be taken when designing the final aggregating module to output $Q$. A simple aggregation module like the one presented in Equation (\ref{Qfunction}) would make the $V(s)$ inseparable from the $A(s, a)$. So the authors propose an alternative module that forces the advantage function estimator to have zero advantage at the chosen action:
 
 \begin{equation}
     Q(s,a;\theta,\alpha,\beta) = V(s; \theta, \beta) + (A(s,a;\theta,\alpha) - \frac{1}{|A|}\sum\limits_{a'}A(s, a'; \theta, \alpha)) ,
 \end{equation}
 
-where $\alpha$ and $\beta$ are hyper-parameters of each stream of fully-connected layers, $A(s,a)$ and $V(s)$ streams, respectively, and $\theta$ are the weights of the network.
+where $\alpha$ and $\beta$ are hyper-parameters of each stream of fully-connected layers, $A(s,a)$ and $V(s)$ streams, respectively and $\theta$ are the network weights.
 
-By exploiting the insight that some actions do not affect the state value, this architecture allows the $V(s)$ function to be learned more efficiently and faster resulting in faster convergence of the agent to an optimal policy.
+By exploiting the insight that some actions do not affect the state value, this architecture allows the $V(s)$ function to be learned more efficiently and faster, resulting in faster convergence of the agent to an optimal policy.
 
 \begin{figure}[H]
   \centering
@@ -239,14 +239,14 @@ By exploiting the insight that some actions do not affect the state value, this 
 \end{figure}
 
 \subsection{Asynchronous Advantage Actor-Critic (A3C)}\label{A3C}
-\noindent Actor-critic methods try to combine the benefits of both value-iteration methods, like Q-learning and policy-iteration methods, like Policy Gradient by separating the agent as an actor network and a critic network. The actor network contains the policy that maps states to actions by a set of parameters $\theta$. While the critic network evaluates the value function $V(s)$, the action-value $Q(s,a)$ or the advantage of an action $A(s,a)$, and, based on the \acrshort{TD}-error updates both the actor network and itself. In the case of the \acrshort{A3C}, presented in \cite{a3c}, the critic network tries to estimate the $V(s)$ and the actor network tries to estimate the policy, $\pi(s)$ by maintaining a common network with two streams like in the case of \acrshort{Dueling DQN}, \cite{duelingDQN}. A diagram showcasing the A3C architecture is shown in Figure \ref{A3CImag}.
+\noindent Actor-critic methods try to combine the benefits of both value-iteration methods, like Q-learning and policy-iteration methods, like Policy Gradient, by separating the agent as an actor network and a critic network. The actor network contains the policy that maps states to actions by a set of parameters $\theta$. While the critic network evaluates the value function $V(s)$, the action-value $Q(s,a)$ or the advantage of an action $A(s,a)$, and, based on the \acrshort{TD}-error updates both the actor network and itself. In the case of the \acrshort{A3C}, presented in \cite{a3c}, the critic network tries to estimate the $V(s)$, and the actor network tries to estimate the policy, $\pi(s)$ by maintaining a shared network with two streams like in the case of \acrshort{Dueling DQN}, \cite{duelingDQN}. A diagram showcasing the A3C architecture is shown in Figure \ref{A3CImag}.
 
 The gradient of the loss function can then be defined as:
 \begin{equation}
     \nabla L(\theta) = \nabla_{\theta'} log\pi(a_t|s_t; \theta')A(s_t, a_t; \theta, \theta_v) .
 \end{equation}
 
-Advantage can be defined as in Equation (\ref{Qfunction}), by using the relationship between the $Q$ and the $V$ functions from the Bellman optimality equation we can get:
+Advantage can be defined as in Equation (\ref{Qfunction}), and by using the relationship between the $Q$ and the $V$ functions from the Bellman optimality equation, the following relationship can be established:
 
 \begin{equation}
     Q(s_t, a_t) = E[r_{t+1} + \gamma V(s_{t+1})] ,
@@ -285,7 +285,7 @@ Where in the case of an actor-critic method like A3C, it can be defined as:
     a^* =\arg\max\limits_{a} A(s, a).
 \end{equation}
 
-To guarantee sufficient exploration in the beginning versus convergence of the \acrshort{RL} agent policy in the end of training usually the $\epsilon$ value shrinks as training goes on. This reflects the intuition that as training goes on the model becomes better at understanding the environment and the effects of its actions which in turn makes the need to explore less important.
+To guarantee sufficient exploration at the beginning versus convergence of the \acrshort{RL} agent policy at the end of the training, usually, the $\epsilon$ value shrinks as training goes on. This reflects the intuition that as training goes on, the model becomes better at understanding the environment and the effects of its actions which in turn makes the need to explore less important.
 
 \subsection{Boltzmann exploration} \label{boltz}
 \noindent As explained in paper \cite{boltz}, the Boltzmann exploration policy is widely used in \acrshort{RL} problems. The main idea of this algorithm is to build a Boltzmann distribution where instead of using the state's energy, the evaluation of the quality of an action, $Q(s,a)$, in the case of Q-learning algorithms or its advantage, $A(s,a)$, in the case of the \acrshort{A3C} algorithm is used. The probability of choosing each action can be defined according to:
@@ -294,12 +294,12 @@ To guarantee sufficient exploration in the beginning versus convergence of the \
     p_i = \frac{e^{-\varepsilon_i/\tau}}{\sum\limits_{j=1}^M e^{-\varepsilon_j/\tau}},
 \end{equation}
 
-where $\varepsilon$ is the value of the action, $M$ is the total number of actions and $\tau$ is an hyper-parameter usually called temperature that defines a spectrum between picking the optimal action or a completely random action. When the $\tau$ parameter is close to zero the Boltzmann policy becomes like the greedy policy, picking the highest valued action. Instead, when the $\tau$ parameter is high the probability is more widely distributed between other actions. 
+where $\varepsilon$ is the value of the action, $M$ is the total number of actions and $\tau$ is a hyper-parameter usually called temperature that defines a spectrum between picking the optimal action or a completely random action. When the $\tau$ parameter is close to zero, the Boltzmann policy becomes like the greedy policy, picking the highest valued action. Instead, when the $\tau$ parameter is high, the probability is more widely distributed between other actions. 
 
 As with the $\epsilon$-greedy, this $\tau$ parameter usually shrinks as training goes on, reflecting the intuition that exploration becomes less important as the agent learns the environment.
 
 \subsection{Adaptive Genetic Algorithm (AGA)} \label{AGA}
-\noindent In \acrshort{RL} problems with high-dimensional action spaces, methods like the $\epsilon$-greedy policy are very inefficient in their exploration of the environment. To address this problem the authors of \cite{AGAcrypto}, propose an \acrfull{AGA} to make optimal policy convergence faster by reducing useless exploration without reducing performance.
+\noindent In \acrshort{RL} problems with high-dimensional action spaces, methods like the $\epsilon$-greedy policy are very inefficient in their exploration of the environment. To address this problem, the authors of \cite{AGAcrypto} propose an \acrfull{AGA} to make optimal policy convergence faster by reducing useless exploration without reducing performance.
 
 The main idea behind \acrshort{AGA} is to try to use the critic network to evaluate expected reward for each state-action. The presented solution in \cite{AGAcrypto} is a Q actor-critic architecture where the \acrshort{AGA} takes as input the output action from the actor network. A diagram for the proposed architecture can be seen in Figure \ref{AGAcryptoImag}.
 
@@ -311,7 +311,7 @@ If the loss of the critic network is larger than a defined hyper-parameter, $\va
   \caption{Actor-critic with AGA from \cite{AGAcrypto}.} \label{AGAcryptoImag}
 \end{figure}
 
-When the critic network can evaluate the state-action pairs, the \acrshort{AGA} works by taking the output action, $A$, from the actor network and generating $m-1$ random actions obtaining an initial population of candidate solutions of size, $m$, where each action is considered an individual of the population. The genetic operators of crossover and mutation can then be used to create different generations of actions. Using the critic network evaluation as the fitness function in roulette wheel genetic selection, the best actions are selected and the population is replaced by the new generation.
+When the critic network can evaluate the state-action pairs, the \acrshort{AGA} works by taking the output action, $A$, from the actor network and generating $m-1$ random actions obtaining an initial population of candidate solutions of size, $m$, where each action is considered an individual of the population. The genetic operators of crossover and mutation can then be used to create different generations of actions. Using the critic network evaluation as the fitness function in roulette wheel genetic selection, the best actions are selected, and the new generation replaces the population.
 
 The crossover and mutation genetic operators are applied according to their respective probabilities $p_c$ and $p_m$.
 \begin{equation}
@@ -330,7 +330,7 @@ The crossover and mutation genetic operators are applied according to their resp
     \end{cases},       
 \end{equation}
 
-where $\overline{R}$ and $R_{min}$ are the average and minimum value of the population respectively. These parameters are used to make $p_c$ and $p_m$ increase when the population converges to a local minimum. To combat disruptions in the global minimum solution, $p_c$ should depend on its parent action value $R'$ and $p_m$ should depend on the value of the mutating action. $k1$, $k2$, $k3$ and $k4 < 1$ are hyper-parameters that define how much crossovers and mutations should happen.
+where $\overline{R}$ and $R_{min}$ are the average and minimum values of the population, respectively. These parameters are used to increase $p_c$ and $p_m$ when the population converges to a local minimum. In order to combat disruptions in the global minimum solution, $p_c$ should depend on its parent action value $R'$ and $p_m$ should depend on the value of the mutating action. $k1$, $k2$, $k3$ and $k4 < 1$ are hyper-parameters that define how much crossovers and mutations should happen.
 
 \acrshort{AGA} ends when a $K$ number of iterations are reached and the highest valued action, $A^*$, is selected. This $K$ value can be adapted by:
 
@@ -349,17 +349,17 @@ Where $\phi$ is a strictly monotonically increasing function and $K_{max}$ is an
 \noindent In order to understand the state of the art in solving \acrshort{MEC} challenges using \acrshort{RL}, several works were reviewed. Their problem statements and solutions are summarized in the following sections.
 
 \subsection{User side task offloading}
-\noindent Research papers such as \cite{taskclass1}, \cite{taskclass2} present a local offloading decision algorithm that considers a 1 \acrshort{UE} to 1 \acrshort{MEC} server topology in a 4G environment, where the \acrshort{UE} has information about the required computation graph of its application and makes decisions on which computations to offload and which computations to execute locally. 
+\noindent Research papers such as \cite{taskclass1} and \cite{taskclass2} present a local offloading decision algorithm that considers a 1 \acrshort{UE} to 1 \acrshort{MEC} server topology in a 4G environment, where the \acrshort{UE} has information about the required computation graph of its application and makes decisions on which computations to offload and which computations to execute locally. 
 
-In \cite{taskclass1}, the algorithm takes a sequentially dependent list of application computation components  and classifies each one as local or remote execution. It assumes that each component input data amount depends on the output data of the component preceding it and tries to estimate its work as a function of input data and computation complexity as presented in:
+In \cite{taskclass1}, the algorithm takes a sequentially dependent list of application computation components  and classifies each one as local or remote execution. It assumes that each component's input data amount depends on the output data of the component preceding it and tries to estimate its work as a function of input data and computation complexity as presented in:
 
 \begin{equation} 
     W_c = V \cdot O_n \cdot d_{c-1, c}, 
 \end{equation}\label{wcv}
 
-where $W_c$, is the \acrshort{CPU} clock cycles of computation component ($c_n$), V denotes the number of clock cycles a processor will perform per byte, $O_n$ is the computation complexity of $c_n$ and $d_{c-1,c}$ is the output data amount of the previous component. The $O_n$ notation is introduced as the data amplification factor of $c_n$, given that the input data and the processed data are not equal in amount since the input data can be processed several times.
+where $W_c$ is the \acrshort{CPU} clock cycles of the computation component ($c_n$), V denotes the number of clock cycles a processor will perform per byte, $O_n$ is the computation complexity of $c_n$ and $d_{c-1,c}$ is the output data amount of the previous component. The $O_n$ notation is introduced as the data amplification factor of $c_n$, given that the input data and the processed data are not equal in amount since the input data can be processed several times.
 
-This paper takes into account the time required to do the computation locally, the transfer delay of uploading input data to \acrshort{MEC} server defined in Equation (\ref{uploaddelay}) and the transfer delay of the downloading of output data defined in Equation (\ref{downloaddelay}):
+This paper takes into account the time required to do the computation locally, the transfer delay of uploading input data to the \acrshort{MEC} server defined in Equation (\ref{uploaddelay}) and the transfer delay of the downloading of output data defined in Equation (\ref{downloaddelay}):
 
 \begin{equation}\label{uploaddelay}
 r_u = n \frac{B}{N} log_2(1+\frac{p_u|h_{ul}|^2}{\Gamma(g_{ul})d^\beta N_0}),
@@ -369,21 +369,21 @@ r_u = n \frac{B}{N} log_2(1+\frac{p_u|h_{ul}|^2}{\Gamma(g_{ul})d^\beta N_0}),
 r_d = n \frac{B}{N} log_2(1+\frac{p_d|h_{dl}|^2}{\Gamma(g_{dl})d^\beta N_0}),
 \end{equation}
 
-where B is the bandwidth, $\beta$ is the path loss exponent, $d$ is the distance between the \acrshort{UE} and the \acrshort{MEC} server, $n$ is the number of sub carriers that are allocated for the transmission, $N_0$ is the noise power, $p_u$ and $p_d$ are the transmit powers, $h_{ul}$ and $h_{dl}$ are the channel fading coefficient for uplink and downlink, and $g_{ul}$ and $g_{dl}$ are the required bit error rate for the uplink and downlink. The SNR margin, $\Gamma$, required to satisfy the bit error rate ($g_{ul}$ and $g_{dl}$) with quadrature amplitude modulation constellation can be calculated according to:
+where B is the bandwidth, $\beta$ is the path loss exponent, $d$ is the distance between the \acrshort{UE} and the \acrshort{MEC} server, $n$ is the number of subcarriers that are allocated for the transmission, $N_0$ is the noise power, $p_u$ and $p_d$ are the transmit powers, $h_{ul}$ and $h_{dl}$ are the channel fading coefficient for uplink and downlink, and $g_{ul}$ and $g_{dl}$ are the required bit error rate for the uplink and downlink. The SNR margin, $\Gamma$, required to satisfy the bit error rate ($g_{ul}$ and $g_{dl}$) with quadrature amplitude modulation constellation, can be calculated according to:
 \begin{equation} \label{SNR}
     \Gamma(g_{l}) = \frac{-2log5g_{ul}}{3} .
 \end{equation}
 
-Data is only transferred as it is needed. This means that when two sequential components are offloaded to the \acrshort{MEC} server, the output of the first component is needed as input for the second component but because they were both computed on the same machine there are no upload or download delays between the two.
+Data is only transferred as it is needed. This means that when two sequential components are offloaded to the \acrshort{MEC} server, the output of the first component is needed as input for the second component. However, since they were both computed on the same machine, there are no upload or download delays between the two.
 
 The proposed classification algorithm is a Deep Neural Network (DNN) trained using the exhaustively computed best solutions from 10,000 randomly generated states for an application consisting of 100 sequential components. This training method quickly becomes intractable for higher complexity problems.
 
 This work does not take into account energy costs of transmission, idle energy costs of waiting for remote computation execution, assumes sequential data dependency in the execution graph and constant \acrshort{CPU} allocation from the \acrshort{MEC} server. 
 
 \subsection{Centralized Fog Network managers}
-\noindent Paper \cite{centralfog}, presents a centralized \acrfull{SDN} controller which maintains global knowledge of the network of fog nodes. Each of these fog nodes receive requests from \acrshort{UE}s and the \acrshort{SDN} controller decides if these tasks should be computed on the receiving node or offloaded to a neighboring node.
+\noindent Paper \cite{centralfog} presents a centralized \acrfull{SDN} controller which maintains global knowledge of the network of fog nodes. Each fog nodes receives requests from \acrshort{UE}s, and the \acrshort{SDN} controller decides if these tasks should be computed on the receiving node or offloaded to a neighboring node.
 
-This problem statement is formalized as an \acrshort{MDP}, consisting of a state space (S), action space (A), transition probability distribution (P) and a reward (R).
+This problem statement is formalized as an \acrshort{MDP}, consisting of a state-space (S), action-space (A), transition probability distribution (P) and a reward (R).
 
 \begin{itemize}
     \item $S = \{s=(n^l, w, Q)\}$ is the state space:
@@ -403,7 +403,7 @@ This problem statement is formalized as an \acrshort{MDP}, consisting of a state
         \item $R(s,a) = U(s, a) - (D(s,a) + O(s,a))$:
         \begin{itemize}
             \item $U(s, a) = r_u log(1+w^l + w^0)$, is the immediate utility and where $r_u$ is a utility reward;
-            \item $D(s,a) = \chi_{d} \cdot \frac{t^w + t^c + t^e}{(w^l + w^0)}$ , is the immediate delay and where $t^w$is the average wait time at queue of node $n^l$ and the node $n^0$, $t^c$ is the communication delay between nodes and $t^e$ is the execution time by node $n^l$ and  $n^0$. The $\chi_d$ is an hyper-parameter that defines importance of the delay;
+            \item $D(s,a) = \chi_{d} \cdot \frac{t^w + t^c + t^e}{(w^l + w^0)}$ , is the immediate delay and where $t^w$is the average wait time at queue of node $n^l$ and the node $n^0$, $t^c$ is the communication delay between nodes and $t^e$ is the execution time by node $n^l$ and  $n^0$. The $\chi_d$ is a hyper-parameter that defines importance of the delay;
             \item $O(s, a) = \chi_{0} \cdot \frac{w^l \cdot P_{overload, l} + w^0 \cdot P_{overload, 0}}{w^l + w^0}$, is the overload probability and where $\chi_{0}$ is an overload weight hyper-parameter and $P_{overload, i}$ is the task arrival rate at node.
         \end{itemize}
     \end{itemize}
@@ -411,15 +411,15 @@ This problem statement is formalized as an \acrshort{MDP}, consisting of a state
 
 To solve this \acrshort{MDP}, the authors of this work propose a Q-table approach using the $\epsilon$-greed algorithm as its policy, which makes its solution not very scalable to higher dimensional problems and makes it suffer from action value overestimation in noisy environments.
 
-This work does not take into account the possibility of local \acrshort{UE} task execution and associated battery and computation constraints nor the delay in returning computation results from fog nodes back to user device.  It also assumes independence between tasks. Despite mentioning the possibility of software defined fog nodes to be composed by many heterogeneous devices this is not explored.
+This work does not consider the possibility of local \acrshort{UE} task execution and associated battery and computation constraints nor the delay in returning computation results from fog nodes back to the user device.  It also assumes independence between tasks. Despite mentioning the possibility of software-defined fog nodes to be composed of many heterogeneous devices, this is not explored.
 
 
 \subsection{Decentralized Fog Network managers}
-\noindent Paper \cite{fogmulti}, continues the work of paper \cite{centralfog} by introducing a new architecture with two important concepts. First, it introduces the notion of dividing the computation resources of fog nodes into network slices, allowing for the allocation of certain slices to services with specific latency and resource requirements. The second important change it makes in its architecture is the change from a centralized \acrshort{SDN} controller with knowledge of the entire network conditions to many distributed controllers located at each fog node working together.
+\noindent Paper \cite{fogmulti} continues the work of paper \cite{centralfog} by introducing a new architecture with two important concepts. First, it introduces the notion of dividing the computation resources of fog nodes into network slices, allowing for the allocation of certain slices to services with specific latency and resource requirements. The second important change it makes in its architecture is the change from a centralized \acrshort{SDN} controller with knowledge of the entire network conditions to many distributed controllers located at each fog node working together.
 
-This new problem can be formulated as a \acrshort{POMDP} in which each fog node only knows its local state and makes decisions on which tasks to offload, where to offload them and how to allocate local slices resources to queued tasks. By doing this no state messages are sent between fog nodes and only locally computed rewards are shared between them. This reward messages can be shared asynchronously from the decision process.
+This new problem can be formulated as a \acrshort{POMDP} in which each fog node only knows its local state and makes decisions on which tasks to offload, where to offload them and how to allocate local slices resources to queued tasks. By doing this, no state messages are sent between fog nodes and only locally computed rewards are shared between them. These reward messages can be shared asynchronously from the decision process.
 
-As a solution, each fog nodes has a \acrfull{DRQN} that takes as input a local observation stack of the previous four observations and makes a local offloading and resource allocation decision. A variation of the $\epsilon$-greedy algorithm is used in which the $\epsilon$ is reset to the starting value with a small decay $\delta^\epsilon$ $(0<\delta^\epsilon < 1)$ every $R^\epsilon$ steps to solve the insufficient exploration in large state-action spaces that $\epsilon$-greedy algorithm suffers from. These neural networks are trained with the experience replay technique trying to maximize the total system reward composed of the local fog node rewards resulting from their localized actions and their effect on the system as a whole.
+As a solution, each fog node has a \acrfull{DRQN} that takes as input a local observation stack of the previous four observations and makes a local offloading and resource allocation decision. A variation of the $\epsilon$-greedy algorithm is used in which the $\epsilon$ is reset to the starting value with a small decay $\delta^\epsilon$ $(0<\delta^\epsilon < 1)$ every $R^\epsilon$ steps to solve the insufficient exploration in large state-action spaces that $\epsilon$-greedy algorithm suffers from. These neural networks are trained with the experience replay technique trying to maximize the total system reward composed of the local fog node rewards resulting from their localized actions and their effect on the system as a whole.
 
 The work presented in \cite{Lulu}, builds on the work done in \cite{fogmulti} by substituting the fog node's \acrshort{DRQN}s by an \acrshort{A2C} architecture with an actor for each network but a common critic estimator for all agents. This critic needs to be updated with all actions and states from each of the fog nodes but can do so asynchronously from the decision process.
 
@@ -428,7 +428,7 @@ The work presented in \cite{Lulu}, builds on the work done in \cite{fogmulti} by
 
 It assumes that each \acrshort{UE} $n$ has a computation-intensive task $R_n \triangleq (B_n, D_n, \tau_n)$ at each time step to be executed, where $B_n$ represents the input data for the computation, $D_n$ represents the total number of \acrshort{CPU} cycles required to compute the task and $\tau_n$ represents the maximum delay amount of that task.
 
-This decision takes into account the delay and energy costs of computing locally, the delay of transmission to \acrshort{MEC} server, the energy needed to transmit and the idle energy consumption of the \acrshort{UE} when waiting for the remote computation. Due to the assumption of very high download rate and smaller size output data than input data, this work ignores the delay and energy cost of downloading the processed result from the \acrshort{MEC} server to the \acrshort{UE}. To solve the problem statement, the authors present a simple \acrshort{DQN}.
+This decision takes into account the delay and energy costs of computing locally, the delay of transmission to the \acrshort{MEC} server, the energy needed to transmit and the idle energy consumption of the \acrshort{UE} when waiting for the remote computation. Due to the assumption of a very high download rate and smaller size of output data than input data, this work ignores the delay and energy cost of downloading the processed result from the \acrshort{MEC} server to the \acrshort{UE}. To solve the problem statement, the authors present a simple \acrshort{DQN}.
 
 \begin{figure}[h]
   \centering

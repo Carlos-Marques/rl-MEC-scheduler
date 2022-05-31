@@ -1,12 +1,12 @@
 \chapter{Thesis proposition}
 
 \section{Problem statement}
-\noindent The goal of this thesis is the design of a management agent capable of making offloading decisions from a heterogeneous network of \acrshort{UE}s to a heterogeneous network of \acrshort{MEC} servers. This work proposes to innovate by presenting a more complete system and exploring a network topology not present in related works. The proposed network manager could be seen as the conductor in the CONCERT architecture proposed in \cite{CONCERT} or the small cell manager in the \acrshort{SCC} architecture, \cite{SESAM}. This manager would be deployed locally and would manage a group of $M$ \acrshort{MEC} servers and $N$ \acrshort{UE}s making offloading decisions on which \acrshort{UE} tasks to compute locally, which tasks to offload and where tasks should be offloaded to. This decision should take into account communication delays, computation constraints and battery consumption.
+\noindent The goal of this thesis is the design of a management agent capable of making offloading decisions from a heterogeneous network of \acrshort{UE}s to a heterogeneous network of \acrshort{MEC} servers. This work proposes to innovate by presenting a more complete system and exploring a network topology not present in related works. The proposed network manager could be seen as the conductor in the CONCERT architecture proposed in \cite{CONCERT} or the small cell manager in the \acrshort{SCC} architecture, \cite{SESAM}. This manager would be deployed locally and would manage a group of $M$ \acrshort{MEC} servers and $N$ \acrshort{UE}s, making offloading decisions on which \acrshort{UE} tasks to compute locally, which tasks to offload and where tasks should be offloaded to. This decision should take into account communication delays, computation constraints and battery consumption.
 
 Building upon the system presented in \cite{NUE1mec}, the proposed system plans address its shortcomings by:
 \begin{itemize}
     \item Expanding the number of \acrshort{MEC} servers that must be orchestrated from one to $M$ servers, better representing a 5G network with several \acrshort{SCeNBs} enhanced with computation capabilities;
-    \item Testing the management agent in a heterogeneous enviroment, with \acrshort{UE}s and \acrshort{MEC} servers of different computation capabilities;
+    \item Testing the management agent in a heterogeneous environment, with \acrshort{UE}s and \acrshort{MEC} servers of different computation capabilities;
     \item Taking into account the delay and energy cost of downloading the processed result from the \acrshort{MEC} server to the \acrshort{UE};
     \item Exploring modern \acrshort{DRL} algorithms to solve the increased complexity problem.
 \end{itemize}
@@ -71,7 +71,7 @@ This upload has an associated energy consumption:
     E_{n,t}^m = P_n T_{n,t}^m = \frac{P_n B_n}{r_u} .
 \end{equation}
 
-After the data is uploaded the \acrshort{MEC} server then computes the task resulting in a offload execution delay:
+After the data is uploaded, the \acrshort{MEC} server then computes the task resulting in an offload execution delay:
 
 \begin{equation} \label{processing_delay}
     T_{n,p}^m = \frac{D_n}{f_m} ,
@@ -85,7 +85,7 @@ where $f_m$ is the amount of the \acrshort{MEC} server, $m$, computation capacit
 
 where $N_m$ is the number of tasks offloaded to \acrshort{MEC} server, $m$.
 
-While the \acrshort{UE} waits for the task to be computed it stays idle which has an associated energy consumption:
+While the \acrshort{UE} waits for the task to be computed, it stays idle, which has an associated energy consumption:
 
 \begin{equation} \label{idle_energy}
     E_{n,p}^m = P_n^i T_{n,p}^m = \frac{P_n^i D_n}{f_m}.
@@ -146,7 +146,7 @@ The mean cost of the \acrshort{MEC} system at each iteration can then be defined
     C_{mean} = \frac{\sum\limits_{n=1}^N C_n}{N}.
 \end{equation}
 
-The worst case cost of the \acrshort{MEC} system at each iteration can then be defined as:
+The worst-case cost of the \acrshort{MEC} system at each iteration can then be defined as:
 
 \begin{equation}
     C_{max} = \max \ \mathcal{C}.
@@ -155,7 +155,7 @@ The worst case cost of the \acrshort{MEC} system at each iteration can then be d
 This corresponds to the \acrshort{UE} that has the highest cost at each iteration.
 
 \subsection{Problem formulation}
-\noindent The offloading decision needs to be formulated in a way that can both optimize overall system performance while considering the worst case serviced \acrshort{UE}.
+\noindent The offloading decision needs to be formulated in a way that can both optimize overall system performance while considering the worst-case serviced \acrshort{UE}.
 
 Given this, the weighted cost at each iteration can be defined as:
 
@@ -170,7 +170,7 @@ By picking the importance weights of the costs that satisfy:
     W_{mean} + W_{max} = 1.
 \end{align*}
 
-The priorities of the system can be adjusted to satisfy both overall system performance and consider the worst case cost of the system.
+The priorities of the system can be adjusted to satisfy both overall system performance and consider the worst-case cost of the system.
 
 The optimization function can then be defined with the objective of finding the offloading decision vector $\mathcal{A} = [\alpha_1, \alpha_2, ..., \alpha_n]$ that minimizes the weighted average of the mean and max cost of the system at each iteration:
 

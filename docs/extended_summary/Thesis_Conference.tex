@@ -62,8 +62,8 @@ carlos.m.a.silva@tecnico.ulisboa.pt}}
 \maketitle
 
 \begin{abstract}
-The \acrfull{CC} paradigm has risen in recent years as a solution to a need for computation and battery constrained \acrfull{UE} to run increasingly intensive computation tasks. Given its seemingly infinite amount of resources and pay as you go nature this paradigm has brought several advantages: 1) Extended battery life of \acrfull{UE}s by offloading computation; 2) Enables new types of applications intractable with \acrfull{UE}'s computation capabilities; 3) In an ever more data focused world it allows for unlimited storage capacity. Nevertheless, given the centralized nature of the \acrshort{CC} paradigm, this option introduces significant network congestion problems and unpredictable communication delays not suitable for real-time applications. To cope with these problems, the \acrfull{MEC} concept has been introduced, which proposes to bring computation resources closer to the edge of the mobile networks in a distributed way. However, given that these edge computation resources are limited, this paradigm comes with its set of challenges that need to be solved in order to make it viable. This work proposes to innovate by presenting a network management agent capable of making offloading decisions from a heterogeneous network of \acrshort{UE}s to a heterogeneous network of \acrshort{MEC} servers. This agent represents an orchestrator of a group of 5G \acrfull{SCeNBs}, enhanced with computation and storage capabilities. In order to solve this high complexity problem, an \acrfull{A2C} agent is implemented and tested against several baselines. The proposed solution is shown to beat the baselines by making intelligent decisions taking into
-account computation, battery, delay and communication constraints ignored by the baselines. The solution is also shown to be scalable, data-efficient, robust, stable and adjustable to address not only overall system performance but to take into account the worst case scenario.
+The \acrfull{CC} paradigm has risen in recent years as a solution to a need for computation and battery constrained \acrfull{UE} to run increasingly intensive computation tasks. Given its seemingly infinite amount of resources and pay-as-you-go nature, this paradigm has brought several advantages: 1) Extended battery life of \acrfull{UE}s by offloading computation; 2) Enables new types of applications intractable with \acrfull{UE}'s computation capabilities; 3) In an ever more data-focused world it allows for unlimited storage capacity. Nevertheless, given the centralized nature of the \acrshort{CC} paradigm, this option introduces significant network congestion problems and unpredictable communication delays not suitable for real-time applications. In order to cope with these problems, the \acrfull{MEC} concept has been introduced, which proposes to bring computation resources closer to the edge of the mobile networks in a distributed way. However, given that these edge computation resources are limited, this paradigm comes with its set of challenges that need to be solved in order to make it viable. This work proposes to innovate by presenting a network management agent capable of making offloading decisions from a heterogeneous network of \acrshort{UE}s to a heterogeneous network of \acrshort{MEC} servers. This agent represents an orchestrator of a group of 5G \acrfull{SCeNBs}, enhanced with computation and storage capabilities. In order to solve this high complexity problem, an \acrfull{A2C} agent is implemented and tested against several baselines. The proposed solution is shown to beat the baselines by making intelligent decisions taking into
+account computation, battery, delay and communication constraints ignored by the baselines. The solution is also shown to be scalable, data-efficient, robust, stable and adjustable to address not only overall system performance but to take into account the worst-case scenario.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -72,7 +72,6 @@ Mobile Edge Computing, Computation Offloading, Energy and Performance Optimizati
 
 \section{Introduction}
 
-\subsection{Context}
 \noindent There has been a continuous exponential increase in the number of \acrfull{UE}, such as smartphones, laptops and \acrfull{IoT} devices. Their need to run ever more complex applications, given their energy and computation constrained environment, has led to the rise of \acrfull{CC} as an alternative to offload computation and storage needs. In the \acrshort{CC} paradigm, computation resources are located in centralized data centers that can be considered infinite. This paradigm brings several advantages \cite{SHAKARAMI2020107496}: 
 \begin{enumerate}
     \item By offloading computation, it extends the battery life of \acrshort{UE}; 
@@ -103,13 +102,13 @@ The problem of making offloading and resource allocation decisions in \acrshort{
 \subsection{Contributions}
 \noindent The main contributions of this work are:
 \begin{itemize}
-    \item The release of an open-source realistic network simulation environment as an OpenAI Gym, \cite{opengym}, enviroment. Allowing for easy experimentation with different \acrshort{DRL} algorithms;
     \item The implementation of an open-source, \acrshort{A2C} agent, capable of making intelligent offloading decisions that take into account battery, computation and communication constraints overperforming the baselines in a heterogeneous network of several \acrshort{UE}s and \acrshort{MEC} servers;
+    \item The release of an open-source realistic network simulation environment as an OpenAI Gym, \cite{opengym}, environment. Allowing for easy experimentation with different \acrshort{DRL} algorithms;
 \end{itemize}
 
-The code for the simulator, baselines and agent, as well as environment configurations can be found in the following code repository: \hyperbf{https://github.com/Carlos-Marques/rl-MEC-scheduler}.
+\section{Related Work}
 
-\section{Overview of \acrshort{MEC} architectures} \label{section:MECarch}
+\subsection{Overview of \acrshort{MEC} architectures} \label{section:MECarch}
 
 \noindent One of the first efforts to bring computation resources closer to the edge was the cloudlet concept presented in \cite{cloudlet}. The main idea behind it was to allocate powerful computers at WiFi hotspots that could sell their \acrfull{IaaS} through the use of \acrfull{VMs}.
 
@@ -117,29 +116,28 @@ Another concept to bring computation closer to \acrshort{UE}s is the idea of an 
 
 Finally, the \acrfull{MEC} concept presented by the \acrfull{ISG} within the \acrfull{ETSI} in \cite{MECspec} is focused on integrating computation resources within the \acrfull{RAN} in very close proximity to mobile subscribers.
 
-As presented in paper \cite{SHAKARAMI2020107496}, several \acrshort{MEC} architectures have been proposed in order to integrate and manage computation resources at the \acrshort{RAN} level such as \acrfull{SCC} \cite{smallcellcloud}, \acrfull{MMC} \cite{mmcloud}, \acrfull{MobiScud} \cite{MobiScud}, \acrfull{FMC} \cite{fmcloud} and CONCERT \cite{CONCERT}.
+As presented in paper \cite{SHAKARAMI2020107496}, several \acrshort{MEC} architectures have been proposed in order to integrate and manage computation resources at the \acrshort{RAN} level, such as \acrfull{SCC} \cite{smallcellcloud}, \acrfull{MMC} \cite{mmcloud}, \acrfull{MobiScud} \cite{MobiScud}, \acrfull{FMC} \cite{fmcloud} and CONCERT \cite{CONCERT}.
 
-\section{Reinforcement Learning (RL)} \label{section:RL}
-\noindent There are three main machine learning paradigms, supervised learning, unsupervised learning and reinforcement learning. While supervised learning needs a lot of labeled input/ouput data and unsupervised learning learns patterns from unlabeled data, \acrfull{RL} is used in problems where an agent learns to solve a closed-loop problem by changing its future actions based on a reward resulting from its actions on the environment and its effects on its state.
+\subsection{Reinforcement Learning (RL)} \label{section:RL}
+\noindent There are three main machine learning paradigms, supervised learning, unsupervised learning and reinforcement learning. While supervised learning needs a lot of labeled input/output data and unsupervised learning learns patterns from unlabeled data, \acrfull{RL} is used in problems where an agent learns to solve a closed-loop problem by changing its future actions based on a reward resulting from its actions on the environment and its effects on its state.
 
-This paradigm has shown great potential in solving environments that can be simulated and easily benchmarked which is the reason most research on \acrshort{RL} is made by solving video games, which offer a perfect environment in terms of reproducibility, easy simulation and baked in benchmarks that can be used to compute a reward signal (points, levels, etc).
+This paradigm has shown great potential in solving environments that can be simulated and easily benchmarked, which is the reason most research on \acrshort{RL} is made by solving video games, which offer a perfect environment in terms of reproducibility, easy simulation and baked in benchmarks that can be used to compute a reward signal (points, levels, etc.).
 
 Several algorithms have been proposed from \acrfull{DQN} in \cite{DQN}, \acrfull{DDQN} in \cite{doubleDQN}, Dueling Deep Q-Network (Dueling DQN) in \cite{duelingDQN} and \acrfull{A3C} in \cite{a3c}.
 
-\section{Exploitation vs Exploration} \label{section:EE}
+\subsection{Exploitation vs Exploration} \label{section:EE}
 \noindent One major challenge a \acrshort{RL} agent faces is the exploration vs exploitation dilemma. Given a fixed set of resources that must be allocated between competing choices in a way that maximizes expected reward in an unknown transition probability and reward signal environment, the agent must choose to perform actions that exploit known strategies versus performing unknown actions to explore the environment for better strategies. These types of problems have been studied extensively as multi-armed bandit problems.
 
 In order to solve this problem several algorithms have been proposed from $\epsilon$-greedy algorithm, Boltzmann exploration in \cite{boltz} and \acrfull{AGA} in \cite{AGAcrypto}.
 
-\section{System proposition}
+\section{Problem statement}
 
-\subsection{Problem statement}
 \noindent The goal of this thesis is the design of a management agent capable of making offloading decisions from a heterogeneous network of \acrshort{UE}s to a heterogeneous network of \acrshort{MEC} servers. This work proposes to innovate by presenting a more complete system and exploring a network topology not present in related works. The proposed network manager could be seen as the conductor in the CONCERT architecture proposed in \cite{CONCERT} or the small cell manager in the \acrshort{SCC} architecture, \cite{SESAM}. This manager would be deployed locally and would manage a group of $M$ \acrshort{MEC} servers and $N$ \acrshort{UE}s making offloading decisions on which \acrshort{UE} tasks to compute locally, which tasks to offload and where tasks should be offloaded to. This decision should take into account communication delays, computation constraints and battery consumption.
 
 Building upon the system presented in \cite{NUE1mec}, the proposed system plans address its shortcomings by:
 \begin{itemize}
     \item Expanding the number of \acrshort{MEC} servers that must be orchestrated from one to $M$ servers, better representing a 5G network with several \acrshort{SCeNBs} enhanced with computation capabilities;
-    \item Testing the management agent in a heterogeneous enviroment, with \acrshort{UE}s and \acrshort{MEC} servers of different computation capabilities;
+    \item Testing the management agent in a heterogeneous environment, with \acrshort{UE}s and \acrshort{MEC} servers of different computation capabilities;
     \item Taking into account the delay and energy cost of downloading the processed result from the \acrshort{MEC} server to the \acrshort{UE};
     \item Exploring modern \acrshort{DRL} algorithms to solve the increased complexity problem.
 \end{itemize}
@@ -275,7 +273,7 @@ The mean cost of the \acrshort{MEC} system at each iteration can then be defined
     C_{mean} = \frac{\sum\limits_{n=1}^N C_n}{N}.
 \end{equation}
 
-The worst case cost of the \acrshort{MEC} system at each iteration can then be defined as:
+The worst-case cost of the \acrshort{MEC} system at each iteration can then be defined as:
 
 \begin{equation}
     C_{max} = \max \ \mathcal{C}.
@@ -284,7 +282,7 @@ The worst case cost of the \acrshort{MEC} system at each iteration can then be d
 This corresponds to the \acrshort{UE} that has the highest cost at each iteration.
 
 \subsection{Problem formulation}
-\noindent The offloading decision needs to be formulated in a way that can both optimize overall system performance while considering the worst case serviced \acrshort{UE}.
+\noindent The offloading decision needs to be formulated in a way that can both optimize overall system performance while considering the worst-case serviced \acrshort{UE}.
 
 Given this, the weighted cost at each iteration can be defined as:
 
@@ -299,7 +297,7 @@ By picking the importance weights of the costs that satisfy:
     W_{mean} + W_{max} = 1.
 \end{align*}
 
-The priorities of the system can be adjusted to satisfy both overall system performance and consider the worst case cost of the system.
+The priorities of the system can be adjusted to satisfy both overall system performance and consider the worst-case cost of the system.
 
 The optimization function can then be defined with the objective of finding the offloading decision vector $\mathcal{A} = [\alpha_1, \alpha_2, ..., \alpha_n]$ that minimizes the weighted average of the mean and max cost of the system at each iteration.
 
@@ -335,6 +333,7 @@ Since the agent must decide for each task ($N$), between local computation or of
 
 \section{Results}
 \label{sec:results}
+The code for the simulator, baselines and agent, as well as environment configurations can be found in the following code repository: \hyperbf{https://github.com/Carlos-Marques/rl-MEC-scheduler}.
 
 \subsection{Baselines} \label{baselines}
 \noindent In order to benchmark the various \acrshort{DRL} algorithms and test the implemented simulator, several baseline algorithms were developed:
@@ -603,7 +602,7 @@ As shown in Figure \ref{hetero_training}, the agent's performance while training
 
 \subsection{Reward function weights} \label{reward_section}
 
-This section focuses on studying the effect of the cost function importance weights on the agent's overall and worst case performance.
+This section focuses on studying the effect of the cost function importance weights on the agent's overall and worst-case performance.
 
 To test this, five new test cases were created by setting the system hyper-parameters to the values present in Table \ref{hyperparams} but instead of setting $W_{mean}$ to 1 and $W_{max}$ to 0, they are set to $(1, 0.75, 0.5, 0.25, 0)$ and $(0, 0.25, 0.5, 0.75, 1)$, respectively.
 
@@ -631,7 +630,7 @@ $\{0, 1\}$ & 3.81 & 3.78 & -0.03 \\ \hline
 \caption{Weight test results.} \label{weight_table}
 \end{table}
 
-As the weights shift from prioritizing overall performance to prioritizing worst case performance, the agent's overall cost increases while the worst case cost decreases. While the agent outperforms the best baseline with every weight distribution, it learns to make offloading decisions that prioritize the worst case performance at the expense of overall system performance. With this in mind, the process of picking the best weight distribution would involve trying to determine the maximum cost allowed per \acrshort{UE} and shifthing the weight distribution in favour of $W_{max}$, trying to maximize $W_{mean}$ while still meeting the maximum allowed cost.
+As the weights shift from prioritizing overall performance to prioritizing worst-case performance, the agent's overall cost increases while the worst-case cost decreases. While the agent outperforms the best baseline with every weight distribution, it learns to make offloading decisions that prioritize the worst-case performance at the expense of overall system performance. With this in mind, the process of picking the best weight distribution would involve trying to determine the maximum cost allowed per \acrshort{UE} and shifthing the weight distribution in favour of $W_{max}$, trying to maximize $W_{mean}$ while still meeting the maximum allowed cost.
 
 
 
@@ -640,18 +639,7 @@ As the weights shift from prioritizing overall performance to prioritizing worst
 \label{sec:conclusion}
 
 \subsection{Summary}
-\noindent As presented in Section \ref{section:MECarch} several architectures have been proposed in the \acrshort{MEC} context that present complex optimization problems of managing how to distribute tasks between \acrshort{UE}s and \acrshort{MEC} servers. Due to the high dimensional complexity and uncertain networking conditions, classical offline optimization algorithms fail to effectively manage these types of problems. Based on the work done by papers \cite{taskclass1} and \cite{NUE1mec} a more complete system that takes into account the possibility of offloading between a network of heterogeneous \acrshort{UE}s to a network of heterogeneous \acrshort{MEC} servers is proposed. As far as the candidate knows, this is the first time that this extended optimization problem is addressed. To deal with the increased complexity of taking into account computation, battery, delay and communication constraints in an \emph{N} to \emph{N} problem a network manager agent is proposed in Section \ref{solution}. In order to evaluate the performance of the proposed agent, several baselines are described in Section \ref{baselines}. Finally, the agent's capabilities are put to the test in Sections \ref{simple_test}, \ref{scalability_data}, \ref{robustness_stability} and \ref{reward_section}.
-
-In Section \ref{simple_test}, a simple test case is used to demonstrate the simulator, baselines and the agent's capacity to learn. As expected, the Full Local baseline performs the worst, then the Random Offload baseline and finally the Full nearest MEC. The proposed agent is shown to learn, overperforming the baselines by 96.65\%, 82.89\% and 24.06\% respectively. The agent achieves this while not requiring any information of the network topology by simply interacting with the environment.
-
-In Section \ref{scalability_data}, the agent's scalability and data efficiency is put to the test by increasing the complexity of the system with two new tests. Given that the system complexity is tightly related with the number of \acrshort{UE}s in the network, the agent was tested in an environment with 10 and 20 \acrshort{UE}s. As showcased, the agent learned to overperform the best baseline with a 22.17\% and 34.38\% improvement, respectively, showcasing its ability to scale with problem complexity. The agent also achieved this in 55K steps, demonstrating it's data efficiency.
-
-Section \ref{robustness_stability} serves to test the agent's robustness and stability. In order to test robustness, two new test cases were implemented. First, the agent robustness to changing network conditions was tested and proven by overperforming the baseline with a 30.62\% improvement. Secondly, the agent robustness to an environment with heterogeneous computation capabilities of \acrshort{UE}s and \acrshort{MEC} servers was put to the test. The agent not only was able to learn and overperform the best baseline, but it did so in a greater faction than with simpler tests, demonstrating a reduction of 30.39\% over the Full nearest MEC baseline, compared with the 22.17\% of the same test without heterogeneous computation capacity. Stability was analysed by looking at the different learning curves of the agent. Over all previous tests, the agent was shown to be stable independently of the changing conditions, never showing regression or collapse of its reward after it starts learning the environment.
-
-In the end, Section \ref{reward_section} presents the effects of changing the importance weight distribution from the overall performance to the worst case performance. The adjustability of the reward function is shown to allow the improvement of the worst case cost at the expense of the overall system cost.
-
-All the simulator, baselines and agent code, as well as environment configurations can be found in the following code repository:
-\hyperbf{https://github.com/Carlos-Marques/rl-MEC-scheduler}.
+\noindent As presented in Section \ref{section:MECarch} several architectures have been proposed in the \acrshort{MEC} context that present complex optimization problems of managing how to distribute tasks between \acrshort{UE}s and \acrshort{MEC} servers. Due to the high dimensional complexity and uncertain networking conditions, classical offline optimization algorithms fail to effectively manage these types of problems. Based on the work done by papers \cite{taskclass1} and \cite{NUE1mec} a more complete system that takes into account the possibility of offloading between a network of heterogeneous \acrshort{UE}s to a network of heterogeneous \acrshort{MEC} servers is proposed. As far as the candidate knows, this is the first time that this extended optimization problem is addressed. To deal with the increased complexity of taking into account computation, battery, delay and communication constraints in an \emph{N} to \emph{N} problem a network manager agent is proposed in Section \ref{solution}. In order to evaluate the performance of the proposed agent, several baselines are described in Section \ref{baselines}. Finally, the agent's capabilities are put to the test in Sections \ref{simple_test}, \ref{scalability_data}, \ref{robustness_stability} and \ref{reward_section}. The proposed agent is shown to be scalable, data-efficient, robust, stable and adjustable to address not only overall system performance but to take into account the worst-case scenario.
 
 \subsection{Future Work}
 \noindent Future steps of research should include:
