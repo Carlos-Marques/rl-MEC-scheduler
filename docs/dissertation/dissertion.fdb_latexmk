@@ -1,21 +1,21 @@
 # Fdb version 3
-["bibtex dissertion"] 1654005594 "dissertion.aux" "dissertion.bbl" "dissertion" 1654006593
+["bibtex dissertion"] 1656065402 "dissertion.aux" "dissertion.bbl" "dissertion" 1656066117
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/base/ieeetr.bst" 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "bibliography/references.bib" 1653900609 27999 95a5d2e63754b2f5ad8be7efc04b81b0 ""
-  "cover.aux" 1654006592 759 6033347e34c2ef4d125d7a9423409762 "pdflatex"
-  "dissertion.aux" 1654006593 19704 f4c0f6edd44ad0061921956f8de9ae40 "pdflatex"
+  "bibliography/references.bib" 1656065386 28660 3e330c3e8b7179840919d3fbd679c4a5 ""
+  "cover.aux" 1656066115 759 6033347e34c2ef4d125d7a9423409762 "pdflatex"
+  "dissertion.aux" 1656066116 19704 f4c0f6edd44ad0061921956f8de9ae40 "pdflatex"
   (generated)
   "dissertion.bbl"
   "dissertion.blg"
-["cusdep acn acr dissertion"] 1654005595 "dissertion.acn" "dissertion.acr" "dissertion" 1654006593
-  "dissertion.acn" 1654006593 34392 0c01ec96076f722f9f9881820b36ec25 "pdflatex"
+["cusdep acn acr dissertion"] 1655983075 "dissertion.acn" "dissertion.acr" "dissertion" 1656066117
+  "dissertion.acn" 1656066116 34470 957f709e912cc7f6597c1dafa46a49ad "pdflatex"
   (generated)
   "dissertion.acr"
-["cusdep glo gls dissertion"] 1654005592 "dissertion.glo" "dissertion.gls" "dissertion" 1654006593
+["cusdep glo gls dissertion"] 1655983072 "dissertion.glo" "dissertion.gls" "dissertion" 1656066117
   "dissertion.glo" 0 -1 0 "pdflatex"
   (generated)
   "dissertion.gls"
-["pdflatex"] 1654006591 "/Users/carlosmarques/Projects/rl-MEC-scheduler/docs/dissertation/dissertion.tex" "dissertion.pdf" "dissertion" 1654006593
+["pdflatex"] 1656066114 "/Users/carlosmarques/Projects/rl-MEC-scheduler/docs/dissertation/dissertion.tex" "dissertion.pdf" "dissertion" 1656066117
   "/Users/carlosmarques/Projects/rl-MEC-scheduler/docs/dissertation/dissertion.tex" 1653900609 4799 346783dcc98007bd1996008e81107465 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -44,6 +44,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1136768653 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
@@ -55,6 +56,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb" 1136849748 35941 f27169cc74234d5bd5e4cca5abafaabb ""
@@ -183,24 +185,24 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1649190851 2826431 d4dfa04cedb626fd70c8385d965f3cbe ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "chapters/abstract.tex" 1653992781 2453 1d8a09f59d17d3fc79a78d9e0b112d21 ""
+  "chapters/abstract.tex" 1655981118 2454 ecef2460d043841eabc73d05c8fd7b2c ""
   "chapters/declaracao.tex" 1653900609 302 e310c3459ab04b503f76b9962e187439 ""
   "chapters/declaration.tex" 1653900609 313 b9d86fb84a1d6e89e00a91d73c5e752b ""
   "chapters/introduction.tex" 1654006497 6043 ebde4b205f6d4e3a1f160191a1982fa9 ""
   "chapters/planification.tex" 1654006590 5502 7b76cf9c4457621fe4cfc670a122f4b2 ""
   "chapters/relatedwork.tex" 1654001427 45550 9bfabba8c2114fb5d591112b2787d5f3 ""
-  "chapters/results.tex" 1654005837 20171 9a99967f177121187596e9ed60d51ccd ""
-  "chapters/resumo.tex" 1653900609 2869 0a03388d036e4739ece75b00569488c2 ""
+  "chapters/results.tex" 1655983058 20196 cdbe8b68cdbe86fd18afc80d5997a1c2 ""
+  "chapters/resumo.tex" 1656066114 2904 7b6525bf50801998ca3efde34d0ba7d9 ""
   "chapters/solution.tex" 1654005042 16589 d2e122302597adb13078c29cde8c43cf ""
-  "cover.aux" 1654006592 759 6033347e34c2ef4d125d7a9423409762 "pdflatex"
-  "cover.tex" 1653900609 2974 758f515bc3a8c38c1ab56b647701af6f ""
-  "dissertion.acr" 1654005595 7547 ba713541cc48f553e06327fd48e86a06 "cusdep acn acr dissertion"
-  "dissertion.aux" 1654006593 19704 f4c0f6edd44ad0061921956f8de9ae40 "pdflatex"
-  "dissertion.bbl" 1654005595 8994 397994c3e3a8310ca26539e5bfcfc3c3 "bibtex dissertion"
-  "dissertion.gls" 1654005595 6 9f404503043ec80c08484be9f659189e "cusdep glo gls dissertion"
-  "dissertion.out" 1654006593 7976 ac7a7657320c9a27a4f20ab343a7d6bc "pdflatex"
+  "cover.aux" 1656066115 759 6033347e34c2ef4d125d7a9423409762 "pdflatex"
+  "cover.tex" 1655980965 2913 b1ef192eb45423810a41a6d2511ba4e5 ""
+  "dissertion.acr" 1655983075 7547 ba713541cc48f553e06327fd48e86a06 "cusdep acn acr dissertion"
+  "dissertion.aux" 1656066116 19704 f4c0f6edd44ad0061921956f8de9ae40 "pdflatex"
+  "dissertion.bbl" 1656065402 9755 188f0699ba05f59e0696ab9def236ec3 "bibtex dissertion"
+  "dissertion.gls" 1655983075 6 9f404503043ec80c08484be9f659189e "cusdep glo gls dissertion"
+  "dissertion.out" 1656066116 7976 ac7a7657320c9a27a4f20ab343a7d6bc "pdflatex"
   "dissertion.tex" 1653900609 4799 346783dcc98007bd1996008e81107465 ""
-  "dissertion.toc" 1654006593 4217 5368efdbd400c2430e4b4844846c2c0f "pdflatex"
+  "dissertion.toc" 1656066116 4217 5368efdbd400c2430e4b4844846c2c0f "pdflatex"
   "images/5_10_layout.png" 1653900609 46517 0a1dae62c158d411761d23cb8833f506 ""
   "images/5_10_training.png" 1653900609 79547 e43c449772ed4d3e0515a7bb4a4ebfb9 ""
   "images/5_10_training_hetero.png" 1653900609 76586 499a048ce24d0c9b445e60a47b329a93 ""

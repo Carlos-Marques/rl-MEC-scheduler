@@ -27,9 +27,10 @@ G.~A. McGilvary, A.~Barker, and M.~Atkinson, ``Ad hoc cloud computing,'' in
   pp.~1063--1068, 2015.
 
 \bibitem{OpenFog}
-O.~Consortium, ``Openfog reference architecture for fog computing.'' Online,
+O.~Consortium, ``Openfog reference architecture for fog computing.''
+  \url{https://iiconsortium.org/pdf/OpenFog_Reference_Architecture_2_09_17.pdf},
   2017.
-\newblock Last access on 28/05/2021.
+\newblock Online; Last access on 28/05/2021.
 
 \bibitem{smallcellcloud}
 F.~Lobillo, Z.~Becvar, M.~A. Puente, P.~Mach, F.~Lo~Presti, F.~Gambetti,
@@ -44,8 +45,11 @@ S.~Wang, G.-H. Tu, R.~Ganti, T.~He, K.~Leung, H.~Tripp, K.~Warr, and M.~Zafer,
   in {\em Proc. Annual Fall Meeting of ITA (AMITA)}, 2013.
 
 \bibitem{MobiScud}
-K.~Wang, M.~Shen, J.~Cho, A.~Banerjee, J.~K.~V. der Merwe, and K.~Webb,
-  ``{MobiScud:} a fast moving personal cloud in the mobile network,'' 2015.
+K.~Wang, M.~Shen, J.~Cho, A.~Banerjee, J.~Van~der Merwe, and K.~Webb,
+  ``Mobiscud: A fast moving personal cloud in the mobile network,'' in {\em
+  Proceedings of the 5th Workshop on All Things Cellular: Operations,
+  Applications and Challenges}, AllThingsCellular '15, (New York, NY, USA),
+  p.~19–24, Association for Computing Machinery, 2015.
 
 \bibitem{fmcloud}
 A.~Aissioui, A.~Ksentini, and A.~Gueroui, ``An efficient elastic distributed
@@ -60,8 +64,8 @@ J.~Liu, T.~Zhao, S.~Zhou, Y.~Cheng, and Z.~Niu, ``Concert: a cloud-based
 
 \bibitem{SESAM}
 H.~E. Project, ``Small cells coordination for multi-tenancy and edge services
-  (sesam)..'' Online, 2015.
-\newblock Last access on 28/05/2021.
+  (sesam).'' \url{https://www.sesame-h2020-5g-ppp.eu/Home.aspx}, 2015.
+\newblock Online; Last access on 28/05/2021.
 
 \bibitem{fogmulti}
 J.~Baek and G.~Kaddoum, ``Heterogeneous task offloading and resource
@@ -87,8 +91,10 @@ V.~Mnih, K.~Kavukcuoglu, D.~Silver, A.~A. Rusu, J.~Veness, M.~G. Bellemare,
 
 \bibitem{dqnimage}
 A.~Choudhar, ``A hands-on introduction to deep q-learning using openai gym in
-  python.'' Online, 2019.
-\newblock Last access on 28/05/2021.
+  python.''
+  \url{https://www.analyticsvidhya.com/blog/2019/04/introduction-deep-q-learning-python/},
+  2019.
+\newblock Online; Last access on 28/05/2021.
 
 \bibitem{doubleDQN}
 H.~v. Hasselt, ``Double q-learning,'' in {\em Proceedings of the 23rd
@@ -98,7 +104,7 @@ H.~v. Hasselt, ``Double q-learning,'' in {\em Proceedings of the 23rd
 
 \bibitem{prioexperience}
 T.~Schaul, J.~Quan, I.~Antonoglou, and D.~Silver, ``Prioritized experience
-  replay,'' 2016.
+  replay,'' {\em CoRR}, vol.~abs/1511.05952, 2016.
 
 \bibitem{duelingDQN}
 Z.~Wang, N.~de~Freitas, and M.~Lanctot, ``Dueling network architectures for
@@ -110,8 +116,10 @@ V.~Mnih, A.~P. Badia, M.~Mirza, A.~Graves, T.~P. Lillicrap, T.~Harley,
   learning,'' {\em CoRR}, vol.~abs/1602.01783, 2016.
 
 \bibitem{A3CImag}
-C.~Yoon, ``Understanding actor critic methods and a2c.'' Online, 2019.
-\newblock Last access on 31/05/2021.
+C.~Yoon, ``Understanding actor critic methods and a2c.''
+  \url{https://towardsdatascience.com/understanding-actor-critic-methods-931b97b6df3f},
+  2019.
+\newblock Online; Last access on 31/05/2021.
 
 \bibitem{openaia2c}
 Y.~Wu, E.~Mansimov, S.~Liao, R.~B. Grosse, and J.~Ba, ``Scalable trust-region
@@ -166,12 +174,15 @@ Y.~Wen, W.~Zhang, and H.~Luo, ``Energy-optimal mobile application execution:
   Proceedings IEEE INFOCOM}, pp.~2716--2720, 2012.
 
 \bibitem{pythonpop}
-GitHub, ``The 2020 state of the octoverse.'' Online, 2020.
-\newblock Last access on 3/06/2021.
+GitHub, ``The 2020 state of the octoverse.''
+  \url{https://octoverse.github.com/}, 2020.
+\newblock Online; Last access on 3/06/2021.
 
 \bibitem{pythonmachine}
-GitHub, ``The state of the octoverse: machine learning.'' Online, 2019.
-\newblock Last access on 3/06/2021.
+GitHub, ``The state of the octoverse: machine learning.''
+  \url{https://github.blog/2019-01-24-the-state-of-the-octoverse-machine-learning/},
+  2019.
+\newblock Online; Last access on 3/06/2021.
 
 \bibitem{tensorflow}
 M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro, G.~S. Corrado,
@@ -201,12 +212,13 @@ E.~Liang, R.~Liaw, R.~Nishihara, P.~Moritz, R.~Fox, K.~Goldberg, J.~E.
   Machine Learning ({ICML})}, 2018.
 
 \bibitem{kerasrl}
-M.~Plappert, ``Deep reinforcement learning for keras.'' Online, 2016.
-\newblock Last access on 28/05/2021.
+M.~Plappert, ``Deep reinforcement learning for keras.''
+  \url{https://github.com/keras-rl/keras-rl}, 2016.
+\newblock Online; Last access on 28/05/2021.
 
 \bibitem{kerasrl2}
-T.~McNally, ``Deep reinforcement learning for tensorflow 2 keras.'' Online,
-  2019.
-\newblock Last access on 31/05/2021.
+T.~McNally, ``Deep reinforcement learning for tensorflow 2 keras.''
+  \url{https://github.com/wau/keras-rl2}, 2019.
+\newblock Online; Last access on 31/05/2021.
 
 \end{thebibliography}

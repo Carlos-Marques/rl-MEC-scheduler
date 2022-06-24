@@ -4,46 +4,44 @@ The top-level auxiliary file: dissertion.aux
 A level-1 auxiliary file: cover.aux
 The style file: ieeetr.bst
 Database file #1: bibliography/references.bib
-Warning--empty booktitle in MobiScud
 You've used 39 entries,
             1876 wiz_defined-function locations,
-            689 strings with 11981 characters,
-and the built_in function-call counts, 10817 in all, are:
-= -- 863
+            702 strings with 12677 characters,
+and the built_in function-call counts, 11009 in all, are:
+= -- 891
 > -- 748
 < -- 0
 + -- 265
 - -- 226
-* -- 847
-:= -- 1674
+* -- 860
+:= -- 1694
 add.period$ -- 49
 call.type$ -- 39
 change.case$ -- 38
 chr.to.int$ -- 0
-cite$ -- 40
-duplicate$ -- 488
-empty$ -- 952
+cite$ -- 39
+duplicate$ -- 508
+empty$ -- 961
 format.name$ -- 226
-if$ -- 2545
+if$ -- 2599
 int.to.chr$ -- 0
 int.to.str$ -- 39
-missing$ -- 29
+missing$ -- 30
 newline$ -- 130
 num.names$ -- 41
-pop$ -- 184
+pop$ -- 175
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 309
+skip$ -- 329
 stack$ -- 0
-substring$ -- 421
-swap$ -- 173
+substring$ -- 435
+swap$ -- 189
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 1
-while$ -- 75
+warning$ -- 0
+while$ -- 76
 width$ -- 41
-write$ -- 373
-(There was 1 warning)
+write$ -- 380
